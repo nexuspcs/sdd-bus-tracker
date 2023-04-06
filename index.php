@@ -36,4 +36,8 @@ foreach ($stopEvents as $stopEvent) {
     echo $minutes . "m from " . $location['name'] . "\n<br />";
     echo $routeNumber . " to " . $destination . "\n\n<br /><br />";
 }
+
+
+
+
 echo "test (last line of code...)" . PHP_EOL;
