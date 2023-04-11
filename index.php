@@ -13,7 +13,7 @@ echo "test before stream/request" . PHP_EOL;
 $opts = [
     "http" => [
         "method" => "GET",
-        "header" => "Authorization: apikey xxxxxxxx\r\n"
+        "header" => "Authorization: apikey xxxxxxxx"
     ]
 ];
 
