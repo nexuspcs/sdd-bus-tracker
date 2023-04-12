@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- This code currently does the EXACT same as the following curl command:
+curl -X GET --header 'Accept: text/plain' --header 'Authorization: apikey m5uvuKOQtsngacQIQemt0LqzC8Xq7nVxECVp' 'https://api.transport.nsw.gov.au/v1/gtfs/vehiclepos/buses?debug=true'\n
+
+*however, it simply prints it to a webpage. to see it, use the following PHP server command in the same directory as this file:
+php -s localhost:9000
+
+*then using a browser, access the following URL:
+http://localhost:9000/TESTpullraw.php
+http://localhost:9000/TESTpullraw.php?debug=true
+-->
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bus Positions</title>
+	<meta http-equiv="refresh" content="30"> <!-- refresh every 30 seconds -->
+</head>
+<body>
+	<h1>Bus Positions</h1>
+	<?php
+		$url = "https://api.transport.nsw.gov.au/v1/gtfs/vehiclepos/buses?debug=true";
+		$headers = array(
+			"Accept: text/plain",
+			"Authorization: apikey m5uvuKOQtsngacQIQemt0LqzC8Xq7nVxECVp"
+		);
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		$output = curl_exec($ch);
+		curl_close($ch);
+
+		echo "<pre>" . htmlspecialchars($output) . "</pre>";
+
+		// // Send email with bus positions
+		// NOT USED - YEILDS ERRORS
+		// $to = "jamesac2024@student.stlukes.nsw.edu.au";
+		// $subject = "Bus Positions";
+		// $message = $output;
+		// $headers = "From: jamesac2024@student.stlukes.nsw.edu.au\r\n";
+		// $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+		// $headers .= "X-Mailer: PHP/" . phpversion();
+
+		// mail($to, $subject, $message, $headers);
+	?>
+</body>
+</html>
