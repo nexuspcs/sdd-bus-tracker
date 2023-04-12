@@ -1,44 +1,87 @@
 <!DOCTYPE html>
+<!-- This code currently does the EXACT same as the following curl command:
+curl -X GET --header 'Accept: text/plain' --header 'Authorization: apikey m5uvuKOQtsngacQIQemt0LqzC8Xq7nVxECVp' 'https://api.transport.nsw.gov.au/v1/gtfs/vehiclepos/buses?debug=true'\n
+
+*however, it simply prints it to a webpage. to see it, use the following PHP server command in the same directory as this file:
+php -S localhost:9000
+
+*then using a browser, access the following URL:
+http://localhost:9000/TESTpullraw.php
+http://localhost:9000/TESTpullraw.php?debug=true
+-->
+
 <html>
 <head>
-	<title>Bus Locations</title>
-	<!-- Load Leaflet from CDN -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.css" />
-	<script src="https://cdn.jsdelivr.net/leaflet/1.3.1/leaflet.js"></script>
+	<meta charset="utf-8">
+	<title>Bus Positions</title>
+	<meta http-equiv="refresh" content="7"> <!-- refresh every 30 seconds -->
 </head>
 <body>
-	<!-- Create a map container with a specified height -->
-	<div id="mapid" style="height: 500px;"></div>
+	<h1>Bus Positions</h1>
+	<?php
+		$url = "https://api.transport.nsw.gov.au/v1/gtfs/vehiclepos/buses?debug=true";
+		$headers = array(
+			"Accept: text/plain",
+			"Authorization: apikey m5uvuKOQtsngacQIQemt0LqzC8Xq7nVxECVp"
+		);
 
-	<script>
-		// Create a Leaflet map centered at Sydney with zoom level 12
-		var mymap = L.map('mapid').setView([-33.865, 151.209], 12);
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		$output = curl_exec($ch);
+		curl_close($ch);
 
-		// Load the OpenStreetMap tiles from the CDN
-		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			maxZoom: 19,
-			attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-		}).addTo(mymap);
 
-		// Perform the curl request and display the buses on the map
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://api.transport.nsw.gov.au/v1/gtfs/vehiclepos/buses?debug=true");
-		xhr.setRequestHeader("Accept", "application/json");
-		xhr.setRequestHeader("Authorization", "apikey m5uvuKOQtsngacQIQemt0LqzC8Xq7nVxECVp");
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === 4 && xhr.status === 200) {
-				var data = JSON.parse(xhr.responseText);
-				// Get the latitude and longitude for the first 10 buses
-				var buses = data.entity.slice(0, 10).map(function(entity) {
-					return [entity.vehicle.position.latitude, entity.vehicle.position.longitude];
-				});
-				// Add the bus markers to the map
-				for (var i = 0; i < buses.length; i++) {
-					L.marker(buses[i]).addTo(mymap);
-				}
-			}
-		};
-		xhr.send();
-	</script>
+
+
+
+		// looking for keywords
+		$text = $output;
+		$keywords = array("_502", " alskjf");
+		$latitude = "latitude";
+		$longitude = "longitude";
+		$routeID = "2433_780";
+
+		foreach ($keywords as $keyword) {
+		if (strpos($text, $keyword) !== false) {
+		echo "The text contains the keyword: " . $keyword . "<br>";
+		}
+		}
+
+
+		// latitude
+		$countLAT = substr_count($text, $latitude);
+		echo "The latitude '" . $latitude . "' appears " . $countLAT . " times in the text.";
+
+		echo "<br>";
+		echo "<br>";
+		// longitude
+		$countLONG = substr_count($text, $longitude);
+		echo "The longitude '" . $longitude . "' appears " . $countLONG . " times in the text.";
+
+
+		echo "<br>";
+		echo "<br>";
+		// longitude
+		$countROUTEID = substr_count($text, $routeID);
+		echo "The route ID '" . $routeID . "' appears " . $countROUTEID . " times in the text.";
+		// end looking for keywords 
+
+
+
+
+		// print everything from api
+		echo "<pre>" . htmlspecialchars($output) . "</pre>";
+
+
+
+
+
+
+		////\
+		
+		
+	?>
 </body>
 </html>

@@ -3,7 +3,7 @@
 curl -X GET --header 'Accept: text/plain' --header 'Authorization: apikey m5uvuKOQtsngacQIQemt0LqzC8Xq7nVxECVp' 'https://api.transport.nsw.gov.au/v1/gtfs/vehiclepos/buses?debug=true'\n
 
 *however, it simply prints it to a webpage. to see it, use the following PHP server command in the same directory as this file:
-php -s localhost:9000
+php -S localhost:9000
 
 *then using a browser, access the following URL:
 http://localhost:9000/TESTpullraw.php
@@ -34,16 +34,7 @@ http://localhost:9000/TESTpullraw.php?debug=true
 
 		echo "<pre>" . htmlspecialchars($output) . "</pre>";
 
-		// // Send email with bus positions
-		// NOT USED - YEILDS ERRORS
-		// $to = "jamesac2024@student.stlukes.nsw.edu.au";
-		// $subject = "Bus Positions";
-		// $message = $output;
-		// $headers = "From: jamesac2024@student.stlukes.nsw.edu.au\r\n";
-		// $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-		// $headers .= "X-Mailer: PHP/" . phpversion();
-
-		// mail($to, $subject, $message, $headers);
+		
 	?>
 </body>
 </html>
