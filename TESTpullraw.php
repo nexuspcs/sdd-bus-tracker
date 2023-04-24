@@ -13,7 +13,7 @@ http://localhost:9000/TESTpullraw.php?debug=true
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Bus Positions</title>
+	<title>Bus Positions - TEST Pull Raw (no Plot)</title>
 	<meta http-equiv="refresh" content="7"> <!-- refresh every 7 seconds -->
 </head>
 <body>

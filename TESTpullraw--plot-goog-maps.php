@@ -13,11 +13,11 @@ http://localhost:9000/TESTpullraw.php?debug=true
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Bus Positions</title>
+	<title>Bus Positions - Plot Goog Maps</title>
 	<meta http-equiv="refresh" content="7"> <!-- refresh every 7 seconds -->
 </head>
 <body>
-	<h1>Bus Positions</h1>
+	<h1>Bus Positions - Auto refresh every 7 seconds, according to meta tag</h1>
 	<?php
 		$url = "https://api.transport.nsw.gov.au/v1/gtfs/vehiclepos/buses?debug=true";
 		$headers = array(
@@ -38,7 +38,7 @@ http://localhost:9000/TESTpullraw.php?debug=true
 
 		// looking for keywords
 		$text = $output;
-		$keywords = array("_502", " alskjf");
+		$keywords = array("_502", " another phrase or brand eg volvo can be searched, but wont yield how many times it appears in the text, rather it will just say it is there");
 		$latitude = "latitude";
 		$longitude = "longitude";
 		$routeID = "2433_780";
