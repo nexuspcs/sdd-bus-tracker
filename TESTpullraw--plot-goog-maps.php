@@ -14,7 +14,7 @@ http://localhost:9000/TESTpullraw.php?debug=true
 <head>
 	<meta charset="utf-8">
 	<title>Bus Positions - Plot Goog Maps</title>
-	<meta http-equiv="refresh" content="7"> <!-- refresh every 7 seconds -->
+	<meta http-equiv="refresh" content="7"> <!--refresh every 7 seconds -->
 </head>
 <body>
 	<h1>Bus Positions - Auto refresh every 7 seconds, according to meta tag</h1>
