@@ -13,7 +13,7 @@ BUS_STOP_ID = "209913"
 def get_next_bus_arrivals():
     url = f"https://api.transport.nsw.gov.au/v1/tp/departure_mon?outputFormat=rapidJSON&mode=direct&serviceLineNoticeFilter=3&coordOutputFormat=EPSG%3A4326&departureMonitorMacro=true&name_dm={BUS_STOP_ID}&itdDateYear=2023&itdDateMonth=05&itdDateDay=02&itdTimeHour=12&itdTimeMinute=00&type_dm=any&nameLine={BUS_ROUTE}"
     headers = {"Authorization": f"apikey {API_KEY}"}
-    response = requests.get(url, headers=headers, verify=False)
+    response = requests.get(url, headers=headers)
     data = json.loads(response.content)
     return data['stopEvents']
 
