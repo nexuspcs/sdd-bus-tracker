@@ -55,7 +55,7 @@
     $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
     $apiCall = 'departure_mon';
     $when = time();
-    $stopIds = array("209926", "2000133", "209927");
+    $stopIds = array("209926", "209927"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927) (mona bline; 210323)
     $stop = "";
     $retryAttempts = 3;
     $retryDelay = 0;
