@@ -1,6 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_reporting(E_ALL); ini_set('display_errors', 1);
 date_default_timezone_set("Australia/Sydney");
 $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
 $apiCall = 'departure_mon'; // Set the location and time parameters
@@ -83,28 +82,29 @@ $stopEvents = $json['stopEvents'];
 // Loop over returned stop events and display on the right of the screen
 echo '<div style="float: right; width: 50%;">';
 foreach ($stopEvents as $stopEvent) {
-    // Extract the route information
-    $transportation = $stopEvent['transportation'];
-    $routeNumber = $transportation['number'];
-    $destination = $transportation['destination']['name'];
-    $location = $stopEvent['location'];
-    // Check if the departure time is estimated, otherwise fallback to planned time
-    if (isset($stopEvent['departureTimeEstimated'])) {
-        $time = strtotime($stopEvent['departureTimeEstimated']);
-    } else {
-        $time = strtotime($stopEvent['departureTimePlanned']);
-    }
+// Extract the route information
+$transportation = $stopEvent['transportation'];
+$routeNumber = $transportation['number'];
+$destination = $transportation['destination']['name'];
+$location = $stopEvent['location'];
+// Check if the departure time is estimated, otherwise fallback to planned time
+if (isset($stopEvent['departureTimeEstimated'])) {
+    $time = strtotime($stopEvent['departureTimeEstimated']);
+} else {
+    $time = strtotime($stopEvent['departureTimePlanned']);
+}
 
-    $countdown = $time - time();
-    $minutes = round($countdown / 60);
+$countdown = $time - time();
+$minutes = round($countdown / 60);
 
-    if ($minutes >= 60) {
-        $hours = floor($minutes / 60);
-        $remainingMinutes = $minutes % 60;
-        echo $hours . "h " . $remainingMinutes . "mins from " . $location['name'] . "<br />";
-    } else {
-        echo $minutes . "mins from " . $location['name'] . "<br />";
-    }
-    echo $routeNumber . " to " . $destination . "<br /><br />";
+if ($minutes >= 60) {
+    $hours = floor($minutes / 60);
+    $remainingMinutes = $minutes % 60;
+    echo $hours . "h " . $remainingMinutes . "mins from " . $location['name'] . "<br />";
+} else {
+    echo $minutes . "mins from " . $location['name'] . "<br />";
+}
+echo $routeNumber . " to " . $destination . "<br /><br />";
 }
 echo '</div>';
+
