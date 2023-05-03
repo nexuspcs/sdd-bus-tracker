@@ -32,9 +32,16 @@
         .welcomeTitle {
             text-align: center;
         }
+
+        .route-number {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: blue;
+        }
     </style>
 </head>
 <h1 class=welcomeTitle>St Luke's Grammar (Dee Why) - Bus Tracker</h1><br>
+
 <body>
 
     <h2 class="bus-info">test</h2>
@@ -109,7 +116,9 @@
                     $countdown = $time - time();
                     $minutes = round($countdown / 60);
                     echo "<tr>";
-                    echo "<td>" . $routeNumber . " to " . $destination . "</td>";
+
+                    echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . " (from " . $location['name'] . ")" . "</td>";
+
 
                     if ($minutes >= 60) {
                         $hours = floor($minutes / 60);
