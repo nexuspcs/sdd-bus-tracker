@@ -10,7 +10,6 @@ $params = array(
     'coordOutputFormat' => 'EPSG:4326',
     'mode' => 'direct',
     'type_dm' => 'stop',
-    'name_dm' => $stop,
     'depArrMacro' => 'dep',
     'itdDate' => date('Ymd', $when),
     'itdTime' => date('Hi', $when),
