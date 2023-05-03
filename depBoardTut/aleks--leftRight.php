@@ -1,10 +1,12 @@
 <?php
 error_reporting(E_ALL); ini_set('display_errors', 1);
-date_default_timezone_set("Australia/Sydney");
+date_default_timezone_set("Australia/Sydney"); // default in PHP is UTC, which is not useful for a bus tracking application in Sydney...
+
 $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
 $apiCall = 'departure_mon'; // Set the location and time parameters
 $when = time(); // Now
-$stopIds = array("209926", "209927"); // Replace with the desired stop IDs
+$stopIds = array("209926", "209927"); // Replace with the desired stop IDs (209926 = Headland RD, 209927 = Quirk ST). 
+$stop = ""; // Initialize the variable with an empty string
 $params = array(
     'outputFormat' => 'rapidJSON',
     'coordOutputFormat' => 'EPSG:4326',
