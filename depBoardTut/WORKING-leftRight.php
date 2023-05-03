@@ -38,6 +38,7 @@
             font-size: 1.2em;
             color: blue;
         }
+        
     </style>
 </head>
 <h1 class=welcomeTitle>St Luke's Grammar (Dee Why) - Bus Tracker</h1><br>
