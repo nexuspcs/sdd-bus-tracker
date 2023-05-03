@@ -7,7 +7,7 @@ $when = time(); // Now
 $stopIds = array("209926", "209927"); // Replace with the desired stop IDs
 $stop = ""; // Initialize the variable with an empty string
 $retryAttempts = 3;
-$retryDelay = 2; // Delay in seconds
+$retryDelay = 2; // Delay in seconds if the API does not yeild data, after the time in seconds, it will cancel request.
 
 $params = array(
     'outputFormat' => 'rapidJSON',
