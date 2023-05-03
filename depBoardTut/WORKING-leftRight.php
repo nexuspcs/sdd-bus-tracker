@@ -54,7 +54,7 @@
     <div id="busData"></div>
 
     <script>
-        const refreshDelay = 5000 // refreshes and pulls new data from api every x milliseconds (MIN value; 5000, as OpenData API is rate-limited to min every 5 seconds).  
+        const refreshDelay = 10000 // refreshes and pulls new data from api every x milliseconds (MIN value; 5000, as OpenData API is rate-limited to min every 5 seconds).  
         var countMulpt = 0
         var refreshDelayCounterSECONDS = 0
 
@@ -86,7 +86,7 @@
         date_default_timezone_set("Australia/Sydney"); // set timezone to Sydney time AEST
         echo '<h1 class="welcomeTitle">St Luke\'s Grammar (Dee Why) - Bus Tracker</h1><br>'; // the reason this HTML code is not above, is so that it refreshs with the website. 
 
-        echo '<p class="currentDateTime">' . date('H:i, l, d/m/Y') . '</p>'; // outputs 24hr time
+       // echo '<p class="currentDateTime">' . date('H:i, l, d/m/Y') . '</p>'; // outputs 24hr time
         echo '<p class="currentDateTime">' . date('g:i a, l, d/m/Y') . '</p>';  //outputs 12hr AM/PM time
         
 
