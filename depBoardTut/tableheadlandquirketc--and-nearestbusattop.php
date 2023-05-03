@@ -3,49 +3,129 @@
 
 <head>
     <title>SLGS Bus Tracker</title>
-    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        .bus-info {
+            color: gold;
+            font-weight: bold;
+            display: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .welcomeTitle {
+            text-align: center;
+        }
+
+        .route-number {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: blue;
+        }
+
+        .currentDateTime {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+
 </head>
 
 <body>
     <h2 class="bus-info">test</h2>
-    <div id="busData">test</div>
+    <div id="busData"></div>
+
+
+    <h2 class="bus-info" id="nearestBusInfo"></h2>
+
+
 
     <script>
-        const refreshDelay = 5000 // refreshes and pulls new data from api every x milliseconds (MIN value; 5000, as OpenData API is rate-limited to min every 5 seconds).  
-        var countMulpt = 0
-        var refreshDelayCounterSECONDS = 0
+        function displayNearestBus(nearestBus) {
+            if (nearestBus !== null) {
+                const hours = nearestBus.timeInMins >= 60 ? Math.floor(nearestBus.timeInMins / 60) : 0;
+
+                const remainingMinutes = nearestBus.timeInMins % 60;
+                const nearestBusInfo = document.getElementById("nearestBusInfo");
+                nearestBusInfo.innerText = `Nearest Bus: ${nearestBus.routeInfo} in ${hours > 0 ? hours + 'h ' : ''}${remainingMinutes}m`;
+
+                nearestBusInfo.style.display = "block";
+            }
+        }
+        const refreshDelay = 5000; // Refreshes and pulls new data from API every x milliseconds
+        var countMulpt = 0;
+        var refreshDelayCounterSECONDS = 0;
 
         function fetchData() {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     document.getElementById("busData").innerHTML = xhr.responseText;
+                    const busData = document.getElementById("busData");
+                    const busRows = busData.querySelectorAll("tr");
+                    let nearestBus = null;
+
+                    for (let row of busRows) {
+                        const routeInfo = row.cells[0].innerText;
+                        const timeInfo = row.cells[1].innerText;
+                        const timeRegex = /^(\d+)h?\s?(\d+)?m?$/;
+                        const timeMatch = timeInfo.match(timeRegex);
+
+                        if (timeMatch !== null) {
+                            let timeInMins = parseInt(timeMatch[1]) * 60;
+
+                            if (timeMatch[2]) {
+                                timeInMins += parseInt(timeMatch[2]);
+                            }
+
+                            if (nearestBus === null || timeInMins < nearestBus.timeInMins) {
+                                nearestBus = {
+                                    routeInfo,
+                                    timeInMins,
+                                };
+                            }
+                        }
+                    }
+
+                    displayNearestBus(nearestBus);
                 }
             };
             xhr.open("GET", "<?php echo $_SERVER['PHP_SELF']; ?>?action=fetchData", true);
             xhr.send();
-            refreshDelayCounter = refreshDelay * countMulpt
-            refreshDelayCounterSECONDS = refreshDelayCounter / 1000 // dividing by 1000, to convert from milliseconds to seconds 
-            console.log("Updating data from API --> Pulling new data ~ ~ ~ ~          " + "Time since page reloaded (Command/Control + R): " + refreshDelayCounterSECONDS + " second(s)")
-            countMulpt = countMulpt + 1
+            refreshDelayCounter = refreshDelay * countMulpt;
+            refreshDelayCounterSECONDS = refreshDelayCounter / 1000; // dividing by 1000, to convert from milliseconds to seconds 
+            console.log("Updating data from API --> Pulling new data ~ ~ ~ ~          " + "Time since page reloaded (Command/Control + R): " + refreshDelayCounterSECONDS + " second(s)");
+            countMulpt = countMulpt + 1;
         }
-
         fetchData(); // Fetch data on initial page load
-        setInterval(fetchData, refreshDelay); // Refresh data every x seconds, according to value 
+        setInterval(fetchData, refreshDelay); // Refresh data every x seconds, according to value
     </script>
 
-
-
-
-
-
+    </script>
 
     <?php
 
     if (isset($_GET['action']) && $_GET['action'] == 'fetchData') {
         date_default_timezone_set("Australia/Sydney"); // set timezone to Sydney time AEST
         echo '<h1 class="welcomeTitle">St Luke\'s Grammar (Dee Why) - Bus Tracker</h1><br>'; // the reason this HTML code is not above, is so that it refreshs with the website. 
-        // echo '<iframe class="clock-time" src="https://free.timeanddate.com/clock/i8u027l2/n240/szw210/szh210/hoc000/hbw2/cf100/hnc004c8b/fiv0/fan2/fas20/facfff/fdi60/mqc000/mqs3/mql25/mqw6/mqd96/mhc000/mhs3/mhl20/mhw6/mhd96/mmc000/mms3/mml10/mmw2/mmd96/hhl55/hhw16/hhr9/hml80/hmw16/hmr9/hscfff/hss3/hsl90/hsw6/hsr3" frameborder="0" width="210" height="210"></iframe>';
 
         // echo '<p class="currentDateTime">' . date('H:i, l, d/m/Y') . '</p>'; // outputs 24hr time
         echo '<p class="currentDateTime">' . date('g:i a, l, d/m/Y') . '</p>';  //outputs 12hr AM/PM time
@@ -61,7 +141,7 @@
         $when = time(); // Now
         $stopIds = array("209926", "209927"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927) (mona bline; 210323)
         $stop = "";
-        $retryAttempts = 3; // Next define the number of retry attempts for the API call. This is the number of times that the code will try to get data from the API before returning a failure.  
+        $retryAttempts = 3; // Next define the number of retry attempts for the API call. This is the number of times that the code will try to get data from the API before returning a failure.
         $retryDelay = 0; // A delay (in seconds) for how long the request will 'hang' while waiting for data back from the API
 
         $params = array(
@@ -93,6 +173,8 @@
 
             $attempt = 0;
             $success = false;
+            $nearestBus = null;
+
             while ($attempt < $retryAttempts && !$success) {
                 $context = stream_context_create($opts);
                 $response = file_get_contents($url, false, $context);
@@ -103,7 +185,7 @@
                     $success = true;
 
                     echo "<table>";
-                    echo "<thead><tr><th>Route</th><th>Time (hours / mins)</th><th>Arrival Time</th></tr></thead>";
+                    echo "<thead><tr><th>Route</th><th>Time (hours / mins)</th></tr></thead>";
                     echo "<tbody>";
 
                     foreach ($stopEvents as $stopEvent) {
@@ -111,37 +193,33 @@
                         $routeNumber = $transportation['number'];
                         $destination = $transportation['destination']['name'];
                         $location = $stopEvent['location'];
-                    
+
                         if (isset($stopEvent['departureTimeEstimated'])) {
                             $time = strtotime($stopEvent['departureTimeEstimated']);
                         } else {
                             $time = strtotime($stopEvent['departureTimePlanned']);
                         }
-                    
+
                         $countdown = $time - time();
                         $minutes = round($countdown / 60);
-                    
-                        $arrivalTime = date('g:i a', $time); // get the arrival time
-                    
+
+                        $hours = floor($minutes / 60);
+                        $remainingMinutes = $minutes % 60;
+                        $timeStr = $hours > 0 ? $hours . 'h ' . $remainingMinutes . 'm' : $remainingMinutes . 'm';
+
+
                         echo "<tr>";
                         echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . " (from " . $location['name'] . ")" . "</td>";
-                    
-                        if ($minutes >= 60) {
-                            $hours = floor($minutes / 60);
-                            $remainingMinutes = $minutes % 60;
-                            echo "<td>" . $hours . "h " . $remainingMinutes . "mins</td>";
-                        } else {
-                            echo "<td>" . $minutes . "mins</td>";
-                        }
-                    
-                        echo "<td>" . $arrivalTime . "</td>"; // display the arrival time
-                    
+                        echo "<td>" . $timeStr . "</td>";
                         echo "</tr>";
                     }
-                    
 
                     echo "</tbody>";
                     echo "</table>";
+
+                    if ($showClass) {
+                        echo '<h2 class="bus-info">Nearest Bus: ' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
+                    }
                 } else {
                     $attempt++;
                     if ($attempt < $retryAttempts) {
@@ -149,19 +227,12 @@
                     }
                 }
             }
-
-            if (!$success) {
-                echo "Failed to retrieve data for Stop ID: " . $stop . "\n<br/>";
-            }
         }
 
-        if ($showClass) {
-            echo "<script>document.querySelector('.bus-info').style.display = 'block';</script>";
-        }
-
-        exit(); // Prevent the rest of the HTML from being output in the AJAX response
+        exit;
     }
     ?>
+
 </body>
 
 </html>
