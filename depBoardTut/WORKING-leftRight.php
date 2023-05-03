@@ -75,6 +75,9 @@
 
         fetchData(); // Fetch data on initial page load
         setInterval(fetchData, refreshDelay); // Refresh data every x seconds, according to value 
+
+
+
     </script>
 
     <?php
