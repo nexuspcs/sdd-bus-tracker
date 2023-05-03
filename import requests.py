@@ -6,20 +6,19 @@ import tkinter as tk
 API_KEY = "zZBkkDXyybkIuLAPPW81EuzExQvJuWJ0breL"
 
 # Enter the bus route and stop ID you want to display
-BUS_ROUTE = "199"
-BUS_STOP_ID = "209913"
+BUS_STOP_ID = "209926"
 
 # Define a function to retrieve the next bus arrival times
 def get_next_bus_arrivals():
-    url = f"https://api.transport.nsw.gov.au/v1/tp/departure_mon?outputFormat=rapidJSON&mode=direct&serviceLineNoticeFilter=3&coordOutputFormat=EPSG%3A4326&departureMonitorMacro=true&name_dm={BUS_STOP_ID}&itdDateYear=2023&itdDateMonth=05&itdDateDay=02&itdTimeHour=12&itdTimeMinute=00&type_dm=any&nameLine={BUS_ROUTE}"
+    url = f"https://api.transport.nsw.gov.au/v1/tp/departure_mon?outputFormat=rapidJSON&mode=direct&serviceLineNoticeFilter=3&coordOutputFormat=EPSG%3A4326&departureMonitorMacro=true&name_dm={BUS_STOP_ID}&itdTimeHour=12&itdTimeMinute=00&type_dm=any&nameLine="
     headers = {"Authorization": f"apikey {API_KEY}"}
-    response = requests.get(url, headers=headers)
+    response = requests.get(url, headers=headers, verify=False)
     data = json.loads(response.content)
     return data['stopEvents']
 
 # Create a window to display the bus arrival times
 window = tk.Tk()
-window.title(f"Next buses for route {BUS_ROUTE} at stop {BUS_STOP_ID}")
+window.title(f"Next buses at stop {BUS_STOP_ID}")
 
 # Create a label to display the bus arrival times
 bus_arrivals_label = tk.Label(window, text="Fetching bus arrival times...")
@@ -30,15 +29,15 @@ def update_bus_arrivals_label():
     bus_arrivals = get_next_bus_arrivals()
     bus_arrivals_text = ""
     for event in bus_arrivals:
-        if 'displayTime' in event:
-            display_time = event['displayTime']
+        if 'departureTimePlanned' in event:
+            departureTimePlanned = event['departureTimePlanned']
         else:
-            display_time = "unknown"
+            departureTimePlanned = "unknown"
         if 'transportation' in event and 'disassembledName' in event['transportation']:
             name = event['transportation']['disassembledName']
         else:
             name = "unknown"
-        bus_arrivals_text += f"{name}: {display_time}\n"
+        bus_arrivals_text += f"{name}: {departureTimePlanned}\n"
     bus_arrivals_label.config(text=bus_arrivals_text)
     window.after(10000, update_bus_arrivals_label)  # Update the bus arrival times every 10 seconds
 
