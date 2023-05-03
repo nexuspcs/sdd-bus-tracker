@@ -28,15 +28,15 @@ curl_close($curl);
 $data = json_decode($response, true);
 
 // Display the formatted data
-if (isset($data['departures'])) {
+if (isset($data['stopEvents'])) {
     echo "<h2>Departures:</h2>";
     echo "<table border='1'>";
     echo "<tr><th>Line</th><th>Direction</th><th>Departure Time</th></tr>";
-    foreach ($data['departures'] as $departure) {
+    foreach ($data['stopEvents'] as $stopEvent) {
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($departure['line']['name']) . "</td>";
-        echo "<td>" . htmlspecialchars($departure['direction']['name']) . "</td>";
-        echo "<td>" . htmlspecialchars($departure['dateTime']) . "</td>";
+        echo "<td>" . htmlspecialchars($stopEvent['transportation']['number']) . "</td>";
+        echo "<td>" . htmlspecialchars($stopEvent['transportation']['destination']['name']) . "</td>";
+        echo "<td>" . htmlspecialchars($stopEvent['departureTimePlanned']) . "</td>";
         echo "</tr>";
     }
     echo "</table>";
