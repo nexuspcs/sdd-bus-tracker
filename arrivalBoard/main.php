@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 // end
 
-$stop_id = "200041"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926)
+$stop_id = "200041"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926) (mona bline; 210323)
 $time = ""; // Replace with the desired time in HHMM format
 
 // Set the cURL request options
@@ -40,16 +40,23 @@ if (isset($data['stopEvents'])) {
     echo "<table border='1'>";
     echo "<tr><th>Line</th><th>Direction</th><th>Departure Time</th></tr>";
     foreach ($data['stopEvents'] as $event) {
-        $departureDateTime = new DateTime($event['departure']['dateTime']);
-        $departureDateTime->setTimezone(new DateTimeZone('Australia/Sydney'));
-        
+        $line = isset($event['transportation']['number']) ? htmlspecialchars($event['transportation']['number']) : "";
+        $direction = isset($event['transportation']['description']) ? htmlspecialchars($event['transportation']['description']) : "";
+        $destination = isset($event['destination']['name']) ? htmlspecialchars($event['destination']['name']) : "";
+        $departureDateTime = isset($event['departure']['dateTime']) ? new DateTime($event['departure']['dateTime']) : new DateTime('now');
+    
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($event['transportation']['number']) . "</td>";
-        echo "<td>" . htmlspecialchars($event['transportation']['description']) . "</td>";
-        echo "<td>" . htmlspecialchars($event['destination']['name']) . "</td>";
-        echo "<td>" . $departureDateTime->format('Y-m-d H:i:s') . "</td>";
+        echo "<td>" . $line . "</td>";
+        echo "<td>" . $direction . "</td>";
+        echo "<td>" . $destination . "</td>";
+        $departure_time = $departureDateTime !== null ? $departureDateTime->format('Y-m-d H:i:s') : "";
+        echo "<td>" . $departure_time . "</td>";
         echo "</tr>";
     }
+    
+    
+    
+    
     
     echo "</table>";
 } else {
