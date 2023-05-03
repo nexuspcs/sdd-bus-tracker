@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>SLGS Bus Tracker</title>
 
@@ -40,17 +41,17 @@
         }
     </style>
 </head>
-<h1 class=welcomeTitle>St Luke's Grammar (Dee Why) - Bus Tracker</h1><br>
 
 <body>
-
+    <h1 class="welcomeTitle">St Luke's Grammar (Dee Why) - Bus Tracker</h1><br>
     <h2 class="bus-info">test</h2>
     <div id="busData"></div>
 
     <script>
-        const refreshDelay = 1000 // refreshes and pulls new data from api every x seconds. 
-        var countMulpt = 0 
-        var refreshDelayCounterSECONDS = 0 
+        const refreshDelay = 5000 // refreshes and pulls new data from api every x milliseconds (MIN value; 5000, as OpenData API is rate-limited to min every 5 seconds).  
+        var countMulpt = 0
+        var refreshDelayCounterSECONDS = 0
+
         function fetchData() {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
@@ -61,14 +62,13 @@
             xhr.open("GET", "<?php echo $_SERVER['PHP_SELF']; ?>?action=fetchData", true);
             xhr.send();
             refreshDelayCounter = refreshDelay * countMulpt
-            refreshDelayCounterSECONDS = refreshDelayCounter/1000 // dividing by 1000, to convert from milliseconds to seconds 
+            refreshDelayCounterSECONDS = refreshDelayCounter / 1000 // dividing by 1000, to convert from milliseconds to seconds 
             console.log("Updating data from API --> Pulling new data ~ ~ ~ ~          " + "Time since page reloaded (Command/Control + R): " + refreshDelayCounterSECONDS + " second(s)")
             countMulpt = countMulpt + 1
         }
 
         fetchData(); // Fetch data on initial page load
         setInterval(fetchData, refreshDelay); // Refresh data every x seconds, according to value 
-        
     </script>
 
     <?php
