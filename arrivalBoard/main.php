@@ -32,13 +32,18 @@ if (isset($data['stopEvents'])) {
     echo "<h2>Departures:</h2>";
     echo "<table border='1'>";
     echo "<tr><th>Line</th><th>Direction</th><th>Departure Time</th></tr>";
-    foreach ($data['stopEvents'] as $stopEvent) {
+    foreach ($data['stopEvents'] as $event) {
+        $departureDateTime = new DateTime($event['departure']['dateTime']);
+        $departureDateTime->setTimezone(new DateTimeZone('Australia/Sydney'));
+        
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($stopEvent['transportation']['number']) . "</td>";
-        echo "<td>" . htmlspecialchars($stopEvent['transportation']['destination']['name']) . "</td>";
-        echo "<td>" . htmlspecialchars($stopEvent['departureTimePlanned']) . "</td>";
+        echo "<td>" . htmlspecialchars($event['transportation']['number']) . "</td>";
+        echo "<td>" . htmlspecialchars($event['transportation']['description']) . "</td>";
+        echo "<td>" . htmlspecialchars($event['destination']['name']) . "</td>";
+        echo "<td>" . $departureDateTime->format('Y-m-d H:i:s') . "</td>";
         echo "</tr>";
     }
+    
     echo "</table>";
 } else {
     echo "<p>No departures found.</p>";
