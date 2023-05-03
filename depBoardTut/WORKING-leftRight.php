@@ -38,7 +38,7 @@
             font-size: 1.2em;
             color: blue;
         }
-        
+
     </style>
 </head>
 <h1 class=welcomeTitle>St Luke's Grammar (Dee Why) - Bus Tracker</h1><br>
@@ -99,7 +99,7 @@
                 $success = true;
 
                 echo "<table>";
-                echo "<thead><tr><th>Route</th><th>Time (mins hrs)</th></tr></thead>";
+                echo "<thead><tr><th>Route</th><th>Time (hours / mins)</th></tr></thead>";
                 echo "<tbody>";
 
                 foreach ($stopEvents as $stopEvent) {
@@ -143,7 +143,7 @@
         }
 
         if (!$success) {
-            echo "Failed to retrieve data for stop ID: " . $stop . "\n<br/>";
+            echo "Failed to retrieve data for Stop ID: " . $stop . "\n<br/>";
         }
     }
 
