@@ -1,10 +1,13 @@
 <?php
-error_reporting(E_ALL); ini_set('display_errors', 1);
-date_default_timezone_set("Australia/Sydney");
+error_reporting(E_ALL); ini_set('display_errors', 1); // tells php to show all errors good for debugging
+date_default_timezone_set("Australia/Sydney"); // default in PHP is UTC, which is not useful for a bus tracking application in Sydney...
+
+//
+
 $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
 $apiCall = 'departure_mon'; // Set the location and time parameters
 $when = time(); // Now
-$stopIds = array("209926", "209927"); // Replace with the desired stop IDs
+$stopIds = array("209926", "2000133", "209927"); // Replace with the desired stop IDs (209926 = Headland RD, 209927 = Quirk ST). (2000133 = Lang Park, York St, SYD CBD, using for testing purposes)
 $stop = ""; // Initialize the variable with an empty string
 $retryAttempts = 3;
 $retryDelay = 2; // Delay in seconds if the API does not yeild data, after the time in seconds, it will cancel request.
