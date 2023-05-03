@@ -32,6 +32,9 @@ $opts = [
     ]
 ];
 
+// Define a variable to keep track of whether to show the class
+$showClass = false;
+
 foreach ($stopIds as $stop) {
     $params['name_dm'] = $stop;
     $params['itdDate'] = date('Ymd', $when);
@@ -70,7 +73,7 @@ foreach ($stopIds as $stop) {
 
                 // Print header "bus below" just before another 'stop' is printed
                 if(isset($lastStop) && $lastStop != $stop) {
-                    echo "<h1>bus below</h1>\n";
+                    $showClass = true; // Set the variable to true to show the class after the bus information
                 }
                 $lastStop = $stop;
 
@@ -95,3 +98,9 @@ foreach ($stopIds as $stop) {
         echo "Failed to retrieve data for stop ID: " . $stop . "\n<br />";
     }
 }
+
+// Show the class after the bus information
+if ($showClass) {
+    echo "<script>document.querySelector('.bus-info').style.display = 'block';</script>";
+}
+
