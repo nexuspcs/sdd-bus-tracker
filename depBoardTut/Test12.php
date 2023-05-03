@@ -209,7 +209,7 @@
 
 
                         echo "<tr>";
-                        echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . "</td>";
+                        echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination  . "</td>";
                         echo "<td>" . $timeStr . "</td>";
                         echo "</tr>";
                     }
