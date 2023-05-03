@@ -106,5 +106,3 @@ if ($minutes >= 60) {
 }
 echo $routeNumber . " to " . $destination . "<br /><br />";
 }
-echo '</div>';
-
