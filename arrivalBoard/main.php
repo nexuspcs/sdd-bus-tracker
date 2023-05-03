@@ -1,5 +1,5 @@
 <?php
-$stop_id = "200041"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926)
+$stop_id = "200041"; // Replace with the desired stop ID
 $time = ""; // Replace with the desired time in HHMM format
 
 // Set the cURL request options
@@ -24,6 +24,23 @@ $response = curl_exec($curl);
 // Close cURL
 curl_close($curl);
 
-// Display the response on the web page
-echo $response;
+// Decode the JSON response
+$data = json_decode($response, true);
+
+// Display the formatted data
+if (isset($data['departures'])) {
+    echo "<h2>Departures:</h2>";
+    echo "<table border='1'>";
+    echo "<tr><th>Line</th><th>Direction</th><th>Departure Time</th></tr>";
+    foreach ($data['departures'] as $departure) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($departure['line']['name']) . "</td>";
+        echo "<td>" . htmlspecialchars($departure['direction']['name']) . "</td>";
+        echo "<td>" . htmlspecialchars($departure['dateTime']) . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "<p>No departures found.</p>";
+}
 ?>
