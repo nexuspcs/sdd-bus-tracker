@@ -3,6 +3,7 @@
 
 <head>
     <title>SLGS Bus Tracker</title>
+    
     <style>
         .bus-info {
             color: red;
@@ -52,13 +53,13 @@
     ini_set('display_errors', 1);
     date_default_timezone_set("Australia/Sydney");
 
-    $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
+    $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/'; // First define the API endpoint, which is the base URL of the API. This is the same for all API calls.
     $apiCall = 'departure_mon';
-    $when = time();
+    $when = time(); // Now
     $stopIds = array("209926", "209927"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927) (mona bline; 210323)
-    $stop = "";
-    $retryAttempts = 3;
-    $retryDelay = 0;
+    $stop = ""; 
+    $retryAttempts = 3; // Next define the number of retry attempts for the API call. This is the number of times that the code will try to get data from the API before returning a failure.  
+    $retryDelay = 0; // A delay (in seconds) for how long the request will 'hang' while waiting for data back from the API
 
     $params = array(
         'outputFormat' => 'rapidJSON',
