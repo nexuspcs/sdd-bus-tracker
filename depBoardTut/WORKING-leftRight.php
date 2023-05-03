@@ -39,6 +39,12 @@
             font-size: 1.2em;
             color: blue;
         }
+
+        .currentDateTime {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
     </style>
 
 </head>
@@ -75,10 +81,9 @@
 
     if (isset($_GET['action']) && $_GET['action'] == 'fetchData') {
         
-
         echo '<h1 class="welcomeTitle">St Luke\'s Grammar (Dee Why) - Bus Tracker</h1><br>'; // the reason this HTML code is not above, is so that it refreshs with the website. 
 
-
+        echo '<p class="currentDateTime">' . date('l, d/m/Y, H:i') . '</p>';
 
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
