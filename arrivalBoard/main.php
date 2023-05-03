@@ -1,5 +1,12 @@
 <?php
-$stop_id = "200041"; // Replace with the desired stop ID
+
+
+//enable error reporting for debug
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+// end
+
+$stop_id = "200041"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926)
 $time = ""; // Replace with the desired time in HHMM format
 
 // Set the cURL request options
