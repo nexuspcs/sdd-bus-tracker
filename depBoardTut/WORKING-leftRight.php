@@ -114,6 +114,8 @@ foreach ($stopIds as $stop) {
                     echo $minutes . "mins from " . $location['name'] . "\n<br />";
                 }
                 echo $routeNumber . " to " . $destination . "\n\n<br /><br />";
+                echo '<h2 class="bus-info">test</h2>';
+
             }
         } else {
             $attempt++;
