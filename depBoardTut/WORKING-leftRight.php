@@ -122,10 +122,12 @@ foreach ($stopIds as $stop) {
             }
         }
     }
-
+    
     if (!$success) {
-        echo "Failed to retrieve data for stop ID: " . $stop . "\n<br />";
+        echo "Failed to retrieve data for stop ID: " . $stop . "\n<br/>";
     }
+
+    
 }
 
 // Show the class after the bus information
