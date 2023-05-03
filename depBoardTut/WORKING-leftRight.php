@@ -36,7 +36,7 @@ date_default_timezone_set("Australia/Sydney"); // default in PHP is UTC, which i
 $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
 $apiCall = 'departure_mon'; // Set the location and time parameters
 $when = time(); // Now
-$stopIds = array("209926", "", "209927"); // Replace with the desired stop IDs (209926 = Headland RD, 209927 = Quirk ST). (2000133 = Lang Park, York St, SYD CBD, using for testing purposes)
+$stopIds = array("209926", "2000133", "209927"); // Replace with the desired stop IDs (209926 = Headland RD, 209927 = Quirk ST). (2000133 = Lang Park, York St, SYD CBD, using for testing purposes)
 $stop = ""; // Initialize the variable with an empty string
 $retryAttempts = 3;
 $retryDelay = 0; // Delay in seconds if the API does not return data, after the time in seconds, it will cancel request.
