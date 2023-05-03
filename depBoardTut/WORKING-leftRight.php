@@ -103,7 +103,7 @@
                     $success = true;
 
                     echo "<table>";
-                    echo "<thead><tr><th>Route</th><th>Time (hours / mins)</th></tr></thead>";
+                    echo "<thead><tr><th>Route</th><th>Time (hours / mins)</th><th>Arrival Time</th></tr></thead>";
                     echo "<tbody>";
 
                     foreach ($stopEvents as $stopEvent) {
@@ -111,20 +111,21 @@
                         $routeNumber = $transportation['number'];
                         $destination = $transportation['destination']['name'];
                         $location = $stopEvent['location'];
-
+                    
                         if (isset($stopEvent['departureTimeEstimated'])) {
                             $time = strtotime($stopEvent['departureTimeEstimated']);
                         } else {
                             $time = strtotime($stopEvent['departureTimePlanned']);
                         }
-
+                    
                         $countdown = $time - time();
                         $minutes = round($countdown / 60);
+                    
+                        $arrivalTime = date('g:i a', $time); // get the arrival time
+                    
                         echo "<tr>";
-
                         echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . " (from " . $location['name'] . ")" . "</td>";
-
-
+                    
                         if ($minutes >= 60) {
                             $hours = floor($minutes / 60);
                             $remainingMinutes = $minutes % 60;
@@ -132,9 +133,12 @@
                         } else {
                             echo "<td>" . $minutes . "mins</td>";
                         }
-
+                    
+                        echo "<td>" . $arrivalTime . "</td>"; // display the arrival time
+                    
                         echo "</tr>";
                     }
+                    
 
                     echo "</tbody>";
                     echo "</table>";
