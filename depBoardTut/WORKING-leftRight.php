@@ -13,7 +13,8 @@
         table {
             border-collapse: collapse;
             width: 60%;
-            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
             margin-bottom: 20px;
         }
 
@@ -27,9 +28,13 @@
         th {
             background-color: #f2f2f2;
         }
+
+        .welcomeTitle {
+            text-align: center;
+        }
     </style>
 </head>
-
+<h1 class=welcomeTitle>St Luke's Grammar (Dee Why) - Bus Tracker</h1><br>
 <body>
 
     <h2 class="bus-info">test</h2>
