@@ -68,6 +68,12 @@ foreach ($stopIds as $stop) {
                 $countdown = $time - time();
                 $minutes = round($countdown / 60);
 
+                // Print header "bus below" just before another 'stop' is printed
+                if(isset($lastStop) && $lastStop != $stop) {
+                    echo "<h1>bus below</h1>\n";
+                }
+                $lastStop = $stop;
+
                 if ($minutes >= 60) {
                     $hours = floor($minutes / 60);
                     $remainingMinutes = $minutes % 60;
