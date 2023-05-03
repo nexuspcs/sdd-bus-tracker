@@ -12,7 +12,8 @@
 
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 60%;
+            align-items: center;
             margin-bottom: 20px;
         }
 
