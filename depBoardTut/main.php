@@ -4,7 +4,7 @@ date_default_timezone_set("Australia/Sydney");
 $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
 $apiCall = 'departure_mon'; // Set the location and time parameters
 $when = time(); // Now
-$stop = "210323"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926) (mona bline; 210323)
+$stop = "2099207"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926) (mona bline; 210323)
 $params = array(
     'outputFormat' => 'rapidJSON',
     'coordOutputFormat' => 'EPSG:4326',
