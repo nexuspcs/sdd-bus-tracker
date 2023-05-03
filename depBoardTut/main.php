@@ -4,8 +4,18 @@ date_default_timezone_set("Australia/Sydney");
 $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
 $apiCall = 'departure_mon'; // Set the location and time parameters
 $when = time(); // Now
-$stop = "2000435"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926) (mona bline; 210323)
-$params = array( 'outputFormat' => 'rapidJSON', 'coordOutputFormat' => 'EPSG:4326', 'mode' => 'direct', 'type_dm' => 'stop', 'name_dm' => $stop, 'depArrMacro' => 'dep', 'itdDate' => date('Ymd', $when), 'itdTime' => date('Hi', $when), 'TfNSWDM' => 'true' );
+$stop = "210323"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926) (mona bline; 210323)
+$params = array(
+    'outputFormat' => 'rapidJSON',
+    'coordOutputFormat' => 'EPSG:4326',
+    'mode' => 'direct',
+    'type_dm' => 'stop',
+    'name_dm' => $stop,
+    'depArrMacro' => 'dep',
+    'itdDate' => date('Ymd', $when),
+    'itdTime' => date('Hi', $when),
+    'TfNSWDM' => 'true'
+);
 $url = $apiEndpoint . $apiCall . '?' . http_build_query($params);
 
 // Create a stream
@@ -20,7 +30,7 @@ $opts = [
 $context = stream_context_create($opts);
 $response = file_get_contents($url, false, $context);
 $json = json_decode($response, true);
-$stopEvents = $json['stopEvents']; 
+$stopEvents = $json['stopEvents'];
 
 // Loop over returned stop events
 foreach ($stopEvents as $stopEvent) {
@@ -29,7 +39,14 @@ foreach ($stopEvents as $stopEvent) {
     $routeNumber = $transportation['number'];
     $destination = $transportation['destination']['name'];
     $location = $stopEvent['location'];
-    $time = strtotime($stopEvent['departureTimePlanned']);
+
+    // Check if the departure time is estimated, otherwise fallback to planned time
+    if (isset($stopEvent['departureTimeEstimated'])) {
+        $time = strtotime($stopEvent['departureTimeEstimated']);
+    } else {
+        $time = strtotime($stopEvent['departureTimePlanned']);
+    }
+
     $countdown = $time - time();
     $minutes = round($countdown / 60);
 
