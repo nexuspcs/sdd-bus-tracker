@@ -9,6 +9,23 @@
             font-weight: bold;
             display: none;
         }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 
@@ -18,18 +35,16 @@
 
     <?php
     error_reporting(E_ALL);
-    ini_set('display_errors', 1); // tells php to show all errors - good for debugging
-    date_default_timezone_set("Australia/Sydney"); // default in PHP is UTC, which is not useful for a bus tracking application in Sydney...
-
-    //
+    ini_set('display_errors', 1);
+    date_default_timezone_set("Australia/Sydney");
 
     $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
-    $apiCall = 'departure_mon'; // Set the location and time parameters
-    $when = time(); // Now
-    $stopIds = array("209926", "2000133", "209927"); // Replace with the desired stop IDs (209926 = Headland RD, 209927 = Quirk ST). (2000133 = Lang Park, York St, SYD CBD, using for testing purposes)
-    $stop = ""; // Initialize the variable with an empty string
+    $apiCall = 'departure_mon';
+    $when = time();
+    $stopIds = array("209926", "2000133", "209927");
+    $stop = "";
     $retryAttempts = 3;
-    $retryDelay = 0; // Delay in seconds if the API does not return data, after the time in seconds, it will cancel request.
+    $retryDelay = 0;
 
     $params = array(
         'outputFormat' => 'rapidJSON',
@@ -43,7 +58,6 @@
         'TfNSWDM' => 'true'
     );
 
-    // Create a stream
     $opts = [
         "http" => [
             "method" => "GET",
@@ -51,7 +65,6 @@
         ]
     ];
 
-    // Define a variable to keep track of whether to show the class
     $showClass = false;
 
     foreach ($stopIds as $stop) {
@@ -63,7 +76,6 @@
         $attempt = 0;
         $success = false;
         while ($attempt < $retryAttempts && !$success) {
-            // Perform the request and build the JSON response data
             $context = stream_context_create($opts);
             $response = file_get_contents($url, false, $context);
             $json = json_decode($response, true);
@@ -72,15 +84,16 @@
                 $stopEvents = $json['stopEvents'];
                 $success = true;
 
-                // Loop over returned stop events
+                echo "<table>";
+                echo "<thead><tr><th>Route</th><th>Time (mins hrs)</th></tr></thead>";
+                echo "<tbody>";
+
                 foreach ($stopEvents as $stopEvent) {
-                    // Extract the route information
                     $transportation = $stopEvent['transportation'];
                     $routeNumber = $transportation['number'];
                     $destination = $transportation['destination']['name'];
                     $location = $stopEvent['location'];
 
-                    // Check if the departure time is estimated, otherwise fallback to planned time
                     if (isset($stopEvent['departureTimeEstimated'])) {
                         $time = strtotime($stopEvent['departureTimeEstimated']);
                     } else {
@@ -89,22 +102,22 @@
 
                     $countdown = $time - time();
                     $minutes = round($countdown / 60);
+                    echo "<tr>";
+                    echo "<td>" . $routeNumber . " to " . $destination . "</td>";
 
-                    // Print header "bus below" just before another 'stop' is printed
-                    if (isset($lastStop) && $lastStop != $stop) {
-                        $showClass = true; // Set the variable to true to show the class after the bus information
-                        echo "<hr>"; // Add horizontal line between the stops
-                    }
-                    $lastStop = $stop;
                     if ($minutes >= 60) {
                         $hours = floor($minutes / 60);
                         $remainingMinutes = $minutes % 60;
-                        echo $hours . "h " . $remainingMinutes . "mins from " . $location['name'] . "\n<br />";
+                        echo "<td>" . $hours . "h " . $remainingMinutes . "mins</td>";
                     } else {
-                        echo $minutes . "mins from " . $location['name'] . "\n<br />";
+                        echo "<td>" . $minutes . "mins</td>";
                     }
-                    echo $routeNumber . " to " . $destination . "\n\n<br /><br />";
+
+                    echo "</tr>";
                 }
+
+                echo "</tbody>";
+                echo "</table>";
             } else {
                 $attempt++;
                 if ($attempt < $retryAttempts) {
@@ -118,8 +131,10 @@
         }
     }
 
-    // Show the class after the bus information
     if ($showClass) {
         echo "<script>document.querySelector('.bus-info').style.display = 'block';</script>";
     }
     ?>
+</body>
+
+</html>
