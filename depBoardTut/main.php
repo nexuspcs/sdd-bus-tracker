@@ -4,7 +4,7 @@ date_default_timezone_set("Australia/Sydney");
 $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/';
 $apiCall = 'departure_mon'; // Set the location and time parameters
 $when = time(); // Now
-$stop = '209926'; // Domestic Airport Station // Build the request parameters
+$stop = "2000435"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926) (mona bline; 210323)
 $params = array( 'outputFormat' => 'rapidJSON', 'coordOutputFormat' => 'EPSG:4326', 'mode' => 'direct', 'type_dm' => 'stop', 'name_dm' => $stop, 'depArrMacro' => 'dep', 'itdDate' => date('Ymd', $when), 'itdTime' => date('Hi', $when), 'TfNSWDM' => 'true' );
 $url = $apiEndpoint . $apiCall . '?' . http_build_query($params);
 
@@ -27,11 +27,18 @@ foreach ($stopEvents as $stopEvent) {
     // Extract the route information
     $transportation = $stopEvent['transportation'];
     $routeNumber = $transportation['number'];
-    $destination = $transportation['destination']['name']; // In the case of a train, the location includes platform information
-    $location = $stopEvent['location']; // Determine how many minutes until departure
+    $destination = $transportation['destination']['name'];
+    $location = $stopEvent['location'];
     $time = strtotime($stopEvent['departureTimePlanned']);
     $countdown = $time - time();
-    $minutes = round($countdown / 60); // Output the stop event with a countdown timer
-    echo $minutes . "m from " . $location['name'] . "\n<br />";
+    $minutes = round($countdown / 60);
+
+    if ($minutes >= 60) {
+        $hours = floor($minutes / 60);
+        $remainingMinutes = $minutes % 60;
+        echo $hours . "h " . $remainingMinutes . "mins from " . $location['name'] . "\n<br />";
+    } else {
+        echo $minutes . "mins from " . $location['name'] . "\n<br />";
+    }
     echo $routeNumber . " to " . $destination . "\n\n<br /><br />";
 }
