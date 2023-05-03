@@ -80,14 +80,17 @@
     <?php
 
     if (isset($_GET['action']) && $_GET['action'] == 'fetchData') {
-        
+        date_default_timezone_set("Australia/Sydney"); // set timezone to Sydney time AEST
         echo '<h1 class="welcomeTitle">St Luke\'s Grammar (Dee Why) - Bus Tracker</h1><br>'; // the reason this HTML code is not above, is so that it refreshs with the website. 
 
-        echo '<p class="currentDateTime">' . date('l, d/m/Y, H:i') . '</p>';
+        echo '<p class="currentDateTime">' . date('H:i, l, d/m/Y') . '</p>'; // outputs 24hr time
+        echo '<p class="currentDateTime">' . date('g:i a, l, d/m/Y') . '</p>';  //outputs 12hr AM/PM time
+        
+
 
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
-        date_default_timezone_set("Australia/Sydney");
+        
 
         $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/'; // First define the API endpoint, which is the base URL of the API. This is the same for all API calls.
         $apiCall = 'departure_mon';
