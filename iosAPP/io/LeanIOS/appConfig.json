@@ -1,0 +1,320 @@
+{
+  "general": {
+    "userAgentRegexes": [],
+    "replaceStrings": [],
+    "nativeBridgeUrls": [],
+    "languages": [],
+    "userAgentAdd": "gonative",
+    "enableWindowOpen": true,
+    "forceScreenOrientation": null,
+    "forceUserAgent": "",
+    "publicKey": "xwxjda",
+    "deviceRegKey": "eae3h1njzg0r3mabtrw1z38m44",
+    "appName": "SLGS Buses",
+    "initialUrl": "https://slgs-bustracker.000webhostapp.com/tableheadlandquirketc--and-nearestbusattop.php",
+    "iosBundleId": "io.gonative.ios.xwxjda",
+    "androidPackageName": "io.gonative.android.xwxjda",
+    "iosUserAgentAdd": "gonative",
+    "androidUserAgentAdd": "gonative",
+    "androidForceUserAgent": "",
+    "iosForceUserAgent": "",
+    "iosFullScreenWebview": true,
+    "iosCustomHeaders": {},
+    "androidCustomHeaders": {},
+    "version": 7
+  },
+  "navigation": {
+    "tabNavigation": {
+      "tabSelectionConfig": [],
+      "tabMenus": [],
+      "active": false
+    },
+    "sidebarNavigation": {
+      "menuSelectionConfig": {
+        "redirectLocations": [
+          {
+            "regex": ".*",
+            "menuName": "default",
+            "loggedIn": true
+          }
+        ]
+      },
+      "menus": [
+        {
+          "active": false,
+          "items": [],
+          "name": "default"
+        }
+      ]
+    },
+    "regexInternalExternal": {
+      "rules": [
+        {
+          "internal": false,
+          "label": "Non-web links",
+          "regex": "^(?!https?://).*"
+        },
+        {
+          "internal": false,
+          "label": "Facebook",
+          "regex": "https?://([-\\w]+\\.)*facebook\\.com.*"
+        },
+        {
+          "internal": false,
+          "label": "Twitter",
+          "regex": "https?://([-\\w]+\\.)*twitter\\.com/.*"
+        },
+        {
+          "internal": false,
+          "label": "Instagram",
+          "regex": "https?://([-\\w]+\\.)*instagram\\.com/.*"
+        },
+        {
+          "internal": false,
+          "label": "Google Maps",
+          "regex": "https?://maps\\.google\\.com.*"
+        },
+        {
+          "internal": false,
+          "label": "Google Maps Search",
+          "regex": "https?://([-\\w]+\\.)*google\\.com/maps/search/.*"
+        },
+        {
+          "internal": false,
+          "label": "LinkedIn",
+          "regex": "https?://([-\\w]+\\.)*linkedin\\.com/.*"
+        },
+        {
+          "internal": true,
+          "label": "All Other Links",
+          "regex": ".*"
+        }
+      ],
+      "active": true
+    },
+    "androidPullToRefresh": false,
+    "iosPullToRefresh": true,
+    "navigationTitles": {
+      "titles": [
+        {
+          "id": "1",
+          "custom": false,
+          "regex": ".*",
+          "customTitle": false
+        }
+      ],
+      "active": true
+    },
+    "ignorePageFinishedRegexes": [],
+    "androidShowRefreshButton": false,
+    "iosShowRefreshButton": false,
+    "deepLinkDomains": {
+      "domains": [],
+      "enableAndroidApplinks": false
+    },
+    "navigationLevels": {
+      "levels": [],
+      "active": true
+    },
+    "toolbarNavigation": {
+      "enabled": true,
+      "visibilityByPages": "allPages",
+      "visibilityByBackButton": "backButtonActive",
+      "regexes": [
+        {
+          "enabled": true,
+          "regex": ".*"
+        }
+      ],
+      "items": [
+        {
+          "system": "back",
+          "titleType": "defaultText",
+          "visibility": "allPages",
+          "urlRegex": [
+            {
+              "enabled": true,
+              "regex": ".*"
+            }
+          ]
+        },
+        {
+          "system": "refresh",
+          "enabled": false,
+          "visibility": "allPages",
+          "urlRegex": [
+            {
+              "enabled": true,
+              "regex": ".*"
+            }
+          ]
+        },
+        {
+          "system": "forward",
+          "enabled": false,
+          "titleType": "defaultText",
+          "visibility": "allPages",
+          "urlRegex": [
+            {
+              "enabled": true,
+              "regex": ".*"
+            }
+          ]
+        }
+      ],
+      "v2": true
+    },
+    "redirects": [],
+    "iosShowOfflinePage": true,
+    "iosConnectionOfflineTime": 10,
+    "androidShowOfflinePage": true,
+    "androidConnectionOfflineTime": 10,
+    "actionConfig": {
+      "actions": [
+        {
+          "id": "1",
+          "items": []
+        }
+      ],
+      "actionSelection": [
+        {
+          "id": "1",
+          "label": "Top Nav Bar Menu 1 - All Pages",
+          "regex": ".*",
+          "custom": false
+        }
+      ],
+      "active": true
+    },
+    "maxWindows": {
+      "enabled": false,
+      "numWindows": 5,
+      "autoClose": false
+    },
+    "iosOfflinePageHtml": "<html>\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\">\n  <title>Device Offline</title>\n  <style type=\"text/css\"> \n    :root { --background-color: white; --primary-color: #1C1C1E; }\n    [data-theme=\"dark\"] { --background-color: #121212; --primary-color: #eee; }\n    [data-theme=\"light\"] { --background-color: white; --primary-color: #1C1C1E; }\n    html, body{ background-color: var(--background-color) !important; }\n    html, body, button { font-family: Arial, Helvetica, sans-serif; font-size: 18px; } \n    div.container { color: var(--primary-color); position: relative; top: 100px; text-align: center; } \n    #logo>svg>g>path{ fill: var(--primary-color); }\n    button { padding: 10px 30px; margin: 4px 2px; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div id=\"logo\">\n      <svg width=\"120\" height=\"96\" viewBox=\"0 0 120 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_5510_497)\"><path d=\"M118.275 87.9562L7.27647 0.958312C6.45147 0.313687 5.47272 0 4.50522 0C3.17022 0 1.84459 0.592125 0.959779 1.72294C-0.575284 3.68062 -0.234596 6.51 1.72253 8.04187L112.554 94.8731C114.523 96.4112 117.348 96.0596 118.871 94.1085C120.581 92.325 120.225 89.4937 118.275 87.9562Z\" fill=\"black\"/><path opacity=\"0.4\" d=\"M36 53.8313C32.6869 53.8313 30 56.5163 30 59.6625V89.4937C30 92.8069 32.6869 95.4937 36 95.4937C39.3131 95.4937 42 92.8069 42 89.4937V59.6625C42 56.6813 39.3187 53.8313 36 53.8313ZM54 90C54 93.3131 56.6869 96 60 96C63.3131 96 66 93.3131 66 90V69.8625L54 60.4575V90ZM12 71.8313C8.68687 71.8313 6 74.5163 6 77.6625V89.4937C6 92.8069 8.68687 95.4937 12 95.4937C15.3131 95.4937 18 92.8069 18 89.4937V77.6625C18 74.6813 15.3131 71.8313 12 71.8313ZM60 36C57.9937 36 56.325 37.0313 55.2375 38.55L66 46.9875V42C66 38.6812 63.3187 36 60 36ZM107.831 0C104.518 0 101.831 2.68687 101.831 6V75.2063L113.831 84.6113V6C113.831 2.68687 111.319 0 107.831 0ZM78 90C78 93.3131 80.6869 96 84 96C87.3131 96 90 93.3131 90 90V88.6684L78 79.2634V90ZM84 18C80.6869 18 78 20.6869 78 24V56.3813L90 65.7862V24C90 20.6812 87.3187 18 84 18Z\" fill=\"black\"/></g><defs><clipPath id=\"clip0_5510_497\"><rect width=\"120\" height=\"96\" fill=\"white\"/></clipPath></defs></svg>\n    </div>\n    <span id=\"message\">\n      <p>No internet connection - unable to connect to SLGS's bus tracking servers!<br/>Check your connection and try again</p>\n    </span>\n    <button id=\"retryButton\" type=\"button\" onclick=\"gonative.webview.reload()\">Retry</button>\n  </div>\n  <script>\n    var message = document.getElementById('message');\n    var retryButton = document.getElementById('retryButton')\n    if (['ko', 'ko-kr', 'ko-kp'].indexOf(navigator.language.toLowerCase()) > -1) {\n      // Korean\n      message.innerHTML = '<p>인터넷 연결이 끊겼습니다.<br/>연결하고 다시 시도하시길 바랍니다.</p>';\n      retryButton.innerText = '괜찮아';\n    }\n    function updateDarkMode(){\n      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\n        document.documentElement.setAttribute(\"data-theme\", \"dark\");\n      }\n      else {\n        document.documentElement.setAttribute(\"data-theme\", \"light\");\n      } \n    }\n    updateDarkMode();\n    if(window.matchMedia){\n      window.matchMedia('(prefers-color-scheme: dark)')\n        .addEventListener('change', updateDarkMode);\n    }\n  </script>\n</body>\n</html>",
+    "androidOfflinePageHtml": "<html>\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\">\n  <title>Device Offline</title>\n  <style type=\"text/css\"> \n    :root { --background-color: white; --primary-color: #1C1C1E; }\n    [data-theme=\"dark\"] { --background-color: #121212; --primary-color: #eee; }\n    [data-theme=\"light\"] { --background-color: white; --primary-color: #1C1C1E; }\n    html, body{ background-color: var(--background-color) !important; }\n    html, body, button { font-family: Arial, Helvetica, sans-serif; font-size: 18px; } \n    div.container { color: var(--primary-color); position: relative; top: 100px; text-align: center; } \n    #logo>svg>g>path{ fill: var(--primary-color); }\n    button { padding: 10px 30px; margin: 4px 2px; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div id=\"logo\">\n      <svg width=\"120\" height=\"96\" viewBox=\"0 0 120 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_5510_497)\"><path d=\"M118.275 87.9562L7.27647 0.958312C6.45147 0.313687 5.47272 0 4.50522 0C3.17022 0 1.84459 0.592125 0.959779 1.72294C-0.575284 3.68062 -0.234596 6.51 1.72253 8.04187L112.554 94.8731C114.523 96.4112 117.348 96.0596 118.871 94.1085C120.581 92.325 120.225 89.4937 118.275 87.9562Z\" fill=\"black\"/><path opacity=\"0.4\" d=\"M36 53.8313C32.6869 53.8313 30 56.5163 30 59.6625V89.4937C30 92.8069 32.6869 95.4937 36 95.4937C39.3131 95.4937 42 92.8069 42 89.4937V59.6625C42 56.6813 39.3187 53.8313 36 53.8313ZM54 90C54 93.3131 56.6869 96 60 96C63.3131 96 66 93.3131 66 90V69.8625L54 60.4575V90ZM12 71.8313C8.68687 71.8313 6 74.5163 6 77.6625V89.4937C6 92.8069 8.68687 95.4937 12 95.4937C15.3131 95.4937 18 92.8069 18 89.4937V77.6625C18 74.6813 15.3131 71.8313 12 71.8313ZM60 36C57.9937 36 56.325 37.0313 55.2375 38.55L66 46.9875V42C66 38.6812 63.3187 36 60 36ZM107.831 0C104.518 0 101.831 2.68687 101.831 6V75.2063L113.831 84.6113V6C113.831 2.68687 111.319 0 107.831 0ZM78 90C78 93.3131 80.6869 96 84 96C87.3131 96 90 93.3131 90 90V88.6684L78 79.2634V90ZM84 18C80.6869 18 78 20.6869 78 24V56.3813L90 65.7862V24C90 20.6812 87.3187 18 84 18Z\" fill=\"black\"/></g><defs><clipPath id=\"clip0_5510_497\"><rect width=\"120\" height=\"96\" fill=\"white\"/></clipPath></defs></svg>\n    </div>\n    <span id=\"message\">\n      <p>No internet connection - unable to connect to SLGS's bus tracking servers!<br/>Check your connection and try again</p>\n    </span>\n    <button id=\"retryButton\" type=\"button\" onclick=\"gonative.webview.reload()\">Retry</button>\n  </div>\n  <script>\n    var message = document.getElementById('message');\n    var retryButton = document.getElementById('retryButton')\n    if (['ko', 'ko-kr', 'ko-kp'].indexOf(navigator.language.toLowerCase()) > -1) {\n      // Korean\n      message.innerHTML = '<p>인터넷 연결이 끊겼습니다.<br/>연결하고 다시 시도하시길 바랍니다.</p>';\n      retryButton.innerText = '괜찮아';\n    }\n    function updateDarkMode(){\n      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\n        document.documentElement.setAttribute(\"data-theme\", \"dark\");\n      }\n      else {\n        document.documentElement.setAttribute(\"data-theme\", \"light\");\n      } \n    }\n    updateDarkMode();\n    if(window.matchMedia){\n      window.matchMedia('(prefers-color-scheme: dark)')\n        .addEventListener('change', updateDarkMode);\n    }\n  </script>\n</body>\n</html>",
+    "offlinePageHtml": "<html>\n<head>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\">\n  <title>Device Offline</title>\n  <style type=\"text/css\"> \n    :root { --background-color: white; --primary-color: #1C1C1E; }\n    [data-theme=\"dark\"] { --background-color: #121212; --primary-color: #eee; }\n    [data-theme=\"light\"] { --background-color: white; --primary-color: #1C1C1E; }\n    html, body{ background-color: var(--background-color) !important; }\n    html, body, button { font-family: Arial, Helvetica, sans-serif; font-size: 18px; } \n    div.container { color: var(--primary-color); position: relative; top: 100px; text-align: center; } \n    #logo>svg>g>path{ fill: var(--primary-color); }\n    button { padding: 10px 30px; margin: 4px 2px; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div id=\"logo\">\n      <svg width=\"120\" height=\"96\" viewBox=\"0 0 120 96\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g clip-path=\"url(#clip0_5510_497)\"><path d=\"M118.275 87.9562L7.27647 0.958312C6.45147 0.313687 5.47272 0 4.50522 0C3.17022 0 1.84459 0.592125 0.959779 1.72294C-0.575284 3.68062 -0.234596 6.51 1.72253 8.04187L112.554 94.8731C114.523 96.4112 117.348 96.0596 118.871 94.1085C120.581 92.325 120.225 89.4937 118.275 87.9562Z\" fill=\"black\"/><path opacity=\"0.4\" d=\"M36 53.8313C32.6869 53.8313 30 56.5163 30 59.6625V89.4937C30 92.8069 32.6869 95.4937 36 95.4937C39.3131 95.4937 42 92.8069 42 89.4937V59.6625C42 56.6813 39.3187 53.8313 36 53.8313ZM54 90C54 93.3131 56.6869 96 60 96C63.3131 96 66 93.3131 66 90V69.8625L54 60.4575V90ZM12 71.8313C8.68687 71.8313 6 74.5163 6 77.6625V89.4937C6 92.8069 8.68687 95.4937 12 95.4937C15.3131 95.4937 18 92.8069 18 89.4937V77.6625C18 74.6813 15.3131 71.8313 12 71.8313ZM60 36C57.9937 36 56.325 37.0313 55.2375 38.55L66 46.9875V42C66 38.6812 63.3187 36 60 36ZM107.831 0C104.518 0 101.831 2.68687 101.831 6V75.2063L113.831 84.6113V6C113.831 2.68687 111.319 0 107.831 0ZM78 90C78 93.3131 80.6869 96 84 96C87.3131 96 90 93.3131 90 90V88.6684L78 79.2634V90ZM84 18C80.6869 18 78 20.6869 78 24V56.3813L90 65.7862V24C90 20.6812 87.3187 18 84 18Z\" fill=\"black\"/></g><defs><clipPath id=\"clip0_5510_497\"><rect width=\"120\" height=\"96\" fill=\"white\"/></clipPath></defs></svg>\n    </div>\n    <span id=\"message\">\n      <p>No internet connection - unable to connect to SLGS's bus tracking servers!<br/>Check your connection and try again</p>\n    </span>\n    <button id=\"retryButton\" type=\"button\" onclick=\"gonative.webview.reload()\">Retry</button>\n  </div>\n  <script>\n    var message = document.getElementById('message');\n    var retryButton = document.getElementById('retryButton')\n    if (['ko', 'ko-kr', 'ko-kp'].indexOf(navigator.language.toLowerCase()) > -1) {\n      // Korean\n      message.innerHTML = '<p>인터넷 연결이 끊겼습니다.<br/>연결하고 다시 시도하시길 바랍니다.</p>';\n      retryButton.innerText = '괜찮아';\n    }\n    function updateDarkMode(){\n      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {\n        document.documentElement.setAttribute(\"data-theme\", \"dark\");\n      }\n      else {\n        document.documentElement.setAttribute(\"data-theme\", \"light\");\n      } \n    }\n    updateDarkMode();\n    if(window.matchMedia){\n      window.matchMedia('(prefers-color-scheme: dark)')\n        .addEventListener('change', updateDarkMode);\n    }\n  </script>\n</body>\n</html>",
+    "iosSettings": {}
+  },
+  "styling": {
+    "iosLaunchScreen": {
+      "backgroundColor": "#014a8e",
+      "backgroundColorDark": "#014a8e",
+      "backgroundImage": "https://s3.amazonaws.com/gonativeio/images_generated/1683626709754_g0j5peycfakf4_014a8e_1_2x2.png",
+      "backgroundImageDark": "https://s3.amazonaws.com/gonativeio/images_generated/1683626709779_81e4jrfwnnbma_014a8e_1_2x2.png",
+      "centerImageDark": "https://gonativeio.s3.amazonaws.com/uploads/afx9wat3fvg6a_1683626662115.png",
+      "centerImage": "https://gonativeio.s3.amazonaws.com/uploads/afx9wat3fvg6a_1683626662115.png"
+    },
+    "androidLaunchImages": {
+      "mdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796276_bctxczb9ahjha_180x180.9.png",
+      "hdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796300_hdfdgmftnjh00_270x270.9.png",
+      "xhdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796325_tqy80mmgufyx0_360x360.9.png",
+      "xxhdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796371_fb3u5yh21p2ka_540x540.9.png",
+      "xxxhdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796450_3pw7vty3zbrzr_720x720.9.png"
+    },
+    "androidLaunchImagesDark": {
+      "mdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796479_j7c2937mkncre_180x180.9.png",
+      "hdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796544_q46e2zgnh23t8_270x270.9.png",
+      "xhdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796623_bw664tu129h8a_360x360.9.png",
+      "xxhdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796664_t546u0qf5hxk8_540x540.9.png",
+      "xxxhdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1683626796722_wj2uct9n9yjv2_720x720.9.png"
+    },
+    "transitionInteractiveDelayMax": 0.2,
+    "menuAnimationDuration": 0.15,
+    "androidShowSplash": true,
+    "disableAnimations": false,
+    "hideWebviewAlpha": 0.5,
+    "iosDarkMode": "auto",
+    "iosTitleColor": "#333333",
+    "iosTitleColorDark": "#adc5dc",
+    "iosTintColor": "#014a8e",
+    "iosTintColorDark": "#014a8e",
+    "iosSidebarTextColor": "#333333",
+    "iosSidebarTextColorDark": "#adc5dc",
+    "iosStatusBarBackgroundColor": "#014a8e",
+    "iosStatusBarBackgroundColorDark": "#014a8e",
+    "iosEnableBlurInStatusBar": false,
+    "iosSidebarBackgroundColor": "#f8f8f8",
+    "iosSidebarBackgroundColorDark": "#333333",
+    "iosNavigationBarTintColor": "#f8f8f8",
+    "iosNavigationBarTintColorDark": "#333333",
+    "iosTabBarTintColor": "#f8f8f8",
+    "iosTabBarTintColorDark": "#333333",
+    "icon": "https://gonativeio.s3.amazonaws.com/uploads/afx9wat3fvg6a_1683626662115.png",
+    "iosHeaderImage": "https://gonativeio.s3.amazonaws.com/uploads/afx9wat3fvg6a_1683626662115.png",
+    "showActionBar": false,
+    "showNavigationBar": false,
+    "iosSidebarFont": "Default",
+    "androidHideTitleInActionBar": false,
+    "navigationTitleImage": false,
+    "iosTheme": "default",
+    "androidTheme": "auto",
+    "androidBackgroundColor": "#FFFFFF",
+    "androidSidebarBackgroundColor": "#FFFFFF",
+    "androidSidebarForegroundColor": "#1E496E",
+    "androidActionBarBackgroundColor": "#FFFFFF",
+    "androidActionBarForegroundColor": "#1E496E",
+    "androidPullToRefreshColor": "#1E496E",
+    "androidAccentColor": "#014a8e",
+    "androidSidebarSeparatorColor": "#CCCCCC",
+    "androidSidebarHighlightColor": "#1E496E",
+    "androidTabBarBackgroundColor": "#FFFFFF",
+    "androidTabBarTextColor": "#949494",
+    "androidTabBarIndicatorColor": "#1E496E",
+    "androidTabPressedBackgroundColor": "#CCCCCC",
+    "androidStatusBarBackgroundColor": "#5C5C5C",
+    "androidShowLogoInSideBar": true,
+    "androidShowAppNameInSideBar": true,
+    "androidSwipeNavigationBackgroundColor": "#FFFFFF",
+    "androidSwipeNavigationActiveColor": "#000000",
+    "androidSwipeNavigationInactiveColor": "#666666",
+    "androidActionBarBackgroundColorDark": "#333333",
+    "androidStatusBarBackgroundColorDark": "#333333",
+    "androidActionBarForegroundColorDark": "#FFFFFF",
+    "androidAccentColorDark": "#014a8e",
+    "androidBackgroundColorDark": "#333333",
+    "androidSidebarForegroundColorDark": "#FFFFFF",
+    "androidSidebarBackgroundColorDark": "#333333",
+    "androidSidebarSeparatorColorDark": "#666666",
+    "androidSidebarHighlightColorDark": "#FFFFFF",
+    "androidPullToRefreshColorDark": "#FFFFFF",
+    "androidTabBarTextColorDark": "#FFFFFF",
+    "androidTabBarBackgroundColorDark": "#333333",
+    "androidTabBarIndicatorColorDark": "#666666",
+    "androidTabPressedBackgroundColorDark": "#999999",
+    "androidSwipeNavigationBackgroundColorDark": "#333333",
+    "androidSwipeNavigationActiveColorDark": "#FFFFFF",
+    "androidSwipeNavigationInactiveColorDark": "#666666",
+    "androidSplashBackgroundColor": "#014a8e",
+    "androidSplashBackgroundColorDark": "#014a8e",
+    "androidWebviewTextZoom": null,
+    "androidIcon": "https://gonativeio.s3.amazonaws.com/uploads/q4mtzc5mb7rhu_1683626744143.png",
+    "iosIcon": "https://gonativeio.s3.amazonaws.com/uploads/afx9wat3fvg6a_1683626662115.png",
+    "iosStatusBarStyle": "auto",
+    "iosEnableOverlayInStatusBar": false,
+    "androidStatusBarStyle": "auto",
+    "androidEnableOverlayInStatusBar": false,
+    "navigationTitleImageLocation": "images/logo1_white_padded.png",
+    "navigationTitleImageLocationDark": "images/logo1_white_padded.png",
+    "androidHeaderImage": "images/logo1_white_padded.png",
+    "androidHeaderImageDark": "images/logo1_white_padded.png",
+    "iosHeaderImageDark": "https://gonativeio.s3.amazonaws.com/uploads/afx9wat3fvg6a_1683626662115.png"
+  },
+  "permissions": {
+    "usesGeolocation": true,
+    "androidDownloadToPublicStorage": false,
+    "enableWebRTC": false,
+    "iosLocationUsageDescription": "",
+    "iosCameraUsageDescription": "",
+    "iOSATTUserTrackingDescription": "",
+    "iOSRequestATTConsentOnLoad": false
+  },
+  "developmentTools": {
+    "enableWebConsoleLogs": false
+  },
+  "services": {
+    "oneSignal": {
+      "active": false
+    }
+  }
+}
