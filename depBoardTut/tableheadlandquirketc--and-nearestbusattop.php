@@ -70,6 +70,7 @@
         .gonative .bus-container {
             flex-direction: column;
             align-items: center;
+            
         }
     </style>
 
