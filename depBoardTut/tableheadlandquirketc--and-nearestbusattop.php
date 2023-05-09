@@ -75,6 +75,7 @@
     <script>
         function displayNearestBus(nearestBus) {
             if (nearestBus !== null) {
+                
                 const nearestBusInfo = document.getElementById("nearestBusInfo");
                 nearestBusInfo.innerText = `Nearest Bus: ${nearestBus.routeInfo} in ${nearestBus.timeInMins}m`;
                 nearestBusInfo.style.display = "block";
@@ -161,7 +162,9 @@
         // echo '<p class="currentDateTime">' . date('H:i, l, d/m/Y') . '</p>'; // outputs 24hr time
         echo '<p class="currentDateTime">' . date('g:i a, l, d/m/Y') . '</p>';  //outputs 12hr AM/PM time
 
-
+         
+        echo '<h2 class="bus-info">Nearest Bus: ' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
+        
 
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
@@ -170,7 +173,7 @@
         $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/'; // First define the API endpoint, which is the base URL of the API. This is the same for all API calls.
         $apiCall = 'departure_mon';
         $when = time(); // Now
-        $stopIds = array("209926", "209927"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927) (mona bline; 210323)
+        $stopIds = array("209926", "209927", "209929"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927) (mona bline; 210323)
         $stop = "";
         $retryAttempts = 3; // Next define the number of retry attempts for the API call. This is the number of times that the code will try to get data from the API before returning a failure.
         $retryDelay = 0; // A delay (in seconds) for how long the request will 'hang' while waiting for data back from the API
@@ -195,7 +198,9 @@
         ];
 
         $showClass = false;
-
+        if ($showClass) {
+            echo '<h2 class="bus-info">Nearest Bus: ' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
+        }
         foreach ($stopIds as $stop) {
             $params['name_dm'] = $stop;
             $params['itdDate'] = date('Ymd', $when);
@@ -242,7 +247,8 @@
 
 
                         echo "<tr>";
-                        echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . " (from " . $location['name'] . ")" . "</td>";
+                        echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . "</td>"; // echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . " (from " . $location['name'] . ")" . "</td>";
+
                         echo "<td>" . $timeStr . "</td>";
                         echo "</tr>";
                     }
@@ -250,9 +256,7 @@
                     echo "</tbody>";
                     echo "</table>";
 
-                    if ($showClass) {
-                        echo '<h2 class="bus-info">Nearest Bus: ' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
-                    }
+                    
                 } else {
                     $attempt++;
                     if ($attempt < $retryAttempts) {
