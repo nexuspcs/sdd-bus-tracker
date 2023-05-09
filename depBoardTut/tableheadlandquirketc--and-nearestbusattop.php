@@ -9,6 +9,8 @@
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
+            background-color: #014A8E;
+            color: white;
             padding: 0;
         }
 
@@ -21,6 +23,7 @@
             margin-bottom: 20px;
         }
 
+
         .currentDateTime {
             text-align: center;
             font-weight: bold;
@@ -32,7 +35,10 @@
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 20px;
+            color: black;
         }
+
+
 
         .bus-card {
             background-color: white;
@@ -59,6 +65,12 @@
             font-weight: bold;
             font-size: 1.5em;
         }
+
+
+        .gonative .bus-container {
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 
 </head>
@@ -75,7 +87,7 @@
     <script>
         function displayNearestBus(nearestBus) {
             if (nearestBus !== null) {
-                
+
                 const nearestBusInfo = document.getElementById("nearestBusInfo");
                 nearestBusInfo.innerText = `Nearest Bus: ${nearestBus.routeInfo} in ${nearestBus.timeInMins}m`;
                 nearestBusInfo.style.display = "block";
@@ -162,9 +174,9 @@
         // echo '<p class="currentDateTime">' . date('H:i, l, d/m/Y') . '</p>'; // outputs 24hr time
         echo '<p class="currentDateTime">' . date('g:i a, l, d/m/Y') . '</p>';  //outputs 12hr AM/PM time
 
-         
+
         echo '<h2 class="bus-info">Nearest Bus: ' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
-        
+
 
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
@@ -255,8 +267,6 @@
 
                     echo "</tbody>";
                     echo "</table>";
-
-                    
                 } else {
                     $attempt++;
                     if ($attempt < $retryAttempts) {
