@@ -161,6 +161,14 @@
         }
         fetchData(); // Fetch data on initial page load
         setInterval(fetchData, refreshDelay); // Refresh data every x seconds, according to value
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (navigator.userAgent.indexOf('gonative') !== -1) {
+                document.body.classList.add('gonative-background');
+                document.body.classList.add('gonative');
+            }
+        });
     </script>
 
     </script>
