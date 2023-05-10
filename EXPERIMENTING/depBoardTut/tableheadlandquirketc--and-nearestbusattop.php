@@ -77,7 +77,7 @@
 </head>
 
 <body>
-    <h2 class="bus-info">test</h2>
+    <h2 class="bus-info" id="nearestBusInfo"></h2>
     <div id="busData"></div>
 
 
