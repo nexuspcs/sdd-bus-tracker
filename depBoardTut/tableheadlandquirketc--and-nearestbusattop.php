@@ -71,8 +71,9 @@
             flex-direction: column;
             align-items: center;
 
-        } 
-        .bus-info{
+        }
+
+        .bus-info {
             text-align: center;
         }
     </style>
@@ -82,6 +83,12 @@
 <body>
     <h2 class="bus-info" id="nearestBusInfo"></h2>
     <div id="busData"></div>
+    <div id="loading" style="display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 2; cursor: pointer;">
+        <div style="position: absolute; top: 50%; left: 50%; font-size: 50px; color: white; transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%); text-align: center;">
+            SLGS Bus Tracker - Loading bus location data...<br>
+            <span class="spinner" style="font-size: 50px;">&#128256;</span>
+        </div>
+    </div>
 
 
 
@@ -104,8 +111,16 @@
 
         function fetchData() {
             var xhr = new XMLHttpRequest();
+
+            // loading screen showing;
+            document.getElementById("loading").style.display = "block";
+
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
+
+                    //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
+                    document.getElementById("loading").style.display = "none";
+
                     document.getElementById("busData").innerHTML = xhr.responseText;
                     const busData = document.getElementById("busData");
                     const busRows = busData.querySelectorAll("tr");
