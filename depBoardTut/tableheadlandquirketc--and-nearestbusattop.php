@@ -109,17 +109,29 @@
         var countMulpt = 0;
         var refreshDelayCounterSECONDS = 0;
 
+
+        // a boolean flag, so that after page is opened it wont refresh again.
+        var isFirstLoad = true;
+
+
+
         function fetchData() {
             var xhr = new XMLHttpRequest();
 
             // loading screen showing;
-            document.getElementById("loading").style.display = "block";
+            if (isFirstLoad) {
+                document.getElementById("loading").style.display = "block";
+            }
 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
 
                     //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
                     document.getElementById("loading").style.display = "none";
+
+
+                    // set the boolean flag to false, so that it wont show the loading again
+                    isFirstLoad = false;
 
                     document.getElementById("busData").innerHTML = xhr.responseText;
                     const busData = document.getElementById("busData");
