@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
-            background-color: #014A8E;
+            background-color: #044c8c;
             color: white;
             padding: 0;
         }
@@ -24,12 +24,6 @@
         }
 
 
-        .currentDateTime {
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
         .bus-container {
             display: flex;
             flex-wrap: wrap;
@@ -41,29 +35,29 @@
 
 
         .bus-card {
-            background-color: white;
+            background-color: #;
             width: 250px;
             padding: 15px;
             margin: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
+            border: 3px white;
             text-align: center;
         }
 
         .route-number {
+            border-bottom: 3px solid #fad207;
+            padding-bottom: 1px;
+            padding-top: 5px;
             font-weight: bold;
-            font-size: 1.2em;
-            color: blue;
+            font-size: 1.6em;
+            color: #fad207;
         }
 
-        .bus-destination {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
 
         .bus-time {
-            font-weight: bold;
+            font-weight: 900;
             font-size: 1.5em;
+            color: white
         }
 
 
@@ -72,16 +66,28 @@
             align-items: center;
             
         }
+
+        .bus-info {
+            text-align: center;
+            color : white;
+            font-weight: 00;
+
+        }
+
+
     </style>
 
 </head>
 
 <body>
-    <h2 class="bus-info" id="nearestBusInfo"></h2>
+
+
+    <h1 class="bus-info" id="nearestBusInfo"></h1>
+
+
     <div id="busData"></div>
 
 
-    <h2 class="bus-info" id="nearestBusInfo"></h2>
 
 
 
@@ -90,7 +96,7 @@
             if (nearestBus !== null) {
 
                 const nearestBusInfo = document.getElementById("nearestBusInfo");
-                nearestBusInfo.innerText = `Nearest Bus: ${nearestBus.routeInfo} in ${nearestBus.timeInMins}m`;
+                nearestBusInfo.innerText = `Nearest Bus: ${nearestBus.routeInfo} in ${nearestBus.timeString}`;
                 nearestBusInfo.style.display = "block";
             }
         }
@@ -123,24 +129,24 @@
                                 timeInMins += parseInt(timeMatch[2]);
                             }
 
-                            if (nearestBus === null || timeInMins < nearestBus.timeInMins) {
-                                nearestBus = {
-                                    routeInfo,
-                                    timeInMins,
-                                };
-                            }
 
+                            const hours = Math.floor(timeInMins / 60);
+                            const minutes = timeInMins % 60;
+
+                            const timeString = `${hours}h ${minutes}min`;
                             const routeNumber = routeInfo.match(/\d+/)[0];
                             const destination = routeInfo.replace(/^\d+/, "").trim();
-                            const hours = timeInMins >= 60 ? Math.floor(timeInMins / 60) : 0;
-                            const remainingMinutes = timeInMins % 60;
-                            const timeStrHRMIN = hours > 0 ? hours + 'h ' + remainingMinutes + 'm' : remainingMinutes + 'm';
-
+                            
+                            nearestBus = {
+                                    routeInfo,
+                                    timeString,
+                                };
+                        
 
                             busCardsHTML += `<div class="bus-card">
-    <div class="route-number">${routeNumber}</div>
-    <div class="bus-destination">${destination}</div>
-    <div class="bus-time">${timeInMins}m</div>
+    <div class="route-number">${routeInfo}</div>
+    <br> 
+    <div class="bus-time">${timeString}</div>
 </div>`;
 
 
@@ -184,8 +190,6 @@
         echo '<p class="currentDateTime">' . date('g:i a, l, d/m/Y') . '</p>';  //outputs 12hr AM/PM time
 
 
-        echo '<h2 class="bus-info">Nearest Bus: ' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
-
 
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
@@ -220,7 +224,7 @@
 
         $showClass = false;
         if ($showClass) {
-            echo '<h2 class="bus-info">Nearest Bus: ' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
+            echo '<h2 class="bus-info">Nearest Bus: ' . ['routeNumber'] . ' to ' . ['destination'] . ' (' . ['location'] . ') in ' . round(['countdown'] / 60) . ' min(s)</h2>';
         }
         foreach ($stopIds as $stop) {
             $params['name_dm'] = $stop;
@@ -269,7 +273,7 @@
 
                         echo "<tr>";
                         echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . "</td>"; // echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . " (from " . $location['name'] . ")" . "</td>";
-
+                            
                         echo "<td>" . $timeStr . "</td>";
                         echo "</tr>";
                     }
