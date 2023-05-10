@@ -2,14 +2,13 @@
 <html>
 
 <head>
-    <title>SLGS Bus Tracker</title>
+    <title>SLGS Bus Tracker - MAIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
             margin: 0;
-            background-color: #014A8E;
+            background-color: #044c8c;
             color: white;
             padding: 0;
         }
@@ -23,11 +22,7 @@
             margin-bottom: 20px;
         }
 
-        .currentDateTime {
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+       
 
         .bus-container {
             display: flex;
@@ -42,15 +37,18 @@
             width: 250px;
             padding: 15px;
             margin: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
             text-align: center;
+            box-shadow:  10px 10px rgba(0, 0, 0, 0.5);
         }
 
         .route-number {
+            border-bottom: 3px solid #fad207;
+            padding-bottom: 1px;
+            padding-top: 5px;
             font-weight: bold;
-            font-size: 1.2em;
-            color: blue;
+            font-size: 1.6em;
+            color: #044c8c;
         }
 
         .bus-destination {
@@ -59,8 +57,9 @@
         }
 
         .bus-time {
-            font-weight: bold;
+            font-weight: 900;
             font-size: 1.5em;
+            color: #044c8c;
         }
 
         .gonative .bus-container {
@@ -71,6 +70,8 @@
 
         .bus-info {
             text-align: center;
+            font-weight: 00;
+            color: white;
         }
 
         
@@ -140,7 +141,7 @@
                     //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
                     document.getElementById("loading").style.display = "none";
 
-
+                    
                     // set the boolean flag to false, so that it wont show the loading again
                     isFirstLoad = false;
 
@@ -317,6 +318,7 @@
 
                     echo "</tbody>";
                     echo "</table>";
+                    
                 } else {
                     $attempt++;
                     if ($attempt < $retryAttempts) {
@@ -325,7 +327,7 @@
                 }
             }
         }
-
+        
         exit;
     }
     ?>
