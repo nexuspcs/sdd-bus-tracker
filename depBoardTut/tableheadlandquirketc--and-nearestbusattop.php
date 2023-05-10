@@ -70,7 +70,7 @@
         .gonative .bus-container {
             flex-direction: column;
             align-items: center;
-            
+
         }
     </style>
 
@@ -81,7 +81,7 @@
     <div id="busData"></div>
 
 
-    
+
 
 
 
