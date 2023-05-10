@@ -35,13 +35,13 @@
 
 
         .bus-card {
-            background-color: #044c8;
-            color: #044c8;
+            background-color: white;
             width: 250px;
             padding: 15px;
             margin: 10px;
             border-radius: 4px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .route-number {
@@ -57,7 +57,7 @@
         .bus-time {
             font-weight: 900;
             font-size: 1.5em;
-            color: white
+            color: #044c8c;
         }
 
 
