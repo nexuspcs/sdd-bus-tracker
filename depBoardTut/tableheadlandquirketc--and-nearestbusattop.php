@@ -137,6 +137,7 @@
 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
 
                     //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
                     document.getElementById("loading").style.display = "none";
@@ -217,6 +218,9 @@
     </script>
 
     <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
     if (isset($_GET['action']) && $_GET['action'] == 'fetchData') {
         date_default_timezone_set("Australia/Sydney"); // set timezone to Sydney time AEST
