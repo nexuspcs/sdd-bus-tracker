@@ -7,7 +7,6 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
             margin: 0;
             background-color: #044c8c;
             color: white;
@@ -30,17 +29,18 @@
             justify-content: center;
             margin-bottom: 20px;
             color: black;
+            
         }
 
 
 
         .bus-card {
-            background-color: #;
+            background-color: #044c8;
+            color: #044c8;
             width: 250px;
             padding: 15px;
             margin: 10px;
             border-radius: 4px;
-            border: 3px white;
             text-align: center;
         }
 
