@@ -23,7 +23,6 @@
             margin-bottom: 20px;
         }
 
-
         .currentDateTime {
             text-align: center;
             font-weight: bold;
@@ -37,8 +36,6 @@
             margin-bottom: 20px;
             color: black;
         }
-
-
 
         .bus-card {
             background-color: white;
@@ -66,11 +63,30 @@
             font-size: 1.5em;
         }
 
-
         .gonative .bus-container {
             flex-direction: column;
             align-items: center;
-            
+
+        }
+
+        .bus-info {
+            text-align: center;
+        }
+
+        
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 50px;
+            color: white;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .spinner {
+            font-size: 50px;
         }
     </style>
 
@@ -79,9 +95,14 @@
 <body>
     <h2 class="bus-info" id="nearestBusInfo"></h2>
     <div id="busData"></div>
+    <div id="loading">
+        <div>SLGS Bus Tracker - Loading bus location data...<br>
+            <span class="spinner">&#128256;</span>
+        </div>
+    </div>
 
 
-    
+
 
 
 
@@ -99,10 +120,30 @@
         var countMulpt = 0;
         var refreshDelayCounterSECONDS = 0;
 
+
+        // a boolean flag, so that after page is opened it wont refresh again.
+        var isFirstLoad = true;
+
+
+
         function fetchData() {
             var xhr = new XMLHttpRequest();
+
+            // loading screen showing;
+            if (isFirstLoad) {
+                document.getElementById("loading").style.display = "block";
+            }
+
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
+
+                    //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
+                    document.getElementById("loading").style.display = "none";
+
+
+                    // set the boolean flag to false, so that it wont show the loading again
+                    isFirstLoad = false;
+
                     document.getElementById("busData").innerHTML = xhr.responseText;
                     const busData = document.getElementById("busData");
                     const busRows = busData.querySelectorAll("tr");
