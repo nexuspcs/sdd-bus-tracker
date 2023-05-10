@@ -41,7 +41,7 @@
             margin: 10px;
             border-radius: 4px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow:  10px 10px rgba(0, 0, 0, 0.5);
         }
 
         .route-number {
@@ -50,7 +50,7 @@
             padding-top: 5px;
             font-weight: bold;
             font-size: 1.6em;
-            color: #fad207;
+            color: #044c8c;
         }
 
 
@@ -112,8 +112,10 @@
                     document.getElementById("busData").innerHTML = xhr.responseText;
                     const busData = document.getElementById("busData");
                     const busRows = busData.querySelectorAll("tr");
+                    
+                    
+                    
                     let nearestBus = null;
-
                     let busCardsHTML = "";
 
                     for (let row of busRows) {
@@ -129,7 +131,7 @@
                                 timeInMins += parseInt(timeMatch[2]);
                             }
 
-
+                                
                             const hours = Math.floor(timeInMins / 60);
                             const minutes = timeInMins % 60;
 
