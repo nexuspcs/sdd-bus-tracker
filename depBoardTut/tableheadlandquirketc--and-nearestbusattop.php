@@ -71,6 +71,9 @@
             flex-direction: column;
             align-items: center;
 
+        } 
+        .bus-info{
+            text-align: center;
         }
     </style>
 
