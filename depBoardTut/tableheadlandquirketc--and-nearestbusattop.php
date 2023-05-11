@@ -22,7 +22,7 @@
             margin-bottom: 20px;
         }
 
-       
+
 
         .bus-container {
             display: flex;
@@ -39,7 +39,7 @@
             margin: 10px;
             border-radius: 4px;
             text-align: center;
-            box-shadow:  10px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
         }
 
         .route-number {
@@ -74,7 +74,7 @@
             color: white;
         }
 
-        
+
         #loading {
             position: absolute;
             top: 50%;
@@ -112,7 +112,7 @@
             if (nearestBus !== null) {
 
                 const nearestBusInfo = document.getElementById("nearestBusInfo");
-                nearestBusInfo.innerText = `Nearest Bus: ${nearestBus.routeInfo} in ${nearestBus.timeInMins}m`;
+                nearestBusInfo.innerText = `Nearest Bus: \n ${nearestBus.routeInfo} in ${nearestBus.timeInMins}m`;
                 nearestBusInfo.style.display = "block";
             }
         }
@@ -137,11 +137,11 @@
 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-
+ 
                     //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
                     document.getElementById("loading").style.display = "none";
 
-                    
+
                     // set the boolean flag to false, so that it wont show the loading again
                     isFirstLoad = false;
 
@@ -217,6 +217,9 @@
     </script>
 
     <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
     if (isset($_GET['action']) && $_GET['action'] == 'fetchData') {
         date_default_timezone_set("Australia/Sydney"); // set timezone to Sydney time AEST
@@ -226,7 +229,7 @@
         echo '<p class="currentDateTime">' . date('g:i a, l, d/m/Y') . '</p>';  //outputs 12hr AM/PM time
 
 
-        echo '<h2 class="bus-info">Nearest Bus: ' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
+        echo '<h2 class="bus-info">Nearest Bus: ' . '<br>' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
 
 
         error_reporting(E_ALL);
@@ -262,7 +265,7 @@
 
         $showClass = false;
         if ($showClass) {
-            echo '<h2 class="bus-info">Nearest Bus: ' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
+            echo '<h2 class="bus-info">Nearest Bus: ' . '<br>' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
         }
         foreach ($stopIds as $stop) {
             $params['name_dm'] = $stop;
@@ -318,7 +321,6 @@
 
                     echo "</tbody>";
                     echo "</table>";
-                    
                 } else {
                     $attempt++;
                     if ($attempt < $retryAttempts) {
@@ -327,7 +329,7 @@
                 }
             }
         }
-        
+
         exit;
     }
     ?>
