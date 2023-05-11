@@ -22,8 +22,6 @@
             margin-bottom: 20px;
         }
 
-
-
         .bus-container {
             display: flex;
             flex-wrap: wrap;
@@ -205,7 +203,9 @@
         fetchData(); // Fetch data on initial page load
         setInterval(fetchData, refreshDelay); // Refresh data every x seconds, according to value
 
-
+        // this below function, and event listener will look for any user agent with 'gonative' in the user agent string
+        // our app, was converted using webkit, and GoNative, which 'tags' a user agent of 'gonative'.
+        // if the useragent 'gonative', or other variations is seen, the css class will be implemented, hence resulting in appropriate changes as per the gonative css. 
         document.addEventListener("DOMContentLoaded", function() {
             if (navigator.userAgent.indexOf('gonative') !== -1) {
                 document.body.classList.add('gonative-background');
@@ -217,7 +217,7 @@
     </script>
 
     <?php
-    ini_set('display_errors', 1);
+    ini_set('display_errors', 1); 
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
