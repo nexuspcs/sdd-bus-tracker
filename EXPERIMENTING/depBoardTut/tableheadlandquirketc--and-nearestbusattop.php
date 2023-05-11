@@ -67,7 +67,7 @@
             
         }
 
-        .bus-info {
+        .near-bus-info {
             text-align: center;
             color : white;
             font-weight: 00;
@@ -82,7 +82,7 @@
 <body>
 
 
-    <h1 class="bus-info" id="nearestBusInfo"></h1>
+    <h1 class="near-bus-info" id="nearestBusInfo"></h1>
 
 
     <div id="busData"></div>
@@ -226,7 +226,7 @@
 
         $showClass = false;
         if ($showClass) {
-            echo '<h2 class="bus-info">Nearest Bus: ' . ['routeNumber'] . ' to ' . ['destination'] . ' (' . ['location'] . ') in ' . round(['countdown'] / 60) . ' min(s)</h2>';
+            echo '<h2 class="near-bus-info">Nearest Bus: ' . ['routeNumber'] . ' to ' . ['destination'] . ' (' . ['location'] . ') in ' . round(['countdown'] / 60) . ' min(s)</h2>';
         }
         foreach ($stopIds as $stop) {
             $params['name_dm'] = $stop;
