@@ -135,7 +135,7 @@
 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
- 
+
                     //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
                     document.getElementById("loading").style.display = "none";
 
@@ -217,7 +217,7 @@
     </script>
 
     <?php
-    ini_set('display_errors', 1); 
+    ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
@@ -239,7 +239,7 @@
         $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/'; // First define the API endpoint, which is the base URL of the API. This is the same for all API calls.
         $apiCall = 'departure_mon';
         $when = time(); // Now
-        $stopIds = array("200041"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927, 209929) (mona bline; 210323)
+        $stopIds = array("209926", "209927", "209929"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927, 209929) (mona bline; 210323)
         $stop = "";
         $retryAttempts = 3; // Next define the number of retry attempts for the API call. This is the number of times that the code will try to get data from the API before returning a failure.
         $retryDelay = 0; // A delay (in seconds) for how long the request will 'hang' while waiting for data back from the API
