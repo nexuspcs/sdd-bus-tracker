@@ -5,6 +5,9 @@
     <title>SLGS Bus Tracker - MAIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
+                /* CSS Styles */
+
+        /* Styles for the body */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,6 +16,7 @@
             padding: 0;
         }
 
+        /* Styles for the welcome title */
         .welcomeTitle {
             text-align: center;
             background-color: white;
@@ -26,6 +30,7 @@
             margin-bottom: 20px;
         }
 
+        /* Styles for the bus container */
         .bus-container {
             display: flex;
             flex-wrap: wrap;
@@ -34,6 +39,7 @@
             color: black;
         }
 
+        /* Styles for the bus card */
         .bus-card {
             background-color: white;
             width: 250px;
@@ -44,6 +50,7 @@
             box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
         }
 
+        /* Styles for the route number */
         .route-number {
             border-bottom: 3px solid #fad207;
             padding-bottom: 1px;
@@ -53,30 +60,33 @@
             color: #044c8c;
         }
 
+        /* Styles for the bus destination */
         .bus-destination {
             font-size: 1.1em;
             margin-bottom: 10px;
         }
 
+        /* Styles for the bus time */
         .bus-time {
             font-weight: 900;
             font-size: 1.5em;
             color: #044c8c;
         }
 
+        /* Styles for mobile app */
         .gonative .bus-container {
             flex-direction: column;
             align-items: center;
-
         }
 
+        /* Styles for bus info */
         .bus-info {
             text-align: center;
             font-weight: 00;
             color: white;
         }
 
-
+        /* Styles for loading indicator */
         #loading {
             position: absolute;
             top: 50%;
@@ -88,6 +98,7 @@
             text-align: center;
         }
 
+        /* Styles for spinner */
         .spinner {
             font-size: 50px;
         }
