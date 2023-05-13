@@ -318,7 +318,7 @@
             $success = false;
             $nearestBus = null;
 
-            while ($attempt < $retryAttempts && !$success) {
+            while ($attempt < $retryAttempts && !$success) { // Retry API call until success or maximum attempts reached
                 $context = stream_context_create($opts);
                 $response = file_get_contents($url, false, $context);
                 $json = json_decode($response, true);
@@ -327,11 +327,13 @@
                     $stopEvents = $json['stopEvents'];
                     $success = true;
 
+                // Display bus data in a table
                     echo "<table>";
                     echo "<thead><tr><th>Route</th><th>Time (hours / mins)</th></tr></thead>";
                     echo "<tbody>";
 
-                    foreach ($stopEvents as $stopEvent) {
+                    foreach ($stopEvents as $stopEvent) { // Iterate through stop events
+
                         $transportation = $stopEvent['transportation'];
                         $routeNumber = $transportation['number'];
                         $destination = $transportation['destination']['name'];
