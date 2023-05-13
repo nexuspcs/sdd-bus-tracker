@@ -219,6 +219,8 @@
     <?php
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
+    ini_set('max_execution_time', 120); //120 seconds = 2 minutes, so no PHP file does not timeout
+
     error_reporting(E_ALL);
 
     if (isset($_GET['action']) && $_GET['action'] == 'fetchData') {
