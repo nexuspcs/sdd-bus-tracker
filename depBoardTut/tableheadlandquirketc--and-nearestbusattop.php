@@ -195,7 +195,7 @@
                             const remainingMinutes = timeInMins % 60;
                             const timeStrHRMIN = hours > 0 ? hours + 'h ' + remainingMinutes + 'm' : remainingMinutes + 'm';
 
-
+                            // Generate HTML for bus cards
                             busCardsHTML += `<div class="bus-card">
     <div class="route-number">${routeNumber}</div>
     <div class="bus-destination">${destination}</div>
