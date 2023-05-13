@@ -283,6 +283,8 @@
         $retryDelay = 0; // A delay (in seconds) for how long the request will 'hang' while waiting for data back from the API
 
         // large array to parse into the API url.
+        // Array of parameters for the API call
+
         $params = array(
             'outputFormat' => 'rapidJSON',
             'coordOutputFormat' => 'EPSG:4326',
@@ -306,7 +308,7 @@
         if ($showClass) {
             echo '<h2 class="bus-info">Nearest Bus: ' . '<br>' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
         }
-        foreach ($stopIds as $stop) {
+        foreach ($stopIds as $stop) { // Loop through each stop ID
             $params['name_dm'] = $stop;
             $params['itdDate'] = date('Ymd', $when);
             $params['itdTime'] = date('Hi', $when);
