@@ -69,7 +69,7 @@
             align-items: center;
 
         }
-
+         
         .bus-info {
             text-align: center;
             font-weight: 00;
