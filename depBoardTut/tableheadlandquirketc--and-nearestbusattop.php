@@ -22,6 +22,7 @@
             margin-left: 20%;
             margin-right: 20%;
             font-size: 24px;
+            display: none;
             margin-bottom: 20px;
         }
 
@@ -142,11 +143,13 @@
             }
 
             xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
+                if (xhr.readyState == 4 && xhr.status == 200) { // status 200 means a successful api response (http/text)
 
                     //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
                     document.getElementById("loading").style.display = "none";
-                    
+
+                    // display the welcome title on page load, and at same time as api data is returned/loaded.
+                    document.getElementById("SLGStxt").style.display = "block";
 
 
                     // set the boolean flag to false, so that it wont show the loading again
