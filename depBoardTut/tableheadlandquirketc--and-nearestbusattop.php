@@ -91,6 +91,10 @@
         .spinner {
             font-size: 50px;
         }
+        .gonative .welcomeTitle {
+        display: none;        
+    }
+
     </style>
 
 </head>
