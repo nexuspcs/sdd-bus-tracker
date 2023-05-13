@@ -269,6 +269,7 @@
         $retryAttempts = 3; // Next define the number of retry attempts for the API call. This is the number of times that the code will try to get data from the API before returning a failure.
         $retryDelay = 0; // A delay (in seconds) for how long the request will 'hang' while waiting for data back from the API
 
+        // large array to parse into the API url.
         $params = array(
             'outputFormat' => 'rapidJSON',
             'coordOutputFormat' => 'EPSG:4326',
@@ -346,7 +347,7 @@
 
                     echo "</tbody>";
                     echo "</table>";
-                } else {
+                } else { // within this else statement, the php code will try until it exceeds the pre-defined values of $retryAttempts and $retryDelay, to avoid the API from timing out, or being rate limited.
                     $attempt++;
                     if ($attempt < $retryAttempts) {
                         sleep($retryDelay);
