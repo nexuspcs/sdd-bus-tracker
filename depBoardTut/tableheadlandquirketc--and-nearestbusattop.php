@@ -96,7 +96,7 @@
     <div id="busData"></div>
     <div id="loading">
         <div>SLGS Bus Tracker - Loading bus location data...<br>
-            <span class="spinner">&#128256;</span>
+            <span class="spinner">&#128260;</span>
         </div>
     </div>
 
