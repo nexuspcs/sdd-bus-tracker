@@ -226,11 +226,11 @@ Finally, the script exits, completing the API request handling. -->
 
 
                     displayNearestBus(nearestBus);
-                } 
+                }
             };
             xhr.open("GET", "<?php echo $_SERVER['PHP_SELF']; ?>?action=fetchData", true);
             xhr.send();
-            
+
             refreshDelayCounter = refreshDelay * countMulpt;
             refreshDelayCounterSECONDS = refreshDelayCounter / 1000; // dividing by 1000, to convert from milliseconds to seconds 
             console.log("Updating data from API --> Pulling new data ~ ~ ~ ~          " + "Time since page reloaded (Command/Control + R): " + refreshDelayCounterSECONDS + " second(s)");
@@ -256,10 +256,6 @@ Finally, the script exits, completing the API request handling. -->
 
 
         });
-
-
-
-        
     </script>
 
     </script>
@@ -343,7 +339,7 @@ Finally, the script exits, completing the API request handling. -->
                     $stopEvents = $json['stopEvents'];
                     $success = true;
 
-                // Display bus data in a table
+                    // Display bus data in a table
                     echo "<table>";
                     echo "<thead><tr><th>Route</th><th>Time (hours / mins)</th></tr></thead>";
                     echo "<tbody>";
@@ -371,7 +367,7 @@ Finally, the script exits, completing the API request handling. -->
 
 
                         // Display route and time information in table rows
-                        echo "<tr>"; 
+                        echo "<tr>";
                         echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . "</td>"; // echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . " (from " . $location['name'] . ")" . "</td>";
 
                         echo "<td>" . $timeStr . "</td>";
