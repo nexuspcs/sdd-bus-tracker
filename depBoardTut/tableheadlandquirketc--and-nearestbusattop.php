@@ -339,7 +339,7 @@
                         $destination = $transportation['destination']['name'];
                         $location = $stopEvent['location'];
 
-                        if (isset($stopEvent['departureTimeEstimated'])) {
+                        if (isset($stopEvent['departureTimeEstimated'])) { // Determine the estimated or planned departure time
                             $time = strtotime($stopEvent['departureTimeEstimated']);
                         } else {
                             $time = strtotime($stopEvent['departureTimePlanned']);
@@ -354,8 +354,8 @@
 
 
 
-
-                        echo "<tr>";
+                        // Display route and time information in table rows
+                        echo "<tr>"; 
                         echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . "</td>"; // echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . " (from " . $location['name'] . ")" . "</td>";
 
                         echo "<td>" . $timeStr . "</td>";
