@@ -231,7 +231,6 @@
                 document.body.classList.add('gonative-background');
                 document.body.classList.add('gonative');
                 
-
             }
 
 
