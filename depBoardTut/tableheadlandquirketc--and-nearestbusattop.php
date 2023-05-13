@@ -186,7 +186,12 @@
 
                         }
                     }
-
+                    if (busCardsHTML === "") {
+                        busCardsHTML = `<div class="bus-card">
+                        <div class="route-number">No Data Available</div>
+                        <div class="bus-destination">No buses found at the moment.</div>
+                    </div>`;
+                    }
                     busData.innerHTML = `<div class="bus-container">${busCardsHTML}</div>`;
 
 
