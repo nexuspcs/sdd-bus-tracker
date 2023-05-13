@@ -91,9 +91,7 @@
         .spinner {
             font-size: 50px;
         }
-        .gonative .welcomeTitle {
-        display: none;        
-    }
+ 
 
     </style>
 
@@ -229,8 +227,10 @@
         // if the useragent 'gonative', or other variations is seen, the css class will be implemented, hence resulting in appropriate changes as per the gonative css. 
         document.addEventListener("DOMContentLoaded", function() {
             if (navigator.userAgent.indexOf('gonative') !== -1) {
+                
                 document.body.classList.add('gonative-background');
                 document.body.classList.add('gonative');
+                
 
             }
 
