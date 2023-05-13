@@ -226,7 +226,7 @@ Finally, the script exits, completing the API request handling. -->
 
 
                     displayNearestBus(nearestBus);
-                }
+                } 
             };
             xhr.open("GET", "<?php echo $_SERVER['PHP_SELF']; ?>?action=fetchData", true);
             xhr.send();
