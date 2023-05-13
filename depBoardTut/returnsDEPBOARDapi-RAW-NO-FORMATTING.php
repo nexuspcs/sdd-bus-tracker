@@ -1,5 +1,5 @@
 <?php
-$stop_id = "200041"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926)
+$stop_id = "209926"; // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (slgs stop id is; 209926)
 $time = ""; // Replace with the desired time in HHMM format
 
 // Set the cURL request options
