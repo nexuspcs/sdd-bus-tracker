@@ -138,6 +138,7 @@
             // loading screen showing;
             if (isFirstLoad) {
                 document.getElementById("loading").style.display = "block";
+                // document.getElementsById("SLGStxt").style.display = "none"; // hide the welcome title, doesnt work, just always stop the page from loading. 
             }
 
             xhr.onreadystatechange = function() {
@@ -145,6 +146,7 @@
 
                     //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
                     document.getElementById("loading").style.display = "none";
+                    
 
 
                     // set the boolean flag to false, so that it wont show the loading again
