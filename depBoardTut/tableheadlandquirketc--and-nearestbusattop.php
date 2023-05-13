@@ -219,7 +219,7 @@ Finally, the script exits, completing the API request handling. -->
                     if (busCardsHTML === "") {
                         busCardsHTML = `<div class="bus-card">
                         <div class="route-number">No Data Available</div>
-                        <div class="bus-destination">No buses found at the moment.</div>
+                        <div class="bus-destination">No buses are reporting locational data</div>
                     </div>`;
                     }
                     busData.innerHTML = `<div class="bus-container">${busCardsHTML}</div>`;
