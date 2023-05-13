@@ -227,7 +227,11 @@
             if (navigator.userAgent.indexOf('gonative') !== -1) {
                 document.body.classList.add('gonative-background');
                 document.body.classList.add('gonative');
+
             }
+
+
+
         });
     </script>
 
