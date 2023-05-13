@@ -5,7 +5,7 @@
     <title>SLGS Bus Tracker - MAIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
-                /* CSS Styles */
+        /* CSS Styles */
 
         /* Styles for the body */
         body {
@@ -231,6 +231,8 @@
         // this below function, and event listener, will look for any user agent with 'gonative' in the user agent string
         // our app, was converted using webkit, and GoNative, which 'tags' a user agent of 'gonative'.
         // if the useragent 'gonative', or other variations is seen, the css class will be implemented, hence resulting in appropriate changes as per the gonative css. 
+        // Apply specific styles for the mobile app
+
         document.addEventListener("DOMContentLoaded", function() {
             if (navigator.userAgent.indexOf('gonative') !== -1) {
 
@@ -248,7 +250,7 @@
 
 
 
-    
+
     <?php
     ini_set('display_errors', 1); // print all errors to PHP console
     ini_set('display_startup_errors', 1);
