@@ -114,7 +114,6 @@
     <script>
         function displayNearestBus(nearestBus) {
             if (nearestBus !== null) {
-
                 const nearestBusInfo = document.getElementById("nearestBusInfo");
                 const SLGStxt = document.getElementById("SLGStxt");
                 SLGStxt.innerText = `St Luke's Grammar School Bus Tracker`;
@@ -127,11 +126,8 @@
         var countMulpt = 0;
         var refreshDelayCounterSECONDS = 0;
 
-
         // a boolean flag, so that after page is opened it wont refresh again.
         var isFirstLoad = true;
-
-
 
         function fetchData() {
             var xhr = new XMLHttpRequest();
@@ -152,7 +148,7 @@
                     document.getElementById("SLGStxt").style.display = "block";
 
 
-                    // set the boolean flag to false, so that it wont show the loading again
+                    // set a boolean flag to false, so that it wont show the loading again
                     isFirstLoad = false;
 
                     document.getElementById("busData").innerHTML = xhr.responseText;
@@ -160,7 +156,7 @@
                     const busRows = busData.querySelectorAll("tr");
                     let nearestBus = null;
 
-                    let busCardsHTML = "";
+                    let busCardsHTML = ""; // initialise an empty variable to store the html for the bus cards
 
                     for (let row of busRows) {
                         const routeInfo = row.cells[0].innerText;
@@ -220,7 +216,8 @@
         fetchData(); // Fetch data on initial page load
         setInterval(fetchData, refreshDelay); // Refresh data every x seconds, according to value
 
-        // this below function, and event listener will look for any user agent with 'gonative' in the user agent string
+
+        // this below function, and event listener, will look for any user agent with 'gonative' in the user agent string
         // our app, was converted using webkit, and GoNative, which 'tags' a user agent of 'gonative'.
         // if the useragent 'gonative', or other variations is seen, the css class will be implemented, hence resulting in appropriate changes as per the gonative css. 
         document.addEventListener("DOMContentLoaded", function() {
@@ -238,8 +235,11 @@
 
     </script>
 
+
+
+    
     <?php
-    ini_set('display_errors', 1);
+    ini_set('display_errors', 1); // print all errors to PHP console
     ini_set('display_startup_errors', 1);
     ini_set('max_execution_time', 120); //120 seconds = 2 minutes, so no PHP file does not timeout
 
