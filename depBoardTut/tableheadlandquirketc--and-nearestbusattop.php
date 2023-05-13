@@ -230,6 +230,7 @@ Finally, the script exits, completing the API request handling. -->
             };
             xhr.open("GET", "<?php echo $_SERVER['PHP_SELF']; ?>?action=fetchData", true);
             xhr.send();
+            
             refreshDelayCounter = refreshDelay * countMulpt;
             refreshDelayCounterSECONDS = refreshDelayCounter / 1000; // dividing by 1000, to convert from milliseconds to seconds 
             console.log("Updating data from API --> Pulling new data ~ ~ ~ ~          " + "Time since page reloaded (Command/Control + R): " + refreshDelayCounterSECONDS + " second(s)");
@@ -255,6 +256,10 @@ Finally, the script exits, completing the API request handling. -->
 
 
         });
+
+
+
+        
     </script>
 
     </script>
