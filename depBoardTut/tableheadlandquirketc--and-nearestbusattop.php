@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<!-- The PHP code sets up the necessary configurations and error reporting.
-It checks if the action parameter is set to fetchData in the URL, indicating an API request.
-Inside the API request handling block, it sets the timezone, displays the welcome title, current date, and time.
-It loops through each stop ID and constructs the API request URL with the parameters.
-It attempts to make the API call, with retry logic in case of failure.
-If the API call is successful, it retrieves the bus data from the JSON response and displays it in a table format.
-Finally, the script exits, completing the API request handling. -->
-
-
-
-
 <html>
 
 <head>
