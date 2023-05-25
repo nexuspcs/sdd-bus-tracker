@@ -467,6 +467,10 @@
                         echo "<thead><tr><th>Route</th><th>Time (hours / mins)</th></tr></thead>";
                         echo "<tbody>";
 
+
+                        
+                        // This code iterates through all stop events in the array and displays the route number, destination, and departure time. If the departure time is estimated, it displays the estimated departure time; otherwise, it displays the planned departure time.
+
                         foreach ($stopEvents as $stopEvent) { // Iterate through stop events
 
                             $transportation = $stopEvent['transportation'];
