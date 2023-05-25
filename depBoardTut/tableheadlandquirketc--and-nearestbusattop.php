@@ -217,7 +217,13 @@
 
 
         <script>
-            // JS code to display the nearest bus
+            // The function displayNearestBus(nearestBus) displays the nearest bus to the user in the form of a message. This function is called in the function displayBuses() and takes the parameter nearestBus, which is the nearest bus to the user. The function starts by checking if the nearestBus is not null. 
+            // If it is null, nothing will happen. If it is not null, the function will display the nearest bus information. The function starts by setting the variable nearestBusInfo to the element with the id "nearestBusInfo". The next line sets the variable SLGSimg to the element with the id "SLGSimg". 
+            // The next line sets the variable helpButton to the element with the id "help-button". The next line sets the variable closeButton to the element with the id "close-button". 
+            // The next line sets the variable correctedRouteInfo to the nearestBus.routeInfo, which is the route information of the nearest bus, and then uses the replace() function to replace the first 'n' character in the string. This is done because the route information contains a '\n' character, which displays a new line. 
+            // The next line displays the nearest bus information in the form of a message. The next line sets the nearestBusInfo display to "block". The next line sets the SLGSimg display to "block". The next line sets the helpButton display to "block". The next line sets the closeButton display to "block".
+
+            // BEGIN: JS code to display the nearest bus
             function displayNearestBus(nearestBus) {
                 if (nearestBus !== null) {
                     const nearestBusInfo = document.getElementById("nearestBusInfo");
