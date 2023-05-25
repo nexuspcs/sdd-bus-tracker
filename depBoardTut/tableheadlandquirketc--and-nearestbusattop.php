@@ -149,7 +149,7 @@
             border-radius: 5px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
         }
-        
+
         #help-button:hover {
             background-color: #0062cc;
             cursor: help;
@@ -186,8 +186,9 @@
             display: none;
         }
     </style>
-
 </head>
+
+
 
 <body>
     <div class="main-excluding-help-modal">
@@ -216,6 +217,7 @@
 
 
         <script>
+            // JS code to display the nearest bus
             function displayNearestBus(nearestBus) {
                 if (nearestBus !== null) {
                     const nearestBusInfo = document.getElementById("nearestBusInfo");
@@ -345,11 +347,7 @@
 
 
             });
-
-
-
-
-
+            // ----------------------------- // 
 
             // HELP BUTTON BEGIN:
             // Get the help button, help window, and close button elements
