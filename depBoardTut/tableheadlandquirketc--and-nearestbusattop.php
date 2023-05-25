@@ -401,6 +401,91 @@
     }
     ?>
 
+    <style>
+        /* Style the help button */
+        #help-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style the help window */
+        #help-window {
+            display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    width: 90%;
+    height: 90%;
+    color: black;
+        }
+
+         /* Style the close button */
+         #close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Create a help button -->
+    <button id="help-button">Help</button>
+
+    <!-- Create a help window -->
+    <div id="help-window">
+        <button id="close-button">&times;</button>
+        <p>This is the help text.</p>
+    </div>
+
+
+
+    <script>
+        // Get the help button, help window, and close button elements
+        var helpButton = document.getElementById("help-button");
+        var helpWindow = document.getElementById("help-window");
+        var closeButton = document.getElementById("close-button");
+
+        // Show the help window when the help button is clicked
+        helpButton.addEventListener("click", function() {
+            helpWindow.style.display = "block";
+        });
+
+        // Hide the help window when the user clicks the close button
+        closeButton.addEventListener("click", function() {
+            helpWindow.style.display = "none";
+        });
+
+        // Hide the help window when the user clicks outside of it
+        window.addEventListener("click", function(event) {
+            if (event.target == helpWindow) {
+                helpWindow.style.display = "none";
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
