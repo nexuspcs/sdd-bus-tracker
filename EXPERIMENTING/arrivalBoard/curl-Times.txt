@@ -1,5 +1,0 @@
-CURLOPT_URL => "https://api.transport.nsw.gov.au/v1/tp/departure_mon?outputFormat=rapidJSON&coordOutputFormat=EPSG%3A4326&mode=direct&type_dm=stop&name_dm={$stop_id}&itdDate=" . date('Ymd') . "&itdTime={$time}&departureMonitorMacro=true&excludedMeans=checkbox&exclMOT_1=true&exclMOT_4=true&exclMOT_7=true&exclMOT_9=true&exclMOT_11=true&TfNSWDM=true&version=10.2.1.42",
-time^
-
-no time v
-CURLOPT_URL => "https://api.transport.nsw.gov.au/v1/tp/departure_mon?outputFormat=rapidJSON&coordOutputFormat=EPSG%3A4326&mode=direct&type_dm=stop&name_dm={$stop_id}&itdDate=" . date('Ymd') . "&departureMonitorMacro=true&excludedMeans=checkbox&exclMOT_1=true&exclMOT_4=true&exclMOT_7=true&exclMOT_9=true&exclMOT_11=true&TfNSWDM=true&version=10.2.1.42",
