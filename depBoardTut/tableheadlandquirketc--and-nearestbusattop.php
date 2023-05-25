@@ -2,7 +2,7 @@
 <html lang="en-GB">
 
 <head>
-    <title>SLGS Bus Tracker - MAIN</title>
+    <title>St Luke's Grammar School Bus Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
         /* CSS Styles */
