@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-
 <head>
     <title>St Luke's Grammar School Bus Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -103,6 +102,7 @@
             font-size: 50px;
         }
 
+        /* Styles for the welcome title */
         .welcomeTitleLogo {
             max-width: 20%;
             /* make the logo responsive */
@@ -121,6 +121,7 @@
             background-color: white;
         }
 
+        /* Styles for the welcome title to scale on smaller screens */
         @media only screen and (max-width: 900px) {
             .welcomeTitleLogo {
                 max-width: 70%;
@@ -148,7 +149,7 @@
             border-radius: 5px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
         }
-
+        
         #help-button:hover {
             background-color: #0062cc;
             cursor: help;
