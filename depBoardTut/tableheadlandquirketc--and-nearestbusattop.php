@@ -148,7 +148,9 @@
                 const SLGSimg = document.getElementById("SLGSimg");
                 //SLGStxt.innerText = `St Luke's Grammar School Bus Tracker`; // commented this line out, as the TEXT is being replaced by the logo
                 SLGSimg.style.display = "block";
-                nearestBusInfo.innerText = `Nearest Bus: \n ${nearestBus.routeInfo} in ${nearestBus.timeInMins}m`;
+                let correctedRouteInfo = nearestBus.routeInfo.replace('n', ''); // This will replace the first 'n' character in the string
+nearestBusInfo.innerText = `Nearest Bus: \n ${correctedRouteInfo} in ${nearestBus.timeInMins}m`;
+
                 nearestBusInfo.style.display = "block";
             }
         }
