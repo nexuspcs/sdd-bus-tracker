@@ -379,14 +379,13 @@
 
 
 
-
-
+        <!-- PHP CODE BELOW -->
         <?php
         ini_set('display_errors', 1); // print all errors to PHP console
         ini_set('display_startup_errors', 1);
         ini_set('max_execution_time', 120); //120 seconds = 2 minutes, so no PHP file does not time out
 
-        error_reporting(E_ALL);
+        error_reporting(E_ALL); // print all errors to PHP console (this will be on the server, not the client side)
 
         if (isset($_GET['action']) && $_GET['action'] == 'fetchData') {
             date_default_timezone_set("Australia/Sydney"); // set timezone to Sydney time AEST
