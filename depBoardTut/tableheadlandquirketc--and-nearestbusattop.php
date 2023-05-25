@@ -129,7 +129,61 @@
                 margin-right: auto;
 
 
-            }}
+            }
+        }
+
+
+        /* Style the help button */
+        #help-button {
+            display: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #help-button:hover {
+            background-color: #0062cc;
+            cursor: help;
+        }
+
+        /* Style the help window */
+        #help-window {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            color: black;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            width: 90%;
+            height: 90%;
+        }
+
+        /* Style the close button */
+        #close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 40px;
+            color: black;
+            cursor: pointer;
+            display: none;
+        }
     </style>
 
 </head>
@@ -147,7 +201,14 @@
                 <span class="spinner">&#128260;</span>
             </div>
         </div>
+        <!-- Create a help button -->
+        <button id="help-button">Help</button>
 
+        <!-- Create a help window -->
+        <div id="help-window">
+            <button id="close-button">&times;</button>
+            <p>This is the help text.</p>
+        </div>
 
 
 
@@ -283,6 +344,37 @@
 
 
             });
+
+
+
+
+
+
+            // HELP BUTTON BEGIN:
+            // Get the help button, help window, and close button elements
+            var helpButton = document.getElementById("help-button");
+            var body = document.getElementsByTagName("main-excluding-help-modal")[0];
+            var helpWindow = document.getElementById("help-window");
+            var closeButton = document.getElementById("close-button");
+
+            // Show the help window when the help button is clicked
+            helpButton.addEventListener("click", function() {
+                helpWindow.style.display = "block";
+            });
+
+            // Hide the help window when the user clicks the close button
+            closeButton.addEventListener("click", function() {
+                helpWindow.style.display = "none";
+            });
+
+            // Hide the help window when the user clicks outside of it
+            window.addEventListener("click", function(event) {
+                if (event.target == body) {
+                    helpWindow.style.display = "none";
+                }
+            });
+
+            // HELP BUTTON END
         </script>
 
 
@@ -416,95 +508,10 @@
         }
         ?>
 
-        <style>
-            /* Style the help button */
-            #help-button {
-                display: none;
-                cursor: pointer;
-                position: fixed;
-                bottom: 20px;
-                left: 20px;
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                font-size: 16px;
-                border-radius: 5px; 
-                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-            }
-
-            #help-button:hover {
-                background-color: #0062cc;
-                cursor: help;
-            }
-
-            /* Style the help window */
-            #help-window {
-                display: none;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background-color: white;
-                padding: 20px;
-                color: black;
-                border: 1px solid black;
-                border-radius: 5px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                z-index: 1;
-                width: 90%;
-                height: 90%;
-            }
-
-            /* Style the close button */
-            #close-button {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                background-color: transparent;
-                border: none;
-                font-size: 40px;
-                color: black;
-                cursor: pointer;
-                display: none;
-
-            }
-        </style>
-        <!-- Create a help button -->
-        <button id="help-button">Help</button>
-
-        <!-- Create a help window -->
-        <div id="help-window">
-            <button id="close-button">&times;</button>
-            <p>This is the help text.</p>
-        </div>
 
 
 
-        <script>
-            // Get the help button, help window, and close button elements
-            var helpButton = document.getElementById("help-button");
-            var body = document.getElementsByTagName("main-excluding-help-modal")[0];
-            var helpWindow = document.getElementById("help-window");
-            var closeButton = document.getElementById("close-button");
 
-            // Show the help window when the help button is clicked
-            helpButton.addEventListener("click", function() {
-                helpWindow.style.display = "block";
-            });
-
-            // Hide the help window when the user clicks the close button
-            closeButton.addEventListener("click", function() {
-                helpWindow.style.display = "none";
-            });
-
-            // Hide the help window when the user clicks outside of it
-            window.addEventListener("click", function(event) {
-                if (event.target == body) {
-                    helpWindow.style.display = "none";
-                }
-            });
-        </script>
 
     </div>
 </body>
