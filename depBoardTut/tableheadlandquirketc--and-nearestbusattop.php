@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
 
 <head>
     <title>SLGS Bus Tracker - MAIN</title>
@@ -175,7 +175,7 @@
             var countMulpt = 0;
             var refreshDelayCounterSECONDS = 0;
 
-            // a boolean flag, so that after page is opened it wont refresh again.
+            // a boolean flag, so that after page is opened it won't refresh again.
             var isFirstLoad = true;
 
             function fetchData() {
@@ -184,7 +184,7 @@
                 // loading screen showing;
                 if (isFirstLoad) {
                     document.getElementById("loading").style.display = "block";
-                    // document.getElementsById("SLGStxt").style.display = "none"; // hide the welcome title, doesnt work, just always stop the page from loading. 
+                    // document.getElementsById("SLGStxt").style.display = "none"; // hide the welcome title, doesn't work, just always stop the page from loading.
                 }
 
                 xhr.onreadystatechange = function() {
@@ -197,7 +197,7 @@
                         document.getElementById("SLGStxt").style.display = "block";
 
 
-                        // set a boolean flag to false, so that it wont show the loading again
+                        // set a boolean flag to false, so that it won't show the loading again
                         isFirstLoad = false;
 
                         document.getElementById("busData").innerHTML = xhr.responseText;
@@ -214,7 +214,7 @@
                             const timeMatch = timeInfo.match(timeRegex);
 
                             if (timeMatch !== null) {
-                                let timeInMins = parseInt(timeMatch[1]) * 1;
+                                let timeInMins = parseInt(timeMatch[1]);
 
                                 if (timeMatch[2]) {
                                     timeInMins += parseInt(timeMatch[2]);
@@ -285,7 +285,7 @@
             });
         </script>
 
-        </script>
+
 
 
 
@@ -293,7 +293,7 @@
         <?php
         ini_set('display_errors', 1); // print all errors to PHP console
         ini_set('display_startup_errors', 1);
-        ini_set('max_execution_time', 120); //120 seconds = 2 minutes, so no PHP file does not timeout
+        ini_set('max_execution_time', 120); //120 seconds = 2 minutes, so no PHP file does not time out
 
         error_reporting(E_ALL);
 
@@ -454,7 +454,6 @@
                 z-index: 1;
                 width: 90%;
                 height: 90%;
-                color: black;
             }
 
             /* Style the close button */
