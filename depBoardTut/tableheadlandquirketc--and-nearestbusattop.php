@@ -16,8 +16,8 @@
             padding: 0;
         }
 
-        /* Styles for the welcome title */
-        .welcomeTitle {
+        /* Styles for the welcome title NOT USED AS LOGO IS NOW THERE INSTEAD*/
+        /* .welcomeTitle {
             text-align: center;
             background-color: white;
             color: #044c8c;
@@ -28,7 +28,7 @@
             font-size: 24px;
             display: none;
             margin-bottom: 20px;
-        }
+        } */
 
         /* Styles for the bus container */
         .bus-container {
@@ -100,7 +100,23 @@
 
         /* Styles for spinner */
         .spinner {
-            font-size: 50px;
+            font-size: 50px; 
+        }
+
+        .welcomeTitleLogo {
+            max-width: 30%; /* make the logo responsive */
+            display: none; /* hide the logo on page load, and only show it when the api data is returned/loaded. */
+            border-bottom: white solid 1px;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 40px;
+            padding-right: 40px;
+            margin-bottom: 0px;
+            background-color: white;
         }
     </style>
 
@@ -108,6 +124,8 @@
 
 <body>
     <h2 class="welcomeTitle" id="SLGStxt"></h2>
+    <img class ="welcomeTitleLogo" src="SLGSBTLogo.png" alt="SLGS Logo" id="SLGSimg">
+
 
     <h2 class="bus-info" id="nearestBusInfo"></h2>
     <div id="busData"></div>
@@ -126,8 +144,10 @@
         function displayNearestBus(nearestBus) {
             if (nearestBus !== null) {
                 const nearestBusInfo = document.getElementById("nearestBusInfo");
-                const SLGStxt = document.getElementById("SLGStxt");
-                SLGStxt.innerText = `St Luke's Grammar School Bus Tracker`;
+                //const SLGStxt = document.getElementById("SLGStxt"); // commented this line out, as the TEXT is being replaced by the logo
+                const SLGSimg = document.getElementById("SLGSimg");
+                //SLGStxt.innerText = `St Luke's Grammar School Bus Tracker`; // commented this line out, as the TEXT is being replaced by the logo
+                SLGSimg.style.display = "block";
                 nearestBusInfo.innerText = `Nearest Bus: \n ${nearestBus.routeInfo} in ${nearestBus.timeInMins}m`;
                 nearestBusInfo.style.display = "block";
             }
