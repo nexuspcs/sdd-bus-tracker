@@ -120,11 +120,22 @@
             margin-bottom: 0px;
             background-color: white;
         }
+
+        @media only screen and (max-width: 900px) {
+            .welcomeTitleLogo {
+                max-width: 70%;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+                
+     
+        }
     </style>
 
 </head>
 
 <body>
+<div class="main-excluding-help-modal">
     <h2 class="welcomeTitle" id="SLGStxt"></h2>
     <img class="welcomeTitleLogo" src="SLGSBTLogo.png" alt="SLGS Logo" id="SLGSimg">
 
@@ -150,6 +161,10 @@
                 const SLGSimg = document.getElementById("SLGSimg");
                 //SLGStxt.innerText = `St Luke's Grammar School Bus Tracker`; // commented this line out, as the TEXT is being replaced by the logo
                 SLGSimg.style.display = "block";
+                const helpButton = document.getElementById("help-button");
+                helpButton.style.display = "block";
+                const closeButton = document.getElementById("close-button");
+                closeButton.style.display = "block";
                 let correctedRouteInfo = nearestBus.routeInfo.replace('\n', ''); // This will replace the first 'n' character in the string
                 nearestBusInfo.innerText = `Nearest Bus: \n ${correctedRouteInfo} in ${nearestBus.timeInMins}m`;
                 nearestBusInfo.style.display = "block";
@@ -361,7 +376,7 @@
                         $transportation = $stopEvent['transportation'];
                         $routeNumber = preg_replace("/n/", "", $transportation['number'], 1);
                         $destination = preg_replace("/n/", "", $transportation['destination']['name'], 0);
-                        $location = $stopEvent['location'];
+                        $location = $stopEvent['location']; 
 
                         if (isset($stopEvent['departureTimeEstimated'])) { // Determine the estimated or planned departure time
                             $time = strtotime($stopEvent['departureTimeEstimated']);
@@ -409,30 +424,31 @@
             padding: 10px;
             border: none;
             border-radius: 5px;
+            display: none;
             cursor: pointer;
         }
 
         /* Style the help window */
         #help-window {
             display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    color: black;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    width: 90%;
-    height: 90%;
-    color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            color: black;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            width: 90%;
+            height: 90%;
+            color: black;
         }
 
-         /* Style the close button */
-         #close-button {
+        /* Style the close button */
+        #close-button {
             position: absolute;
             top: 5px;
             right: 5px;
@@ -441,6 +457,8 @@
             font-size: 20px;
             color: black;
             cursor: pointer;
+            display: none;
+             
         }
     </style>
     <!-- Create a help button -->
@@ -457,6 +475,7 @@
     <script>
         // Get the help button, help window, and close button elements
         var helpButton = document.getElementById("help-button");
+        var body = document.getElementsByTagName("main-excluding-help-modal")[0];
         var helpWindow = document.getElementById("help-window");
         var closeButton = document.getElementById("close-button");
 
@@ -472,7 +491,7 @@
 
         // Hide the help window when the user clicks outside of it
         window.addEventListener("click", function(event) {
-            if (event.target == helpWindow) {
+            if (event.target == body) {
                 helpWindow.style.display = "none";
             }
         });
@@ -485,7 +504,7 @@
 
 
 
-
+    </div>
 </body>
 
 </html>
