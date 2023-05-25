@@ -459,11 +459,11 @@
             /* Style the close button */
             #close-button {
                 position: absolute;
-                top: 5px;
-                right: 5px;
+                top: 10px;
+                right: 10px;
                 background-color: transparent;
                 border: none;
-                font-size: 20px;
+                font-size: 40px;
                 color: black;
                 cursor: pointer;
                 display: none;
@@ -505,13 +505,6 @@
                 }
             });
         </script>
-
-
-
-
-
-
-
 
     </div>
 </body>
