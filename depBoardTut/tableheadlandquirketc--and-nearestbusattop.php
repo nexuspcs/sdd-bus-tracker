@@ -100,14 +100,16 @@
 
         /* Styles for spinner */
         .spinner {
-            font-size: 50px; 
+            font-size: 50px;
         }
 
         .welcomeTitleLogo {
-            max-width: 30%; /* make the logo responsive */
-            display: none; /* hide the logo on page load, and only show it when the api data is returned/loaded. */
+            max-width: 20%;
+            /* make the logo responsive */
+            display: none;
+            /* hide the logo on page load, and only show it when the api data is returned/loaded. */
             border-bottom: white solid 1px;
-            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
             padding-top: 15px;
             padding-bottom: 15px;
             border-radius: 10px;
@@ -124,7 +126,7 @@
 
 <body>
     <h2 class="welcomeTitle" id="SLGStxt"></h2>
-    <img class ="welcomeTitleLogo" src="SLGSBTLogo.png" alt="SLGS Logo" id="SLGSimg">
+    <img class="welcomeTitleLogo" src="SLGSBTLogo.png" alt="SLGS Logo" id="SLGSimg">
 
 
     <h2 class="bus-info" id="nearestBusInfo"></h2>
@@ -148,9 +150,8 @@
                 const SLGSimg = document.getElementById("SLGSimg");
                 //SLGStxt.innerText = `St Luke's Grammar School Bus Tracker`; // commented this line out, as the TEXT is being replaced by the logo
                 SLGSimg.style.display = "block";
-                let correctedRouteInfo = nearestBus.routeInfo.replace('n', ''); // This will replace the first 'n' character in the string
-nearestBusInfo.innerText = `Nearest Bus: \n ${correctedRouteInfo} in ${nearestBus.timeInMins}m`;
-
+                let correctedRouteInfo = nearestBus.routeInfo.replace('\n', ''); // This will replace the first 'n' character in the string
+                nearestBusInfo.innerText = `Nearest Bus: \n ${correctedRouteInfo} in ${nearestBus.timeInMins}m`;
                 nearestBusInfo.style.display = "block";
             }
         }
@@ -358,8 +359,8 @@ nearestBusInfo.innerText = `Nearest Bus: \n ${correctedRouteInfo} in ${nearestBu
                     foreach ($stopEvents as $stopEvent) { // Iterate through stop events
 
                         $transportation = $stopEvent['transportation'];
-                        $routeNumber = $transportation['number'];
-                        $destination = $transportation['destination']['name'];
+                        $routeNumber = preg_replace("/n/", "", $transportation['number'], 1);
+                        $destination = preg_replace("/n/", "", $transportation['destination']['name'], 0);
                         $location = $stopEvent['location'];
 
                         if (isset($stopEvent['departureTimeEstimated'])) { // Determine the estimated or planned departure time
