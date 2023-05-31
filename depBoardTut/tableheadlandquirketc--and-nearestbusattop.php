@@ -185,6 +185,56 @@
             cursor: pointer;
             display: none;
         }
+
+
+        #live-traffic-cameras-button {
+            display: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #live-traffic-cameras-button:hover {
+            background-color: #0062cc;
+            cursor: help;
+        }
+
+        #live-traffic-cameras-window {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            color: black;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            width: 90%;
+            height: 90%;
+        }
+
+        #liveTrafficCamerasCloseButton { 
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 40px;
+            color: black;
+            cursor: pointer;
+            display: none;
+        }
     </style>
 </head>
 
@@ -205,6 +255,7 @@
         </div>
         <!-- Create a help button -->
         <button id="help-button">Help</button>
+        <button id="live-traffic-cameras-button">Live Traffic Cameras</button>
 
         <!-- Create a help window -->
         <div id="help-window">
@@ -212,6 +263,10 @@
             <p>This is the help text.</p>
         </div>
 
+        <div id="live-traffic-cameras-window">
+            <button id="liveTrafficCamerasCloseButton">&times;</button>
+            <p>live traffic cameras.</p>
+        </div>
 
 
 
@@ -232,9 +287,14 @@
                     //SLGStxt.innerText = `St Luke's Grammar School Bus Tracker`; // commented this line out, as the TEXT is being replaced by the logo
                     SLGSimg.style.display = "block";
                     const helpButton = document.getElementById("help-button");
+                    const liveTrafficCamerasButton = document.getElementById("live-traffic-cameras-button");
                     helpButton.style.display = "block";
+                    liveTrafficCamerasButton.style.display = "block";
                     const closeButton = document.getElementById("close-button");
                     closeButton.style.display = "block";
+
+                    const liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
+                    liveTrafficCamerasCloseButton.style.display = "block";
                     let correctedRouteInfo = nearestBus.routeInfo.replace('\n', ''); // This will replace the first 'n' character in the string
                     nearestBusInfo.innerText = `Nearest Bus: \n ${correctedRouteInfo} in ${nearestBus.timeInMins}m`;
                     nearestBusInfo.style.display = "block";
@@ -378,8 +438,40 @@
                     helpWindow.style.display = "none";
                 }
             });
-
+            
             // HELP BUTTON END
+
+            // LIVE TRAFFIC CAMERAS BEGIN
+            // live traffic camera
+            var trafficCameraButton = document.getElementById("live-traffic-cameras-button");
+            var trafficCameraWindow = document.getElementById("live-traffic-cameras-window");
+            var liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
+
+            // Show the live traffic cameras window when the help button is clicked
+            trafficCameraButton.addEventListener("click", function() {
+                trafficCameraWindow.style.display = "block";
+            });
+
+            // Hide the live traffic cameras window when the user clicks the close button
+            closeButton.addEventListener("click", function() {
+                trafficCameraWindow.style.display = "none";
+            });
+
+            // Hide the help window when the user clicks outside of it
+            window.addEventListener("click", function(event) {
+                if (event.target == body) {
+                    trafficCameraWindow.style.display = "none";
+                }
+            });
+
+            // close button
+            liveTrafficCamerasCloseButton.addEventListener("click", function() {
+    trafficCameraWindow.style.display = "none";
+});
+
+            // LIVE TRAFFIC CAMERAS END 
+                        
+
         </script>
 
 
@@ -448,7 +540,7 @@
                 $params['itdDate'] = date('Ymd', $when);
                 $params['itdTime'] = date('Hi', $when);
                 $url = $apiEndpoint . $apiCall . '?' . http_build_query($params);
-
+                
                 $attempt = 0;
                 $success = false;
                 $nearestBus = null;
