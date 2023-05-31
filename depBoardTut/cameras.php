@@ -2,19 +2,85 @@
 <html>
 <head>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
         table {
             border-collapse: collapse;
             width: 100%;
         }
         th, td {
             border: 1px solid black;
-            padding: 8px;
+            padding: 4px;
+            
             text-align: left;
         }
         img {
-            max-width: 200px;
-            max-height: 150px;
+            max-width: 400px;
+            max-height: 400px;
         }
+        th {
+            background-color: #044c8c;
+            color: white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+        }
+        form {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 300px;
+        max-width: 100%;
+    }
+
+    input[type="submit"] {
+        padding: 8px 20px;
+        background-color: #044c8c;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #033e76;
+    }
+
+
+    ::-webkit-scrollbar {
+        width: 8px; /* Set the width of the scrollbar */
+        right: 10px; /* Move the scrollbar further to the right */
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #f1f1f1; /* Set the background color of the scrollbar track */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #888; /* Set the color of the scrollbar thumb */
+        border-radius: 4px; /* Round the corners of the scrollbar thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555; /* Set the color of the scrollbar thumb on hover */
+    }
+
+    td.view {
+        max-width: 40%; /* Adjust the maximum width as needed */
+    word-wrap: break-word;
+    }
     </style>
 </head>
 <body>
@@ -64,7 +130,7 @@
                 if (stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false) {
                     echo "<tr>
                             <td>$title</td>
-                            <td>$view</td>
+                            <td class='view'>$view</td>
                             <td>$direction</td>
                             <td><img src='$image' alt='$title'></td>
                         </tr>";
