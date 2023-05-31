@@ -1,118 +1,133 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
         }
+
         table {
             border-collapse: collapse;
             width: 100%;
             font-size: 20px;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid black;
             padding: 4px;
-            
-         
+
+
         }
+
         img {
             max-width: 400px;
             max-height: 400px;
             padding: 5px;
         }
-        
+
         th {
             background-color: #044c8c;
             text-align: center;
             color: white;
             padding-top: 10px;
             padding-bottom: 10px;
-          
+
             padding-left: 5px;
         }
+
         form {
-        margin-bottom: 20px;
-    }
+            margin-bottom: 20px;
+        }
 
-    label {
-        display: block;
-        margin-bottom: 7px;
-        font-size: 25px;
-        font-weight: bold;
-    }
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 25px;
+            font-weight: bold;
+        }
 
-    input[type="text"] {
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 300px;
-        max-width: 100%;
-    }
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+            max-width: 100%;
+        }
 
-    input[type="submit"] {
-        padding: 8px 20px;
-        background-color: #044c8c;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 12px;
-        font-weight: bold;
-    }
+        input[type="submit"] {
+            padding: 8px 20px;
+            background-color: #044c8c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
 
-    input[type="submit"]:hover {
-        background-color: #033e76;
-    }
+        input[type="submit"]:hover {
+            background-color: #033e76;
+        }
 
 
-    ::-webkit-scrollbar {
-        width: 8px; /* Set the width of the scrollbar */
-        right: 10px; /* Move the scrollbar further to the right */
-    }
+        ::-webkit-scrollbar {
+            width: 8px;
+            /* Set the width of the scrollbar */
+            right: 10px;
+            /* Move the scrollbar further to the right */
+        }
 
-    ::-webkit-scrollbar-track {
-        background-color: #f1f1f1; /* Set the background color of the scrollbar track */
-    }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+            /* Set the background color of the scrollbar track */
+        }
 
-    ::-webkit-scrollbar-thumb {
-        background-color: #888; /* Set the color of the scrollbar thumb */
-        border-radius: 4px; /* Round the corners of the scrollbar thumb */
-    }
+        ::-webkit-scrollbar-thumb {
+            background-color: #888;
+            /* Set the color of the scrollbar thumb */
+            border-radius: 4px;
+            /* Round the corners of the scrollbar thumb */
+        }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: #555; /* Set the color of the scrollbar thumb on hover */
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+            /* Set the color of the scrollbar thumb on hover */
+        }
 
-    td.view {
-        max-width: 40%; /* Adjust the maximum width as needed */
-    word-wrap: break-word;
-    }
-    th.direction {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
+        td.view {
+            max-width: 40%;
+            /* Adjust the maximum width as needed */
+            word-wrap: break-word;
+        }
+
+        th.direction {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
     </style>
 </head>
+
 <body>
     <?php
     $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-    
+
     $url = 'https://api.transport.nsw.gov.au/v1/live/cameras';
     $headers = array(
         'Accept: application/json',
         'Authorization: apikey 3kmgfklveanp939zhNzrpZ4yxJ3obVPkuBjx'
     );
-    
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    
+
     $response = curl_exec($ch);
     curl_close($ch);
-    
+
     $data = json_decode($response, true);
     ?>
 
@@ -141,12 +156,12 @@
                 // Search both Title and View for the given search term
                 if (stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false) :
             ?>
-            <tr>
-                <td><?php echo htmlspecialchars($title); ?></td>
-                <td class="view"><?php echo htmlspecialchars($view); ?></td>
-                <td><?php echo htmlspecialchars($direction); ?></td>
-                <td><a href="<?php echo htmlspecialchars($image); ?>" target="_blank"><img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($title); ?>"></a></td>
-            </tr>
+                    <tr>
+                        <td><?php echo htmlspecialchars($title); ?></td>
+                        <td class="view"><?php echo htmlspecialchars($view); ?></td>
+                        <td><?php echo htmlspecialchars($direction); ?></td>
+                        <td><a href="<?php echo htmlspecialchars($image); ?>" target="_blank"><img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($title); ?>"></a></td>
+                    </tr>
             <?php
                 endif;
             endforeach;
@@ -154,4 +169,5 @@
         </tbody>
     </table>
 </body>
+
 </html>
