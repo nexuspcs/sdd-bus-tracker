@@ -443,57 +443,34 @@
             // HELP BUTTON END
 
             // LIVE TRAFFIC CAMERAS BEGIN
-            // live traffic camera
-            var trafficCameraButton = document.getElementById("live-traffic-cameras-button");
-            var trafficCameraWindow = document.getElementById("live-traffic-cameras-window");
-            var liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
+// Get the live traffic cameras button, window, and close button elements
+var trafficCameraButton = document.getElementById("live-traffic-cameras-button");
+var trafficCameraWindow = document.getElementById("live-traffic-cameras-window");
+var liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
 
-            // Show the live traffic cameras window when the help button is clicked
-            trafficCameraButton.addEventListener("click", function() {
-                trafficCameraWindow.style.display = "block";
-            });
-
-            // Hide the live traffic cameras window when the user clicks the close button
-            closeButton.addEventListener("click", function() {
-                trafficCameraWindow.style.display = "none";
-            });
-
-            // Hide the help window when the user clicks outside of it
-            window.addEventListener("click", function(event) {
-                if (event.target == body) {
-                    trafficCameraWindow.style.display = "none";
-                }
-            });
-
-            // close button
-            liveTrafficCamerasCloseButton.addEventListener("click", function() {
-    trafficCameraWindow.style.display = "none";
+// Show the live traffic cameras window when the live traffic cameras button is clicked
+trafficCameraButton.addEventListener("click", function() {
+    trafficCameraWindow.style.display = "block";
+    // Load the PHP file in the live traffic cameras window using an iframe
+    var iframe = document.createElement("iframe");
+    iframe.src = "cameras.php"; // Replace "your-php-file.php" with the path to your PHP file
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "none";
+    trafficCameraWindow.appendChild(iframe);
 });
 
-            // LIVE TRAFFIC CAMERAS END 
-                      //ATTEMPTING TO ADD CAMERA PHP FILE TO THE MOADAL OF THE LIVE TRAFFIC CAMERAS
-// Fetch the PHP file and update the content of the live-traffic-cameras-window div
-window.addEventListener("DOMContentLoaded", function() {
-        var liveTrafficCamerasWindow = document.getElementById("live-traffic-cameras-window");
-        // Create an XMLHttpRequest object
-        var xhr = new XMLHttpRequest();
-        // Configure the request
-        xhr.open("GET", "cameras.php", true);
-        // Set the response type to text
-        xhr.responseType = "text";
-        // Set up a callback function to handle the response
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                // Update the content of the live-traffic-cameras-window div with the PHP file's output
-                liveTrafficCamerasWindow.innerHTML = xhr.response;
-            } else {
-                // Handle the error case
-                liveTrafficCamerasWindow.innerHTML = "Error loading live traffic cameras PHP FILE (error code; 404)";
-            }
-        };
-        // Send the request
-        xhr.send();
-    });  
+// Hide the live traffic cameras window when the user clicks the close button
+liveTrafficCamerasCloseButton.addEventListener("click", function() {
+    trafficCameraWindow.style.display = "none";
+    // Remove the iframe when closing the window
+    var iframe = trafficCameraWindow.querySelector("iframe");
+    if (iframe) {
+        iframe.remove();
+    }
+});
+// LIVE TRAFFIC CAMERAS END
+
 
             
         </script>
