@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>API Data</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        img {
+            max-width: 200px;
+            max-height: 150px;
+        }
+    </style>
 </head>
 <body>
-    <h1>API Data</h1>
+    
+    <form method="GET">
+        <label for="search">Search Title or View: </label>
+        <input type="text" name="search" id="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+        <input type="submit" value="Search">
+    </form>
+
     <table>
         <thead>
             <tr>
@@ -32,18 +52,23 @@
 
             $data = json_decode($response, true);
 
+            $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+
             foreach ($data['features'] as $feature) {
                 $title = $feature['properties']['title'];
                 $view = $feature['properties']['view'];
                 $direction = $feature['properties']['direction'];
                 $image = $feature['properties']['href'];
 
-                echo "<tr>
-                        <td>$title</td>
-                        <td>$view</td>
-                        <td>$direction</td>
-                        <td><img src='$image' alt='$title' style='width: 200px;'></td>
-                    </tr>";
+                // Search both Title and View for the given search term
+                if (stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false) {
+                    echo "<tr>
+                            <td>$title</td>
+                            <td>$view</td>
+                            <td>$direction</td>
+                            <td><img src='$image' alt='$title'></td>
+                        </tr>";
+                }
             }
             ?>
         </tbody>
