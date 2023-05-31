@@ -266,6 +266,7 @@
         <div id="live-traffic-cameras-window">
             <button id="liveTrafficCamerasCloseButton">&times;</button>
             <p>live traffic cameras.</p>
+
         </div>
 
 
@@ -472,34 +473,7 @@
             // LIVE TRAFFIC CAMERAS END 
                         
 
-            ///ATTEMPTING TO ADD CAMERA PHP FILE TO THE MOADAL OF THE LIVE TRAFFIC CAMERAS
-// // Fetch the PHP file and update the content of the live-traffic-cameras-window div
-// window.addEventListener("DOMContentLoaded", function() {
-//         var liveTrafficCamerasWindow = document.getElementById("live-traffic-cameras-window");
-
-//         // Create an XMLHttpRequest object
-//         var xhr = new XMLHttpRequest();
-
-//         // Configure the request
-//         xhr.open("GET", "cameras.php", true);
-
-//         // Set the response type to text
-//         xhr.responseType = "text";
-
-//         // Set up a callback function to handle the response
-//         xhr.onload = function() {
-//             if (xhr.status === 200) {
-//                 // Update the content of the live-traffic-cameras-window div with the PHP file's output
-//                 liveTrafficCamerasWindow.innerHTML = xhr.response;
-//             } else {
-//                 // Handle the error case
-//                 liveTrafficCamerasWindow.innerHTML = "Error loading live traffic cameras PHP FILE (error code; 404)";
-//             }
-//         };
-
-//         // Send the request
-//         xhr.send();
-//     });
+            
         </script>
 
 
