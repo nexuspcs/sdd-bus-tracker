@@ -22,6 +22,7 @@
             max-height: 400px;
             padding: 5px;
         }
+        
         th {
             background-color: #044c8c;
             text-align: center;
