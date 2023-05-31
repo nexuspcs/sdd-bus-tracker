@@ -170,6 +170,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             z-index: 1;
             width: 90%;
+            overflow: hidden; /* Hide any content that goes beyond the boundaries */
             height: 90%;
         }
 
@@ -222,6 +223,8 @@
             z-index: 1;
             width: 90%;
             height: 90%;
+            overflow: hidden; /* Hide any content that goes beyond the boundaries */
+
         }
 
         #liveTrafficCamerasCloseButton { 
@@ -265,7 +268,7 @@
 
         <div id="live-traffic-cameras-window">
             <button id="liveTrafficCamerasCloseButton">&times;</button>
-            <p>live traffic cameras.</p>
+            
 
         </div>
 
