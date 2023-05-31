@@ -95,10 +95,29 @@
     </style>
 </head>
 <body>
+    <?php
+    $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
     
+    $url = 'https://api.transport.nsw.gov.au/v1/live/cameras';
+    $headers = array(
+        'Accept: application/json',
+        'Authorization: apikey 3kmgfklveanp939zhNzrpZ4yxJ3obVPkuBjx'
+    );
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+    $response = curl_exec($ch);
+    curl_close($ch);
+    
+    $data = json_decode($response, true);
+    ?>
+
     <form method="GET">
         <label for="search">Search live traffic cameras</label>
-        <input type="text" name="search" id="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+        <input type="text" name="search" id="search" value="<?php echo htmlspecialchars($searchTerm); ?>">
         <input type="submit" value="Search">
     </form>
 
@@ -107,46 +126,29 @@
             <tr>
                 <th>Title</th>
                 <th>View</th>
-                <th class="direction">Direction</th>
+                <th>Direction</th>
                 <th>Image</th>
             </tr>
         </thead>
         <tbody>
-            <?php
-            $url = 'https://api.transport.nsw.gov.au/v1/live/cameras';
-            $headers = array(
-                'Accept: application/json',
-                'Authorization: apikey 3kmgfklveanp939zhNzrpZ4yxJ3obVPkuBjx'
-            );
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-            $response = curl_exec($ch);
-            curl_close($ch);
-
-            $data = json_decode($response, true);
-
-            $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-
-            foreach ($data['features'] as $feature) {
+            <?php foreach ($data['features'] as $feature) :
                 $title = $feature['properties']['title'];
                 $view = $feature['properties']['view'];
                 $direction = $feature['properties']['direction'];
                 $image = $feature['properties']['href'];
 
                 // Search both Title and View for the given search term
-                if (stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false) {
-                    echo "<tr>
-                            <td>$title</td>
-                            <td class='view'>$view</td>
-                            <td>$direction</td>
-                            <td><img src='$image' alt='$title'></td>
-                        </tr>";
-                }
-            }
+                if (stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false) :
+            ?>
+            <tr>
+                <td><?php echo htmlspecialchars($title); ?></td>
+                <td class="view"><?php echo htmlspecialchars($view); ?></td>
+                <td><?php echo htmlspecialchars($direction); ?></td>
+                <td><a href="<?php echo htmlspecialchars($image); ?>" target="_blank"><img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($title); ?>"></a></td>
+            </tr>
+            <?php
+                endif;
+            endforeach;
             ?>
         </tbody>
     </table>
