@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB">
+
 <head>
     <title>St Luke's Grammar School Bus Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -170,7 +171,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             z-index: 1;
             width: 90%;
-            overflow: hidden; /* Hide any content that goes beyond the boundaries */
+            overflow: hidden;
+            /* Hide any content that goes beyond the boundaries */
             height: 90%;
         }
 
@@ -223,11 +225,12 @@
             z-index: 1;
             width: 90%;
             height: 90%;
-            overflow: hidden; /* Hide any content that goes beyond the boundaries */
+            overflow: hidden;
+            /* Hide any content that goes beyond the boundaries */
 
         }
 
-        #liveTrafficCamerasCloseButton { 
+        #liveTrafficCamerasCloseButton {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -268,7 +271,7 @@
 
         <div id="live-traffic-cameras-window">
             <button id="liveTrafficCamerasCloseButton">&times;</button>
-            
+
 
         </div>
 
@@ -442,40 +445,37 @@
                     helpWindow.style.display = "none";
                 }
             });
-            
+
             // HELP BUTTON END
 
             // LIVE TRAFFIC CAMERAS BEGIN
-// Get the live traffic cameras button, window, and close button elements
-var trafficCameraButton = document.getElementById("live-traffic-cameras-button");
-var trafficCameraWindow = document.getElementById("live-traffic-cameras-window");
-var liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
+            // Get the live traffic cameras button, window, and close button elements
+            var trafficCameraButton = document.getElementById("live-traffic-cameras-button");
+            var trafficCameraWindow = document.getElementById("live-traffic-cameras-window");
+            var liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
 
-// Show the live traffic cameras window when the live traffic cameras button is clicked
-trafficCameraButton.addEventListener("click", function() {
-    trafficCameraWindow.style.display = "block";
-    // Load the PHP file in the live traffic cameras window using an iframe
-    var iframe = document.createElement("iframe");
-    iframe.src = "cameras.php"; // Replace "your-php-file.php" with the path to your PHP file
-    iframe.style.width = "100%";
-    iframe.style.height = "100%";
-    iframe.style.border = "none";
-    trafficCameraWindow.appendChild(iframe);
-});
+            // Show the live traffic cameras window when the live traffic cameras button is clicked
+            trafficCameraButton.addEventListener("click", function() {
+                trafficCameraWindow.style.display = "block";
+                // Load the PHP file in the live traffic cameras window using an iframe
+                var iframe = document.createElement("iframe");
+                iframe.src = "cameras.php"; // Replace "your-php-file.php" with the path to your PHP file
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.style.border = "none";
+                trafficCameraWindow.appendChild(iframe);
+            });
 
-// Hide the live traffic cameras window when the user clicks the close button
-liveTrafficCamerasCloseButton.addEventListener("click", function() {
-    trafficCameraWindow.style.display = "none";
-    // Remove the iframe when closing the window
-    var iframe = trafficCameraWindow.querySelector("iframe");
-    if (iframe) {
-        iframe.remove();
-    }
-});
-// LIVE TRAFFIC CAMERAS END
-
-
-            
+            // Hide the live traffic cameras window when the user clicks the close button
+            liveTrafficCamerasCloseButton.addEventListener("click", function() {
+                trafficCameraWindow.style.display = "none";
+                // Remove the iframe when closing the window
+                var iframe = trafficCameraWindow.querySelector("iframe");
+                if (iframe) {
+                    iframe.remove();
+                }
+            });
+            // LIVE TRAFFIC CAMERAS END
         </script>
 
 
@@ -544,7 +544,7 @@ liveTrafficCamerasCloseButton.addEventListener("click", function() {
                 $params['itdDate'] = date('Ymd', $when);
                 $params['itdTime'] = date('Hi', $when);
                 $url = $apiEndpoint . $apiCall . '?' . http_build_query($params);
-                
+
                 $attempt = 0;
                 $success = false;
                 $nearestBus = null;
@@ -564,7 +564,7 @@ liveTrafficCamerasCloseButton.addEventListener("click", function() {
                         echo "<tbody>";
 
 
-                        
+
                         // This code iterates through all stop events in the array and displays the route number, destination, and departure time. If the departure time is estimated, it displays the estimated departure time; otherwise, it displays the planned departure time.
 
                         foreach ($stopEvents as $stopEvent) { // Iterate through stop events
