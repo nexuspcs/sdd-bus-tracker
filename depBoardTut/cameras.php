@@ -3,27 +3,32 @@
 <head>
     <style>
         body {
+            text-align: center;
             font-family: Arial, sans-serif;
         }
         table {
             border-collapse: collapse;
             width: 100%;
+            font-size: 20px;
         }
         th, td {
             border: 1px solid black;
             padding: 4px;
             
-            text-align: left;
+         
         }
         img {
             max-width: 400px;
             max-height: 400px;
+            padding: 5px;
         }
         th {
             background-color: #044c8c;
+            text-align: center;
             color: white;
             padding-top: 10px;
             padding-bottom: 10px;
+          
             padding-left: 5px;
         }
         form {
@@ -32,7 +37,8 @@
 
     label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 7px;
+        font-size: 25px;
         font-weight: bold;
     }
 
@@ -51,6 +57,7 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        font-size: 12px;
         font-weight: bold;
     }
 
@@ -81,6 +88,10 @@
         max-width: 40%; /* Adjust the maximum width as needed */
     word-wrap: break-word;
     }
+    th.direction {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
     </style>
 </head>
 <body>
@@ -96,7 +107,7 @@
             <tr>
                 <th>Title</th>
                 <th>View</th>
-                <th>Direction</th>
+                <th class="direction">Direction</th>
                 <th>Image</th>
             </tr>
         </thead>
