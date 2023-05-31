@@ -20,7 +20,7 @@
 <body>
     
     <form method="GET">
-        <label for="search">Search Title or View: </label>
+        <label for="search">Search live traffic cameras</label>
         <input type="text" name="search" id="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
         <input type="submit" value="Search">
     </form>
