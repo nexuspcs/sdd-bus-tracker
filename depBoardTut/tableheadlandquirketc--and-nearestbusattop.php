@@ -205,7 +205,7 @@
 
         #live-traffic-cameras-button:hover {
             background-color: #0062cc;
-            cursor: help;
+            cursor: pointer;
         }
 
         #live-traffic-cameras-window {
