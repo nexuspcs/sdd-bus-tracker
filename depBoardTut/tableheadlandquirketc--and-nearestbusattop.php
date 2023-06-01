@@ -459,7 +459,7 @@
                 trafficCameraWindow.style.display = "block";
                 // Load the PHP file in the live traffic cameras window using an iframe
                 var iframe = document.createElement("iframe");
-                iframe.src = "cameras.php"; // Replace "your-php-file.php" with the path to your PHP file
+                iframe.src = "cameras.php?search=Dee+Why"; // Replace "your-php-file.php" with the path to your PHP file
                 iframe.style.width = "100%";
                 iframe.style.height = "100%";
                 iframe.style.border = "none";
