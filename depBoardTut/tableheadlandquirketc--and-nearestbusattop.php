@@ -259,14 +259,16 @@
                 <span class="spinner">&#128260;</span>
             </div>
         </div>
-        <!-- Create a help button -->
+        <!-- Create the help button -->
         <button id="help-button">Help</button>
+
+        <!-- creating the live traffic camera button -->
         <button id="live-traffic-cameras-button">Live Traffic Cameras</button>
 
         <!-- Create a help window -->
         <div id="help-window">
             <button id="close-button">&times;</button>
-            <p>This is the help text.</p>
+            <p>*add user manual link, and FAQs?*</p>
         </div>
 
         <div id="live-traffic-cameras-window">
