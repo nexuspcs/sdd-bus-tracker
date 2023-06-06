@@ -259,6 +259,7 @@
                 <span class="spinner">&#128260;</span>
             </div>
         </div>
+
         <!-- Create the help button -->
         <button id="help-button">Help</button>
 
@@ -271,10 +272,9 @@
             <p>*add user manual link, and FAQs?*</p>
         </div>
 
+         <!-- Create the live traffic camera window -->
         <div id="live-traffic-cameras-window">
             <button id="liveTrafficCamerasCloseButton">&times;</button>
-
-
         </div>
 
 
@@ -310,7 +310,7 @@
                 }
             }
 
-            const refreshDelay = 5000; // Refreshes and pulls new data from API every x milliseconds
+            const refreshDelay = 5000; // Refreshes and pulls new data from API every x milliseconds (using 5000ms, 5sec, as that is optimal for speedy requests, and to not be rate limited )
             var countMulpt = 0;
             var refreshDelayCounterSECONDS = 0;
 
