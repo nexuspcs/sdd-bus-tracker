@@ -241,6 +241,16 @@
             cursor: pointer;
             display: none;
         }
+
+        .creativeCOMMONS {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+        }
     </style>
 </head>
 
@@ -269,10 +279,17 @@
         <!-- Create a help window -->
         <div id="help-window">
             <button id="close-button">&times;</button>
-            <p>*add user manual link, and FAQs?*</p>
+            <p>*add user manual link, and FAQs?*
+
+
+                <br><br>
+            <div class="creativeCOMMONS">
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+            </div>
+            </p>
         </div>
 
-         <!-- Create the live traffic camera window -->
+        <!-- Create the live traffic camera window -->
         <div id="live-traffic-cameras-window">
             <button id="liveTrafficCamerasCloseButton">&times;</button>
         </div>
