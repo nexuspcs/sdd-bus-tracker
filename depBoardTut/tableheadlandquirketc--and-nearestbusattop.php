@@ -430,12 +430,12 @@
                         if (busCardsHTML === "") {
                             busCardsHTML = `<div class="bus-card">
                         <div class="route-number">No Data Available</div>
-                        <div class="bus-destination">No buses are reporting locational data. Please use the 'Help' button on this page to contact site operator for assistance.</div>
+                        <div class="bus-destination">No buses are reporting locational data. Please use the 'Help' button on this page to contact a site operator for assistance.</div>
                     </div>`;
                             // Get the logo element and set its display property to "block"
                             const SLGSimg = document.getElementById("SLGSimg");
                             SLGSimg.style.display = "block";
-                            console.warn("No bus locational data is available, check your internet connection, or try again later. Use the 'Help' button to contact site operator for assistance.");
+                            console.warn("No bus locational data is available, check your internet connection, or try again later. Use the 'Help' button to contact a site operator for assistance.");
 
                         }
                         busData.innerHTML = `<div class="bus-container">${busCardsHTML}</div>`;
