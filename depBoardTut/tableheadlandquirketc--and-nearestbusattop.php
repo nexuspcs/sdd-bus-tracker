@@ -258,8 +258,8 @@
 
 <body>
     <div class="main-excluding-help-modal">
-        <h2 class="welcomeTitle" id="SLGStxt"></h2>
-        <img class="welcomeTitleLogo" src="SLGSBTLogo.png" alt="SLGS Logo" id="SLGSimg">
+        <h2 class="welcomeTitle" id="SLGStxt"></h2><a href="">
+        <img class="welcomeTitleLogo" src="SLGSBTLogo.png" alt="SLGS Logo" id="SLGSimg"></a>
 
 
         <h2 class="bus-info" id="nearestBusInfo"></h2>
@@ -281,7 +281,7 @@
             <button id="close-button">&times;</button>
             <p>
                 <a href="user_manual.pdf">User Manual</a> |
-                <a href="faqs.html">FAQs</a>
+                <a href="faqs/">FAQs</a>
             </p>
             <p>Site operators:</p>
             <ul>
