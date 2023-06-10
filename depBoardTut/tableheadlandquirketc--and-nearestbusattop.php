@@ -279,14 +279,31 @@
         <!-- Create a help window -->
         <div id="help-window">
             <button id="close-button">&times;</button>
-            <p>*add user manual link, and FAQs?*
-
-
-                <br><br>
-            <div class="creativeCOMMONS">
-                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
-            </div>
+            <p>
+                <a href="user_manual.pdf">User Manual</a> |
+                <a href="faqs.html">FAQs</a>
             </p>
+            <p>Site operators:</p>
+            <ul>
+                <li>
+                    <p>James Coates <a href="mailto:jamesac2024@student.stlukes.nsw.edu.au">email</a></p>
+                </li>
+                <li>
+                    <p>Aleks Coric <a href="mailto:alexsandarc2024@student.stlukes.nsw.edu.au">email</a></p>
+                </li>
+            </ul>
+
+            <br><br>
+            <div class="creativeCOMMONS">
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+                    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" />
+                </a><br />
+                This work is licensed under a
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+                    Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+                </a>.
+            </div>
+
         </div>
 
         <!-- Create the live traffic camera window -->
@@ -324,6 +341,17 @@
                     let correctedRouteInfo = nearestBus.routeInfo.replace('\n', ''); // This will replace the first 'n' character in the string
                     nearestBusInfo.innerText = `Nearest Bus: \n ${correctedRouteInfo} in ${nearestBus.timeInMins}m`;
                     nearestBusInfo.style.display = "block";
+                }
+                if (nearestBus === null) {
+                    const helpButton = document.getElementById("help-button");
+                    const liveTrafficCamerasButton = document.getElementById("live-traffic-cameras-button");
+                    const closeButton = document.getElementById("close-button");
+                    const liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
+                    helpButton.style.display = "block";
+                    liveTrafficCamerasButton.style.display = "block";
+                    closeButton.style.display = "block";
+                    liveTrafficCamerasCloseButton.style.display = "block";
+
                 }
             }
 
@@ -402,7 +430,7 @@
                         if (busCardsHTML === "") {
                             busCardsHTML = `<div class="bus-card">
                         <div class="route-number">No Data Available</div>
-                        <div class="bus-destination">No buses are reporting locational data</div>
+                        <div class="bus-destination">No buses are reporting locational data. Please use the 'Help' button on this page to contact site operator for assistance.</div>
                     </div>`;
                             // Get the logo element and set its display property to "block"
                             const SLGSimg = document.getElementById("SLGSimg");
