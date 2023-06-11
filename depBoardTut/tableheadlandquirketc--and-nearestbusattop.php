@@ -14,6 +14,7 @@
             color: white;
             padding: 0;
         }
+
         /* Styles for the bus container */
         .bus-container {
             display: flex;
