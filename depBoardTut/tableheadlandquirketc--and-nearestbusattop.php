@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
         /* CSS Styles */
-
         /* Styles for the body */
         body {
             font-family: Arial, sans-serif;
@@ -15,21 +14,6 @@
             color: white;
             padding: 0;
         }
-
-        /* Styles for the welcome title NOT USED AS LOGO IS NOW THERE INSTEAD*/
-        /* .welcomeTitle {
-            text-align: center;
-            background-color: white;
-            color: #044c8c;
-            align-items: center;
-            padding: 20px;
-            margin-left: 20%;
-            margin-right: 20%;
-            font-size: 24px;
-            display: none;
-            margin-bottom: 20px;
-        } */
-
         /* Styles for the bus container */
         .bus-container {
             display: flex;
@@ -251,6 +235,31 @@
             text-align: center;
             position: fixed;
         }
+
+        .loader {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #EDBB48;
+            /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
@@ -268,32 +277,6 @@
             <div>SLGS Bus Tracker - Loading bus location data<br>
                 <!-- <span class="spinner">&#128260;</span> -->
                 <div class="loader"></div>
-                <style>
-                    .loader {
-                        margin-top: 30px;
-                        margin-left: auto;
-                        margin-right: auto;
-
-                        border: 16px solid #f3f3f3;
-                        /* Light grey */
-                        border-top: 16px solid #EDBB48;
-                        /* Blue */
-                        border-radius: 50%;
-                        width: 120px;
-                        height: 120px;
-                        animation: spin 2s linear infinite;
-                    }
-
-                    @keyframes spin {
-                        0% {
-                            transform: rotate(0deg);
-                        }
-
-                        100% {
-                            transform: rotate(360deg);
-                        }
-                    }
-                </style>
 
             </div>
         </div>
@@ -577,7 +560,7 @@
             echo '<p class="currentDateTime">' . date('g:i a, l, d/m/Y') . '</p>';  //outputs 12hr AM/PM time
 
 
-            echo '<h2 class="bus-info">Nearest Bus: ' . '<br>' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
+            // echo '<h2 class="bus-info">Nearest Bus: ' . '<br>' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
 
 
             error_reporting(E_ALL);
