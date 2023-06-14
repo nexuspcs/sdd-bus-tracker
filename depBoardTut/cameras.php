@@ -107,7 +107,23 @@
             padding-left: 12px;
             padding-right: 12px;
         }
+        input[type="reset"] {
+            padding: 8px 20px;
+            background-color: #044c8c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #b52731;
+        }
+
     </style>
+    
 </head>
 
 <body>
@@ -116,6 +132,8 @@
         <label for="search">Search live traffic cameras</label>
         <input type="text" name="search" id="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
         <input type="submit" value="Search">
+        
+    </select>
     </form>
 
     <table>
@@ -146,6 +164,9 @@
             $data = json_decode($response, true);
 
             $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+             
+
+
 
             foreach ($data['features'] as $feature) {
                 $title = $feature['properties']['title'];
@@ -154,7 +175,10 @@
                 $image = $feature['properties']['href'];
 
                 // Search both Title and View for the given search term
-                if (stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false) {
+                if (
+                    (stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false)
+                ) {
+                
                     echo "<tr>
                             <td>$title</td>
                             <td class='view'>$view</td>
