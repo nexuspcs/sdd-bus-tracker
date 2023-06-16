@@ -3,7 +3,7 @@
 //  GonativeIO
 //
 //  Created by Hunaid Hassan on 14.06.21.
-//  Copyright © 2021 GoNative.io LLC. All rights reserved.
+//  Copyright © 2021 St. Luke's Grammar School Bus Tracker. All rights reserved.
 //
 
 import Foundation

@@ -3,7 +3,7 @@
 //  GoNativeIOS
 //
 //  Created by Weiyin He on 7/1/16.
-//  Copyright © 2016 GoNative.io LLC. All rights reserved.
+//  Copyright © 2016 St. Luke's Grammar School Bus Tracker. All rights reserved.
 //
 
 import UIKit

@@ -3,7 +3,7 @@
 //  LeanIOS
 //
 //  Created by Weiyin He on 2/10/14.
-// Copyright (c) 2014 GoNative.io LLC. All rights reserved.
+// Copyright (c) 2014 St. Luke's Grammar School Bus Tracker. All rights reserved.
 //
 
 #import <WebKit/WebKit.h>
