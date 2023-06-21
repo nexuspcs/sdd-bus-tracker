@@ -15,7 +15,7 @@
 
 <body>
          <h2 class="welcomeTitle" id="SLGStxt"></h2><a href="">
-            <img class="welcomeTitleLogo" src="SLGSBTLogo.png" alt="SLGS Logo" id="SLGSimg"></a>
+            <img class="welcomeTitleLogo" src="/images:resources/SLGSBTLogo.png" alt="SLGS Logo" id="SLGSimg"></a>
         <h2 class="bus-info" id="nearestBusInfo"></h2>
         <div id="busData"></div>
         <div id="loading">
