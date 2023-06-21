@@ -3,6 +3,7 @@
 
 <head>
     <title>St Luke's Grammar School Bus Tracker</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ths7ysh.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
         /* CSS Styles */
@@ -13,7 +14,11 @@
             background-color: #044c8c;
             color: white;
             padding: 0;
+            font-family: "komet", sans-serif;
+            font-weight: 400;
+            font-style: normal;
         }
+
         /* Styles for the bus container */
         .bus-container {
             display: flex;
@@ -22,6 +27,7 @@
             margin-bottom: 20px;
             color: black;
         }
+
         /* Styles for the bus card */
         .bus-card {
             background-color: white;
@@ -32,6 +38,7 @@
             text-align: center;
             box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
         }
+
         /* Styles for the route number */
         .route-number {
             border-bottom: 3px solid #fad207;
@@ -41,28 +48,33 @@
             font-size: 1.6em;
             color: #044c8c;
         }
+
         /* Styles for the bus destination */
         .bus-destination {
             font-size: 1.1em;
             margin-bottom: 10px;
         }
+
         /* Styles for the bus time */
         .bus-time {
             font-weight: 900;
             font-size: 1.5em;
             color: #044c8c;
         }
+
         /* Styles for mobile app */
         .gonative .bus-container {
             flex-direction: column;
             align-items: center;
         }
+
         /* Styles for bus info */
         .bus-info {
             text-align: center;
             font-weight: 00;
             color: white;
         }
+
         /* Styles for loading indicator */
         #loading {
             position: absolute;
@@ -74,10 +86,12 @@
             -ms-transform: translate(-50%, -50%);
             text-align: center;
         }
+
         /* Styles for spinner */
         .spinner {
             font-size: 50px;
         }
+
         /* Styles for the welcome title */
         .welcomeTitleLogo {
             max-width: 20%;
@@ -96,6 +110,7 @@
             margin-bottom: 0px;
             background-color: white;
         }
+
         /* Styles for the welcome title to scale on smaller screens */
         @media only screen and (max-width: 900px) {
             .welcomeTitleLogo {
@@ -107,6 +122,7 @@
 
             }
         }
+
         /* Style the help button */
         #help-button {
             display: none;
@@ -122,10 +138,12 @@
             border-radius: 5px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
         }
+
         #help-button:hover {
             background-color: #0062cc;
             cursor: help;
         }
+
         /* Style the help window */
         #help-window {
             display: none;
@@ -145,6 +163,7 @@
             /* Hide any content that goes beyond the boundaries */
             height: 90%;
         }
+
         /* Style the close button */
         #close-button {
             position: absolute;
@@ -157,6 +176,7 @@
             cursor: pointer;
             display: none;
         }
+
         #live-traffic-cameras-button {
             display: none;
             cursor: pointer;
@@ -171,10 +191,12 @@
             border-radius: 5px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
         }
+
         #live-traffic-cameras-button:hover {
             background-color: #0062cc;
             cursor: pointer;
         }
+
         #live-traffic-cameras-window {
             display: none;
             position: absolute;
@@ -193,6 +215,7 @@
             overflow: hidden;
             /* Hide any content that goes beyond the boundaries */
         }
+
         #liveTrafficCamerasCloseButton {
             position: absolute;
             top: 10px;
@@ -204,6 +227,7 @@
             cursor: pointer;
             display: none;
         }
+
         .creativeCOMMONS {
             left: 0;
             bottom: 0;
@@ -213,6 +237,7 @@
             text-align: center;
             position: fixed;
         }
+
         .loader {
             margin-top: 30px;
             margin-left: auto;
@@ -226,10 +251,12 @@
             height: 120px;
             animation: spin 2s linear infinite;
         }
+
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
             }
+
             100% {
                 transform: rotate(360deg);
             }
@@ -419,8 +446,6 @@
 
                         }
                         busData.innerHTML = `<div class="bus-container">${busCardsHTML}</div>`;
-
-
                         displayNearestBus(nearestBus);
                     }
                 };
