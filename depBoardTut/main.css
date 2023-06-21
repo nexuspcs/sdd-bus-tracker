@@ -1,0 +1,255 @@
+/* CSS Styles */
+        /* Styles for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #044c8c;
+            color: white;
+            padding: 0;
+            font-family: "komet", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Styles for the bus container */
+        .bus-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        /* Styles for the bus card */
+        .bus-card {
+            background-color: white;
+            width: 250px;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Styles for the route number */
+        .route-number {
+            border-bottom: 3px solid #fad207;
+            padding-bottom: 1px;
+            padding-top: 5px;
+            font-weight: bold;
+            font-size: 1.6em;
+            color: #044c8c;
+        }
+
+        /* Styles for the bus destination */
+        .bus-destination {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        /* Styles for the bus time */
+        .bus-time {
+            font-weight: 900;
+            font-size: 1.5em;
+            color: #044c8c;
+        }
+
+        /* Styles for mobile app */
+        .gonative .bus-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Styles for bus info */
+        .bus-info {
+            text-align: center;
+            font-weight: 00;
+            color: white;
+        }
+
+        /* Styles for loading indicator */
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 50px;
+            color: white;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        /* Styles for spinner */
+        .spinner {
+            font-size: 50px;
+        }
+
+        /* Styles for the welcome title */
+        .welcomeTitleLogo {
+            max-width: 20%;
+            /* make the logo responsive */
+            display: none;
+            /* hide the logo on page load, and only show it when the api data is returned/loaded. */
+            border-bottom: white solid 1px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 40px;
+            padding-right: 40px;
+            margin-bottom: 0px;
+            background-color: white;
+        }
+
+        /* Styles for the welcome title to scale on smaller screens */
+        @media only screen and (max-width: 900px) {
+            .welcomeTitleLogo {
+                max-width: 70%;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+
+
+            }
+        }
+
+        /* Style the help button */
+        #help-button {
+            display: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #help-button:hover {
+            background-color: #0062cc;
+            cursor: help;
+        }
+
+        /* Style the help window */
+        #help-window {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            color: black;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            width: 90%;
+            overflow: hidden;
+            /* Hide any content that goes beyond the boundaries */
+            height: 90%;
+        }
+
+        /* Style the close button */
+        #close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 40px;
+            color: black;
+            cursor: pointer;
+            display: none;
+        }
+
+        #live-traffic-cameras-button {
+            display: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #live-traffic-cameras-button:hover {
+            background-color: #0062cc;
+            cursor: pointer;
+        }
+
+        #live-traffic-cameras-window {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            color: black;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            width: 90%;
+            height: 90%;
+            overflow: hidden;
+            /* Hide any content that goes beyond the boundaries */
+        }
+
+        #liveTrafficCamerasCloseButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 40px;
+            color: black;
+            cursor: pointer;
+            display: none;
+        }
+
+        .creativeCOMMONS {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+        }
+
+        .loader {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #EDBB48;
+            /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
