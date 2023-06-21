@@ -217,7 +217,6 @@
             margin-top: 30px;
             margin-left: auto;
             margin-right: auto;
-
             border: 16px solid #f3f3f3;
             /* Light grey */
             border-top: 16px solid #EDBB48;
@@ -231,7 +230,6 @@
             0% {
                 transform: rotate(0deg);
             }
-
             100% {
                 transform: rotate(360deg);
             }
@@ -245,15 +243,12 @@
     <div class="main-excluding-help-modal">
         <h2 class="welcomeTitle" id="SLGStxt"></h2><a href="">
             <img class="welcomeTitleLogo" src="SLGSBTLogo.png" alt="SLGS Logo" id="SLGSimg"></a>
-
-
         <h2 class="bus-info" id="nearestBusInfo"></h2>
         <div id="busData"></div>
         <div id="loading">
             <div>SLGS Bus Tracker - Loading bus location data<br>
                 <!-- <span class="spinner">&#128260;</span> -->
                 <div class="loader"></div>
-
             </div>
         </div>
 
@@ -279,7 +274,6 @@
                     <p>Aleks Coric <a href="mailto:alexsandarc2024@student.stlukes.nsw.edu.au">email</a></p>
                 </li>
             </ul>
-
             <br><br>
             <div class="creativeCOMMONS">
                 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
@@ -290,7 +284,6 @@
                     Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
                 </a>.
             </div>
-
         </div>
 
         <!-- Create the live traffic camera window -->
