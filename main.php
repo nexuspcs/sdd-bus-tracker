@@ -318,10 +318,12 @@
         $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/'; // First define the API endpoint, which is the base URL of the API. This is the same for all API calls.
         $apiCall = 'departure_mon';
         $when = time(); // Now
-        $stopIds = array("200041", "200042", "200043", "200044", "200045", "200046", "200047", "200048", "200049", "200050"); // overload API TEST TEMP
+        $stopIds = array("209926", "209927", "209929"); // St Luke's Grammar School Dee Why, ALL STOPS
+        // ~testing below: 
+        //$stopIds = array("200041", "200042", "200043", "200044", "200045", "200046", "200047", "200048", "200049", "200050"); // overload API TEST TEMP
         //$stopIds = array("210323"); //mona vale TEMP
         //$stopIds = array("200041", "200005", "200042", "200043"); //city TEMP
-        //$stopIds = array("209926", "209927", "209929"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927, 209929) (mona bline; 210323)
+        // ~testing above:
         $stop = "";
         $retryAttempts = 3; // Next define the number of retry attempts for the API call. This is the number of times that the code will try to get data from the API before returning a failure.
         $retryDelay = 0; // A delay (in seconds) for how long the request will 'hang' while waiting for data back from the API
