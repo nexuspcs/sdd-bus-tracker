@@ -38647,7 +38647,7 @@ blockquote {
     }
 }
 
- 
+
 #sec-57f9 {
     background-color: #044c8c;
 }
@@ -38671,6 +38671,7 @@ blockquote {
     background-color: white;
     color: black;
 }
+
 .u-body {
     font-family: Arial, sans-serif;
 }
@@ -38693,12 +38694,13 @@ blockquote {
     margin-bottom: 0px;
     background-color: white;
 }
+
 .welcomeTitleLogoDIV {
     padding-bottom: 19px;
 }
 
- /* Styles for the welcome title to scale on smaller screens */
- @media only screen and (max-width: 900px) {
+/* Styles for the welcome title to scale on smaller screens */
+@media only screen and (max-width: 900px) {
     .welcomeTitleLogo {
         max-width: 70%;
         align-items: center;
@@ -38708,6 +38710,7 @@ blockquote {
 
     }
 }
+
 .backtoprevpage {
     color: blue;
     text-decoration: underline;
