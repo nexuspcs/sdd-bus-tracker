@@ -28,10 +28,10 @@
     <!-- Create the help button -->
     <button id="help-button">Help</button>
 
-    <!-- creating the live traffic camera button -->
+    <!-- Create the live traffic camera button -->
     <button id="live-traffic-cameras-button">Live Traffic Cameras</button>
 
-    <!-- Create a help window -->
+    <!-- Create the help window -->
     <div id="help-window">
         <button id="close-button">&times;</button>
         <p>
