@@ -2,8 +2,8 @@
 <html>
 
 <head>
+    <title>Live Traffic Cameras | SLGS Bus Tracker</title>
     <link rel="stylesheet" href="https://use.typekit.net/ths7ysh.css"> <!--External font-->
-
     <link rel="stylesheet" href="styles.css"> <!--External CSS for the cameras-->
 </head>
 
