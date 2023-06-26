@@ -134,6 +134,7 @@ body {
 #help-button:hover {
     background-color: #0062cc;
     cursor: help;
+    transition: 300ms;
 }
 
 /* Style the help window */
@@ -187,6 +188,7 @@ body {
 #live-traffic-cameras-button:hover {
     background-color: #0062cc;
     cursor: pointer;
+    transition: 300ms;
 }
 
 #live-traffic-cameras-window {

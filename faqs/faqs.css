@@ -1,3 +1,11 @@
+body {
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-family: "komet", sans-serif;
+    font-weight: 400;
+}
+
 .u-section-2 {
     background-image: none;
 }
@@ -193,4 +201,12 @@
         min-width: 196px;
         font-weight: bold;
     }
+}
+
+a.return-to-home {
+    padding-top: 100px;
+}
+
+.return-to-home {
+    margin-top: 20px;
 }

@@ -2,11 +2,16 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://use.typekit.net/ths7ysh.css"> <!--External font-->
+
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-        }
+            font-family: "komet", sans-serif;
+            font-weight: 400;
+         }
+ 
 
         table {
             border-collapse: collapse;
@@ -107,6 +112,7 @@
             padding-left: 12px;
             padding-right: 12px;
         }
+
         input[type="reset"] {
             padding: 8px 20px;
             background-color: #044c8c;
@@ -121,9 +127,8 @@
         input[type="reset"]:hover {
             background-color: #b52731;
         }
-
     </style>
-    
+
 </head>
 
 <body>
@@ -132,8 +137,8 @@
         <label for="search">Search live traffic cameras</label>
         <input type="text" name="search" id="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
         <input type="submit" value="Search">
-        
-    </select>
+
+        </select>
     </form>
 
     <table>
@@ -164,7 +169,7 @@
             $data = json_decode($response, true);
 
             $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-             
+
 
 
 
@@ -178,7 +183,7 @@
                 if (
                     (stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false)
                 ) {
-                
+
                     echo "<tr>
                             <td>$title</td>
                             <td class='view'>$view</td>
