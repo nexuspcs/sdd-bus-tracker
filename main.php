@@ -77,36 +77,44 @@
         // BEGIN: JS code to display the nearest bus
         function displayNearestBus(nearestBus) {
             if (nearestBus !== null) {
-                const nearestBusInfo = document.getElementById("nearestBusInfo");
-                //const SLGStxt = document.getElementById("SLGStxt"); // commented this line out, as the TEXT is being replaced by the logo
-                const SLGSimg = document.getElementById("SLGSimg");
-                //SLGStxt.innerText = `St Luke's Grammar School Bus Tracker`; // commented this line out, as the TEXT is being replaced by the logo
-                SLGSimg.style.display = "block";
-                const helpButton = document.getElementById("help-button");
-                const liveTrafficCamerasButton = document.getElementById("live-traffic-cameras-button");
-                helpButton.style.display = "block";
-                liveTrafficCamerasButton.style.display = "block";
-                const closeButton = document.getElementById("close-button");
-                closeButton.style.display = "block";
+            const nearestBusInfo = document.getElementById("nearestBusInfo");
+            const SLGSimg = document.getElementById("SLGSimg");
+            SLGSimg.style.display = "block";
+            const helpButton = document.getElementById("help-button");
+            const liveTrafficCamerasButton = document.getElementById("live-traffic-cameras-button");
+            helpButton.style.display = "block";
+            liveTrafficCamerasButton.style.display = "block";
+            const closeButton = document.getElementById("close-button");
+            closeButton.style.display = "block";
 
-                const liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
-                liveTrafficCamerasCloseButton.style.display = "block";
-                let correctedRouteInfo = nearestBus.routeInfo.replace('\n', ''); // This will replace the first 'n' character in the string
-                nearestBusInfo.innerText = `Nearest Bus: \n ${correctedRouteInfo} in ${nearestBus.timeInMins}m`;
-                nearestBusInfo.style.display = "block";
-            }
-            if (nearestBus === null) {
-                const helpButton = document.getElementById("help-button");
-                const liveTrafficCamerasButton = document.getElementById("live-traffic-cameras-button");
-                const closeButton = document.getElementById("close-button");
-                const liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
-                helpButton.style.display = "block";
-                liveTrafficCamerasButton.style.display = "block";
-                closeButton.style.display = "block";
-                liveTrafficCamerasCloseButton.style.display = "block";
+            const liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
+            liveTrafficCamerasCloseButton.style.display = "block";
+            
+            let correctedRouteInfo = nearestBus.routeInfo.replace('\n', '');
+            let hours = Math.floor(nearestBus.timeInMins / 60);
+            let minutes = nearestBus.timeInMins % 60;
+            let timeStr = '';
 
+            if (hours > 0) {
+                timeStr += hours + 'h ';
             }
+
+            timeStr += minutes + 'm';
+
+            nearestBusInfo.innerText = `Nearest Bus: \n ${correctedRouteInfo} in ${timeStr}`;
+            nearestBusInfo.style.display = "block";
         }
+        if (nearestBus === null) {
+            const helpButton = document.getElementById("help-button");
+            const liveTrafficCamerasButton = document.getElementById("live-traffic-cameras-button");
+            const closeButton = document.getElementById("close-button");
+            const liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
+            helpButton.style.display = "block";
+            liveTrafficCamerasButton.style.display = "block";
+            closeButton.style.display = "block";
+            liveTrafficCamerasCloseButton.style.display = "block";
+        }
+    }
 
         const refreshDelay = 5000; // Refreshes and pulls new data from API every x milliseconds (using 5000ms, 5sec, as that is optimal for speedy requests, and to not be rate limited )
         var countMulpt = 0;
@@ -167,15 +175,15 @@
                             const routeNumber = routeInfo.match(/\d+/)[0];
                             const destination = routeInfo.replace(/^\d+/, "").trim();
                             const hours = timeInMins >= 60 ? Math.floor(timeInMins / 60) : 0;
-                            const remainingMinutes = timeInMins % 60;
-                            const timeStrHRMIN = hours > 0 ? hours + 'h ' + remainingMinutes + 'm' : remainingMinutes + 'm';
+        const remainingMinutes = timeInMins % 60;
+        const timeStrHRMIN = hours > 0 ? hours + 'h ' + remainingMinutes + 'm' : remainingMinutes + 'm';
 
-                            // Generate HTML for bus cards
-                            busCardsHTML += `<div class="bus-card">
-    <div class="route-number">${routeNumber}</div>
-    <div class="bus-destination">${destination}</div>
-    <div class="bus-time">${timeInMins}m</div>
-</div>`;
+        // Generate HTML for bus cards
+        busCardsHTML += `<div class="bus-card">
+            <div class="route-number">${routeNumber}</div>
+            <div class="bus-destination">${destination}</div>
+            <div class="bus-time">${timeStrHRMIN}</div>
+        </div>`;
 
 
                         }
@@ -310,8 +318,10 @@
         $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/'; // First define the API endpoint, which is the base URL of the API. This is the same for all API calls.
         $apiCall = 'departure_mon';
         $when = time(); // Now
+        $stopIds = array("200041", "200042", "200043", "200044", "200045", "200046", "200047", "200048", "200049", "200050"); // overload API TEST TEMP
         //$stopIds = array("210323"); //mona vale TEMP
-        $stopIds = array("209926", "209927", "209929"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927, 209929) (mona bline; 210323)
+        //$stopIds = array("200041", "200005", "200042", "200043"); //city TEMP
+        //$stopIds = array("209926", "209927", "209929"); // Replace with the desired stop ID (testing stop id, is qvb, york st;; 200041) (headland rd slgs stop id is; 209926;;;;;;;  quirk st; 209927, 209929) (mona bline; 210323)
         $stop = "";
         $retryAttempts = 3; // Next define the number of retry attempts for the API call. This is the number of times that the code will try to get data from the API before returning a failure.
         $retryDelay = 0; // A delay (in seconds) for how long the request will 'hang' while waiting for data back from the API
@@ -338,10 +348,6 @@
             ]
         ];
 
-        $showClass = false;
-        if ($showClass) {
-            echo '<h2 class="bus-info">Nearest Bus: ' . '<br>' . $nearestBus['routeNumber'] . ' to ' . $nearestBus['destination'] . ' (' . $nearestBus['location'] . ') in ' . round($nearestBus['countdown'] / 60) . ' min(s)</h2>';
-        }
         foreach ($stopIds as $stop) { // Loop through each stop ID
             $params['name_dm'] = $stop;
             $params['itdDate'] = date('Ymd', $when);
