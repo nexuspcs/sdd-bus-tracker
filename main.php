@@ -116,7 +116,7 @@
             }
         }
 
-        const refreshDelay = 5000; // Refreshes and pulls new data from API every x milliseconds (using 5000ms, 5sec, as that is optimal for speedy requests, and to not be rate limited )
+        const refreshDelay = 10000; // Refreshes and pulls new data from API every x milliseconds (using 10000ms, 10sec, as that is optimal for speedy requests, and to not be rate limited )
         var countMulpt = 0;
         var refreshDelayCounterSECONDS = 0;
 
