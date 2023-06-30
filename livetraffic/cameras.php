@@ -61,10 +61,7 @@
                 $image = $feature['properties']['href'];
 
                 // Search both Title and View for the given search term
-                if (
-                    (stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false)
-                ) {
-
+                if ((stripos($title, $searchTerm) !== false || stripos($view, $searchTerm) !== false)) {
                     echo "<tr>
                             <td>$title</td>
                             <td class='view'>$view</td>
