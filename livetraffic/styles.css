@@ -129,7 +129,7 @@ input[type="reset"]:hover {
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     z-index: 9999;
 }
 
@@ -141,7 +141,9 @@ input[type="reset"]:hover {
 }
 
 .loader {
-    margin-top: 30px;
+    margin-top: 50%;
+    margin-bottom: 50%;
+
     margin-left: auto;
     margin-right: auto;
     border: 16px solid #f3f3f3;
@@ -152,6 +154,7 @@ input[type="reset"]:hover {
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
+    
 }
 
 @keyframes spin {
