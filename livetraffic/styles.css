@@ -1,4 +1,6 @@
 body {
+    position: relative;
+    /* Add this */
     text-align: center;
     font-family: Arial, sans-serif;
     font-family: "komet", sans-serif;
@@ -124,6 +126,7 @@ input[type="reset"]:hover {
 /* style for loading div */
 #loading {
     display: none;
+
     position: fixed;
     top: 0;
     left: 0;
@@ -131,30 +134,29 @@ input[type="reset"]:hover {
     width: 100vw;
     background-color: rgba(255, 255, 255, 0.5);
     z-index: 9999;
+
 }
 
-#loading img {
+/* #loading img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 .loader {
-    margin-top: 50%;
-    margin-bottom: 50%;
-
-    margin-left: auto;
-    margin-right: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 16px solid #f3f3f3;
     /* Light grey */
     border-top: 16px solid #EDBB48;
-    /* Blue */
+    /* slgs yellow */
     border-radius: 50%;
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
-    
 }
 
 @keyframes spin {
