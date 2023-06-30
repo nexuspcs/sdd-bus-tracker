@@ -74,7 +74,7 @@
             // Check if no results were found and display a message
             if (!$foundResults) {
                 echo "<tr>
-                        <td colspan='4'>No results found</td>
+                        <td colspan='4' class='no-results'>No results found</td>
                     </tr>";
             }
             ?>
