@@ -168,3 +168,11 @@ input[type="reset"]:hover {
         transform: rotate(360deg);
     }
 }
+
+.no-results {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
