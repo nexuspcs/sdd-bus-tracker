@@ -50,7 +50,7 @@
             $data = json_decode($response, true);
 
             $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-
+            $foundResults = false; // Flag variable to track if any matching results were found
 
 
 
@@ -68,7 +68,14 @@
                             <td>$direction</td>
                             <td><img src='$image' alt='$title'></td>
                         </tr>";
+                    $foundResults = true; // Set the flag to true since matching result(s) were found
                 }
+            }
+            // Check if no results were found and display a message
+            if (!$foundResults) {
+                echo "<tr>
+                        <td colspan='4'>No results found</td>
+                    </tr>";
             }
             ?>
         </tbody>
