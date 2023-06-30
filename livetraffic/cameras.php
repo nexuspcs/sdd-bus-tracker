@@ -9,7 +9,12 @@
 
 <body>
 
-    <form method="GET">
+    <!-- The loading div -->
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <form method="GET" onsubmit="showLoading()">
         <label for="search">Search live traffic cameras</label>
         <input type="text" name="search" id="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
         <input type="submit" value="Search">
@@ -71,6 +76,13 @@
             ?>
         </tbody>
     </table>
+
+    <script>
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+    </script>
+
 </body>
 
 </html>
