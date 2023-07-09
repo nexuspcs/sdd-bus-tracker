@@ -35,7 +35,7 @@
     <div id="help-window">
         <button id="close-button">&times;</button>
         <p>
-            <a href="user_manual.pdf">User Manual</a> |
+            <a href="https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing">User Manual</a> |
             <a href="faqs/">FAQs</a>
         </p>
         <p>Site operators:</p>
