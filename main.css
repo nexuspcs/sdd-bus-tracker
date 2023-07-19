@@ -255,3 +255,12 @@ body {
         transform: rotate(360deg);
     }
 }
+
+/* Styles for the date and time banner */
+#date-time-banner {
+    background-color: #333;
+    color: #fff;
+    font-size: 24px;
+    padding: 10px;
+    text-align: center;
+} 
