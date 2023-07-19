@@ -25,6 +25,7 @@
         </div>
     </div>
 
+
     <!-- Create the help button -->
     <button id="help-button">Help</button>
 
@@ -87,6 +88,9 @@
                 const closeButton = document.getElementById("close-button");
                 closeButton.style.display = "block";
 
+                const bannerTime = document.getElementById("date-time-banner");
+                bannerTime.style.display = "block";
+
                 const liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
                 liveTrafficCamerasCloseButton.style.display = "block";
 
@@ -137,6 +141,8 @@
 
                     //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
                     document.getElementById("loading").style.display = "none";
+                    
+
 
                     // display the welcome title on page load, and at same time as api data is returned/loaded.
                     document.getElementById("SLGStxt").style.display = "block";
@@ -196,6 +202,10 @@
                         // Get the logo element and set its display property to "block"
                         const SLGSimg = document.getElementById("SLGSimg");
                         SLGSimg.style.display = "block";
+                        // get the time banner element and set its display property to "block"
+                        const dateBanner = document.getElementById("date-time-banner");
+                        dateBanner.style.display = "block";
+                        //
                         console.warn("No bus locational data is available, check your internet connection, or try again later. Use the 'Help' button to contact a site operator for assistance.");
 
                     }
@@ -287,6 +297,21 @@
             }
         });
         // LIVE TRAFFIC CAMERAS END
+
+        // -------- //
+        //
+        //BEGIN live time banner w/ dates
+        function updateBanner() {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString();
+            const timeStr = now.toLocaleTimeString();
+            const banner = document.getElementById("date-time-banner");
+            banner.innerText = `${dateStr} ${timeStr}`;
+        }
+        // Update the banner every second
+        setInterval(updateBanner, 1000);
+        //
+        // END live time banner w/ dates
     </script>
 
 
@@ -341,14 +366,14 @@
             'itdDate' => date('Ymd', $when), // Set the itdDate to the current date in 'Ymd' format, indicating year, month, and day.
             'itdTime' => date('Hi', $when), // Set the itdTime to the current time in 'Hi' format, indicating hours and minutes.
             'TfNSWDM' => 'true' // If TfNSWDM is set to true, it might enable a specific feature or service. The exact function can vary based on API documentation.
-        );        
+        );
 
         $opts = [
             "http" => [
                 "method" => "GET", // Set the HTTP method to GET. This defines the type of request to be made.
                 "header" => "Authorization: apikey zZBkkDXyybkIuLAPPW81EuzExQvJuWJ0breL\r\n" // Include an Authorization header in the HTTP request with a specific API key for authentication.
             ]
-        ];        
+        ];
 
         foreach ($stopIds as $stop) { // Loop through each stop ID
             $params['name_dm'] = $stop;
