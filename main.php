@@ -88,8 +88,7 @@
                 const closeButton = document.getElementById("close-button");
                 closeButton.style.display = "block";
 
-                const bannerTime = document.getElementById("date-time-banner");
-                bannerTime.style.display = "block";
+                
 
                 const liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
                 liveTrafficCamerasCloseButton.style.display = "block";
@@ -202,9 +201,7 @@
                         // Get the logo element and set its display property to "block"
                         const SLGSimg = document.getElementById("SLGSimg");
                         SLGSimg.style.display = "block";
-                        // get the time banner element and set its display property to "block"
-                        const dateBanner = document.getElementById("date-time-banner");
-                        dateBanner.style.display = "block";
+                         
                         //
                         console.warn("No bus locational data is available, check your internet connection, or try again later. Use the 'Help' button to contact a site operator for assistance.");
 
@@ -301,15 +298,8 @@
         // -------- //
         //
         //BEGIN live time banner w/ dates
-        function updateBanner() {
-            const now = new Date();
-            const dateStr = now.toLocaleDateString();
-            const timeStr = now.toLocaleTimeString();
-            const banner = document.getElementById("date-time-banner");
-            banner.innerText = `${dateStr} ${timeStr}`;
-        }
-        // Update the banner every second
-        setInterval(updateBanner, 1000);
+        
+
         //
         // END live time banner w/ dates
     </script>
