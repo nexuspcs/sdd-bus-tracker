@@ -1,7 +1,7 @@
 <!-- 
 
-Created by James Coates and Aleks Coric
-First created on the 6th of April, 2023
+Created by James Coates and Aleks Coric for the Year 11 Software Design and Development ~ Assessment Task 2.
+First created in April 2023
 
 -->
 
