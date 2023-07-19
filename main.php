@@ -315,7 +315,7 @@
         ini_set('display_errors', 1);
 
 
-        $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/'; // First define the API endpoint, which is the base URL of the API. This is the same for all API calls.
+        $apiEndpoint = 'https://api.transport.nsw.gov.au/v1/tp/'; // First defines the API endpoint, which is the base URL of the API. This is the same for all API calls.
         $apiCall = 'departure_mon';
         $when = time(); // Now
         $stopIds = array("209926", "209927", "209929"); // St Luke's Grammar School Dee Why, ALL STOPS
@@ -332,23 +332,23 @@
         // Array of parameters for the API call
 
         $params = array(
-            'outputFormat' => 'rapidJSON',
-            'coordOutputFormat' => 'EPSG:4326',
-            'mode' => 'direct',
-            'type_dm' => 'stop',
-            'name_dm' => $stop,
-            'depArrMacro' => 'dep',
-            'itdDate' => date('Ymd', $when),
-            'itdTime' => date('Hi', $when),
-            'TfNSWDM' => 'true'
-        );
+            'outputFormat' => 'rapidJSON', // Set the output format as rapidJSON. This indicates the format in which the result should be returned.
+            'coordOutputFormat' => 'EPSG:4326', // Set the coordinate output format to EPSG:4326, this is a standard coordinate system based on WGS84 longitude/latitude.
+            'mode' => 'direct', // Set the mode to direct, implying that the API call will be made directly without any intermediaries.
+            'type_dm' => 'stop', // Set the type_dm to stop, which likely specifies that the parameter we're dealing with is a stop.
+            'name_dm' => $stop, // The name of the stop, probably a bus or train stop, specified dynamically.
+            'depArrMacro' => 'dep', // Set the depArrMacro to dep, this might suggest we're dealing with departures instead of arrivals.
+            'itdDate' => date('Ymd', $when), // Set the itdDate to the current date in 'Ymd' format, indicating year, month, and day.
+            'itdTime' => date('Hi', $when), // Set the itdTime to the current time in 'Hi' format, indicating hours and minutes.
+            'TfNSWDM' => 'true' // If TfNSWDM is set to true, it might enable a specific feature or service. The exact function can vary based on API documentation.
+        );        
 
         $opts = [
             "http" => [
-                "method" => "GET",
-                "header" => "Authorization: apikey zZBkkDXyybkIuLAPPW81EuzExQvJuWJ0breL\r\n"
+                "method" => "GET", // Set the HTTP method to GET. This defines the type of request to be made.
+                "header" => "Authorization: apikey zZBkkDXyybkIuLAPPW81EuzExQvJuWJ0breL\r\n" // Include an Authorization header in the HTTP request with a specific API key for authentication.
             ]
-        ];
+        ];        
 
         foreach ($stopIds as $stop) { // Loop through each stop ID
             $params['name_dm'] = $stop;
