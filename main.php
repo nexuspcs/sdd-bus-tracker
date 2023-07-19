@@ -1,3 +1,11 @@
+<!-- 
+
+Created by James Coates and Aleks Coric
+First created on the 6th of April, 2023
+
+-->
+
+
 <!DOCTYPE html>
 <html lang="en-GB">
 
@@ -125,6 +133,17 @@
 
         // a boolean flag, so that after page is opened it won't refresh again.
         var isFirstLoad = true;
+
+
+        function displayTimeBanner() {
+  const currentDateTime = document.querySelector(".currentDateTime");
+  const timeBanner = document.createElement("div");
+  timeBanner.classList.add("time-banner");
+  timeBanner.innerText = currentDateTime.innerText;
+  const logoContainer = document.querySelector(".welcomeTitleLogo");
+  logoContainer.parentNode.insertBefore(timeBanner, logoContainer.nextSibling);
+}
+
 
         function fetchData() {
             var xhr = new XMLHttpRequest();
