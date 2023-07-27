@@ -47,7 +47,7 @@ First created in April 2023
             <a href="https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing">User Manual</a> |
             <a href="faqs/">FAQs</a>
         </p>
-        <p>Site operators:</p>
+        <p>Site Operators:</p>
         <ul>
             <li>
                 <p>James Coates <a href="mailto:jamesac2024@student.stlukes.nsw.edu.au">email</a></p>
@@ -56,7 +56,14 @@ First created in April 2023
                 <p>Aleks Coric <a href="mailto:alexsandarc2024@student.stlukes.nsw.edu.au">email</a></p>
             </li>
         </ul>
-        <br><br>
+        <br>
+        <p>About the Authors:</p>
+        <ul>
+            <li>
+                <p></p>
+            </li>
+        </ul>
+        <br>
         <div class="creativeCOMMONS">
             <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
                 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" />
@@ -96,7 +103,7 @@ First created in April 2023
                 const closeButton = document.getElementById("close-button");
                 closeButton.style.display = "block";
 
-                
+
 
                 const liveTrafficCamerasCloseButton = document.getElementById("liveTrafficCamerasCloseButton");
                 liveTrafficCamerasCloseButton.style.display = "block";
@@ -136,13 +143,13 @@ First created in April 2023
 
 
         function displayTimeBanner() {
-  const currentDateTime = document.querySelector(".currentDateTime");
-  const timeBanner = document.createElement("div");
-  timeBanner.classList.add("time-banner");
-  timeBanner.innerText = currentDateTime.innerText;
-  const logoContainer = document.querySelector(".welcomeTitleLogo");
-  logoContainer.parentNode.insertBefore(timeBanner, logoContainer.nextSibling);
-}
+            const currentDateTime = document.querySelector(".currentDateTime");
+            const timeBanner = document.createElement("div");
+            timeBanner.classList.add("time-banner");
+            timeBanner.innerText = currentDateTime.innerText;
+            const logoContainer = document.querySelector(".welcomeTitleLogo");
+            logoContainer.parentNode.insertBefore(timeBanner, logoContainer.nextSibling);
+        }
 
 
         function fetchData() {
@@ -159,7 +166,7 @@ First created in April 2023
 
                     //hide the loading screen once the api return 200, meaning a successful request, hide the loading screen
                     document.getElementById("loading").style.display = "none";
-                    
+
 
 
                     // display the welcome title on page load, and at same time as api data is returned/loaded.
@@ -220,7 +227,7 @@ First created in April 2023
                         // Get the logo element and set its display property to "block"
                         const SLGSimg = document.getElementById("SLGSimg");
                         SLGSimg.style.display = "block";
-                         
+
                         //
                         console.warn("No bus locational data is available, check your internet connection, or try again later. Use the 'Help' button to contact a site operator for assistance.");
 
@@ -317,7 +324,7 @@ First created in April 2023
         // -------- //
         //
         //BEGIN live time banner w/ dates
-        
+
 
         //
         // END live time banner w/ dates
