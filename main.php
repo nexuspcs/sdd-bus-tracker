@@ -57,12 +57,12 @@ First created in April 2023
             </li>
         </ul>
         <br>
-        <p>About the Authors:</p>
+        <p>About the Site Operators:</p>
         <ul>
-            <li>
-                <p></p>
-            </li>
-        </ul>
+            
+                <p>Both James and Aleks are currently in Year 11, at St Luke's Grammar School. This site is a school project, for the Year 11 Software Design and Development (SDD) course. This site was developed by both James and Aleks, and utilises PHP, CSS, JS, and HTML.<br><br>
+                As skilled developers currently in Year 11, they have impressively harnessed their programming abilities and creativity to tackle a common daily concern. Motivated by their shared enthusiasm for technology and a desire to improve public transportation experiences, they embarked on this rewarding endeavor together. Collaborating harmoniously, they have successfully developed a user-friendly platform that allows commuters to track real-time bus locations and plan their journeys more efficiently. Their achievement serves as an inspiration to their peers, highlighting the incredible potential that arises when talent and determination intersect.</p>
+            
         <br>
         <div class="creativeCOMMONS">
             <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
