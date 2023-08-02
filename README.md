@@ -6,4 +6,6 @@ For tempory access to this site, use the following link [https://nexuspcs.github
 
 ### 000webhosting link:
 
-[https://slgs-bustracker.000webhostapp.com/main.php](https://slgs-bustracker.000webhostapp.com/main.php) - Able to run the PHP code, but is only up to date with our progress WHEN we _upload_ files, _not_ when commits are uploaded via GitHub. FTP upload is in use for 000, but is not live with GitHub.
+[https://slgs-bustracker.000webhostapp.com/main.php](https://slgs-bustracker.000webhostapp.com/main.php) <br>
+[http://slgsbuses.000.pe/main.php](http://slgsbuses.000.pe/main.php) <br>
+ABOVE: Able to run the PHP code, but is only up to date with our progress WHEN we _upload_ files, _not_ when commits are uploaded via GitHub. FTP upload is in use for 000, but is not live with GitHub.
