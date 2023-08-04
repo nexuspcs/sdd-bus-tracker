@@ -1,0 +1,6 @@
+framework module GonativeIcons {
+  umbrella header "GonativeIcons-umbrella.h"
+
+  export *
+  module * { export * }
+}
