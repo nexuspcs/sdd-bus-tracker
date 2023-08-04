@@ -10,7 +10,7 @@
     "publicKey": "xwxjda",
     "deviceRegKey": "eae3h1njzg0r3mabtrw1z38m44",
     "appName": "SLGS Buses",
-    "initialUrl": "https://slgs-bustracker.000webhostapp.com/main.php",
+    "initialUrl": "http://slgsbuses.000.pe/main.php",
     "iosBundleId": "io.gonative.ios.xwxjda",
     "androidPackageName": "io.gonative.android.xwxjda",
     "iosUserAgentAdd": "gonative",
