@@ -34,13 +34,14 @@
         </thead>
         <tbody>
             <?php
-            $url = 'https://api.transport.nsw.gov.au/v1/live/cameras';
-            $headers = array(
-                'Accept: application/json',
-                'Authorization: apikey 3kmgfklveanp939zhNzrpZ4yxJ3obVPkuBjx'
+            $url = 'https://api.transport.nsw.gov.au/v1/live/cameras'; // URL to the API const
+            $headers = array( // Headers to send to the API
+                'Accept: application/json', // Tell the API we want JSON
+                'Authorization: apikey 3kmgfklveanp939zhNzrpZ4yxJ3obVPkuBjx' // Our API key
             );
 
-            $ch = curl_init();
+            // Initialise cURL
+            $ch = curl_init(); 
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -50,11 +51,12 @@
 
             $data = json_decode($response, true);
 
+            // Check if the search term is set, if not set it to an empty string
             $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
             $foundResults = false; // Flag variable to track if any matching results were found
 
 
-
+            // Loop through each feature in the data
             foreach ($data['features'] as $feature) {
                 $title = $feature['properties']['title'];
                 $view = $feature['properties']['view'];
@@ -83,7 +85,7 @@
     </table>
 
     <script>
-        function showLoading() {
+        function showLoading() { // Function to show the loading div
             document.getElementById('loading').style.display = 'block';
         }
 
