@@ -197,6 +197,7 @@ body {
     display: none;
 }
 
+/* Styles for the live traffic cameras button */
 #live-traffic-cameras-button {
     display: none;
     cursor: pointer;
@@ -212,12 +213,14 @@ body {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* Styles for the live traffic cameras button on hover */
 #live-traffic-cameras-button:hover {
     background-color: #0062cc;
     cursor: pointer;
     transition: 300ms;
 }
 
+/* Styles for the live traffic cameras window */
 #live-traffic-cameras-window {
     display: none;
     position: absolute;
@@ -237,6 +240,7 @@ body {
     /* Hide any content that goes beyond the boundaries */
 }
 
+/* Styles for the close button in the live traffic cameras window */
 #liveTrafficCamerasCloseButton {
     position: absolute;
     top: 10px;
@@ -249,6 +253,7 @@ body {
     display: none;
 }
 
+/* Styles for the creative commons banner */
 .creativeCOMMONS {
     left: 0;
     bottom: 0;
@@ -259,6 +264,7 @@ body {
     position: fixed;
 }
 
+/* Styles for the loader */
 .loader {
     margin-top: 30px;
     margin-left: auto;
@@ -273,6 +279,7 @@ body {
     animation: spin 2s linear infinite;
 }
 
+/* Keyframes for the loader spin animation */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -292,6 +299,7 @@ body {
     text-align: center;
 }
 
+/* Styles for the return to home button */
 .return-to-home {
     align-items: center;
     background-image: linear-gradient(144deg, #e9ff40, #121ab9 50%, #ccdf1dd0);
@@ -316,11 +324,13 @@ body {
     margin: 0 auto;
 }
 
+/* Styles for the return to home button on hover and active */
 .return-to-home:active,
 .return-to-home:hover {
     outline: 0;
 }
 
+/* Styles for the span inside the return to home button */
 .return-to-home span {
     background-color: rgb(5, 6, 45);
     padding: 16px 24px;
@@ -330,10 +340,12 @@ body {
     transition: 300ms;
 }
 
+/* Styles for the span inside the return to home button on hover */
 .return-to-home:hover span {
     background: none;
 }
 
+/* Media query for the return to home button */
 @media (min-width: 768px) {
     .return-to-home {
         font-size: 16px;
@@ -342,10 +354,12 @@ body {
     }
 }
 
+/* Styles for the return to home link */
 a.return-to-home {
     padding-top: 100px;
 }
 
+/* Styles for the return to home button margin */
 .return-to-home {
     margin-top: 20px;
 }
