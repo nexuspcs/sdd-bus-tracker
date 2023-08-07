@@ -16,7 +16,7 @@
     "publicKey": "myakln",
     "deviceRegKey": "xtx3v54vxxu02mzunubad2cpy8",
     "appName": "SLGS Buses",
-    "initialUrl": "http://slgsbuses.000.pe/main.php",
+    "initialUrl": "https://slgs-bustracker.000webhostapp.com/main.php",
     "iosBundleId": "io.gonative.ios.myakln",
     "androidPackageName": "io.gonative.android.myakln",
     "iosUserAgentAdd": "gonative",
