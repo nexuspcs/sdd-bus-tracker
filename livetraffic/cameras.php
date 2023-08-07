@@ -86,12 +86,13 @@
         function showLoading() {
             document.getElementById('loading').style.display = 'block';
         }
+
         function clearSearch() {
-        var searchInput = document.getElementById('search');
-        searchInput.value = ' '; // Set the search box value to one empty space
-        document.forms[0].submit(); // Submit the form programmatically
-        showLoading(); // Show the loading div
-    }
+            var searchInput = document.getElementById('search');
+            searchInput.value = ' '; // Set the search box value to one empty space
+            document.forms[0].submit(); // Submit the form programmatically
+            showLoading(); // Show the loading div
+        }
     </script>
 
 </body>
