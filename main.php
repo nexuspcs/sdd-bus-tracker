@@ -43,10 +43,7 @@ First created in April 2023
     <!-- Create the help window -->
     <div id="help-window">
         <button id="close-button">&times;</button>
-        <p>
-            <a href="https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing">User Manual</a> |
-            <a href="faqs/">FAQs</a>
-        </p>
+       
         <p>Site Operators:</p>
         <ul>
             <li>
@@ -73,6 +70,10 @@ First created in April 2023
                     Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
                 </a>.
             </div>
+            <p>
+            <a href="faqs/"><button class="return-to-home" role="button"><span class="text">FAQs</span></button></a>
+            <a href="https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing/"><button class="return-to-home" role="button"><span class="text">User Manual</span></button></a>
+        </p>
     </div>
 
     <!-- Create the live traffic camera window -->
