@@ -425,35 +425,33 @@ First created in April 2023
                     // This code iterates through all stop events in the array and displays the route number, destination, and departure time. If the departure time is estimated, it displays the estimated departure time; otherwise, it displays the planned departure time.
 
                     foreach ($stopEvents as $stopEvent) { // Iterate through stop events
-
                         $transportation = $stopEvent['transportation'];
                         $routeNumber = preg_replace("/n/", "", $transportation['number'], 1);
                         $destination = preg_replace("/n/", "", $transportation['destination']['name'], 0);
                         $location = $stopEvent['location'];
-
+                    
                         if (isset($stopEvent['departureTimeEstimated'])) { // Determine the estimated or planned departure time
                             $time = strtotime($stopEvent['departureTimeEstimated']);
                         } else {
                             $time = strtotime($stopEvent['departureTimePlanned']);
                         }
-
+                    
                         $countdown = $time - time();
                         $minutes = round($countdown / 60);
-
-                        $hours = floor($minutes / 60);
-                        $remainingMinutes = $minutes % 60;
-                        $timeStr = $minutes . 'm';
-
-
-
-                        // Display route and time information in table rows
-                        echo "<tr>";
-                        echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . "</td>"; // echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . " (from " . $location['name'] . ")" . "</td>";
-
-                        echo "<td>" . $timeStr . "</td>";
-                        echo "</tr>";
+                    
+                        if ($minutes <= 360) { // Filter out buses arriving after 6 hours (360 minutes)
+                            $hours = floor($minutes / 60);
+                            $remainingMinutes = $minutes % 60;
+                            $timeStr = $minutes . 'm';
+                    
+                            // Display route and time information in table rows
+                            echo "<tr>";
+                            echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . "</td>";
+                            echo "<td>" . $timeStr . "</td>";
+                            echo "</tr>";
+                        }
                     }
-
+                
                     echo "</tbody>";
                     echo "</table>";
                 } else { // within this else statement, the php code will try until it exceeds the pre-defined values of $retryAttempts and $retryDelay, to avoid the API from timing out, or being rate limited.
