@@ -779,7 +779,7 @@
                     "time": 1.974765327759087,
                     "request": {
                         "method": "GET",
-                        "url": "http://localhost:9000/images:resources/SLGSBTLogo.png",
+                        "url": "http://localhost:9000/imagesandresources/SLGSBTLogo.png",
                         "httpVersion": "HTTP/1.1",
                         "cookies": [
                             {
