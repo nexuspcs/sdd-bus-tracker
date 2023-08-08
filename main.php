@@ -439,7 +439,7 @@ First created in April 2023
                         $countdown = $time - time();
                         $minutes = round($countdown / 60);
                     
-                        if ($minutes <= 360) { // Filter out buses arriving after 6 hours (360 minutes)
+                        if ($minutes <= 540) { // Filter out buses arriving after 9 hours (540 minutes)
                             $hours = floor($minutes / 60);
                             $remainingMinutes = $minutes % 60;
                             $timeStr = $minutes . 'm';
