@@ -37,7 +37,14 @@ Contact James, using the below details, to request a customised version for your
 	- This can be confirmed by running CMOD: `cmod +x run-locally.sh`. 
 5. Run the `run-locally.sh` file: 
 	- `./run-locally.sh`
-6. This shell script will install PHP on your machine. ~ If installed already, it will check for updates, as this shell script is simply running this command: `brew install php`
+6. This shell script will install **PHP** on your machine. 
+	- If installed **already**, it will check for updates, as this shell script is simply running this command: `brew install php`
+7. Ensure that you **DO NOT** interupt this script, as it may be in the process of updating PHP, without printing CLI log messages.
+8. Once the script has confirmed the existence of PHP on your machine, it will wait a moment, and then open your OS' default web browser
+	- If your web browser does not open automatically, navigate to the URL declared in the shell script: `http://localhost:9005/main.php` 
+
+
+
 
 Within this repository, contains the source code files for the SDD Task 2 Project, 2023. Please contact James using the following link: [James' email](mailto:jamesac2024@student.stlukes.nsw.edu.au).
 
