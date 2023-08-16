@@ -3,8 +3,7 @@
 A repository for a location-based bus tracking program, through which users can see ETAs of nearby buses. 
 **Currently accessable via: [https://stlukes.link/bus](https://stlukes.link/bus).** 
 <br>
-<br>
-<!--![St. Luke's Grammar School Bus Tracker Logo](imagesandresources/SLGSBTLogo.png)-->
+<br>![St. Luke's Grammar School Bus Tracker Logo](imagesandresources/SLGSBTLogo.png)
 <br>
 
 ____
