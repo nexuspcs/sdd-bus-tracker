@@ -4,8 +4,8 @@ A repository for a location-based bus tracking program, through which users can 
 **Currently accessable via: [https://stlukes.link/bus](https://stlukes.link/bus).** 
 <br>
 <br>
-![St. Luke's Grammar School Bus Tracker Logo](imagesandresources/SLGSBTLogo.png)
-<br>
+<!--![St. Luke's Grammar School Bus Tracker Logo](imagesandresources/SLGSBTLogo.png)
+--><br>
 
 ____
 
@@ -15,9 +15,17 @@ ____
 <br>
 Contact James, using the below details, to request a customised version for your educational institution, local bus stop, or personal use.
 <br><br>
+To run this program locally, on your personal machine, follow these simple steps:<br>
+1. Clone this repository --> Reccommended to use a CLI for this step, as it will make the process of running locally smoother.
+2. 
 
 Within this repository, contains the source code files for the SDD Task 2 Project, 2023. Please contact James using the following link: [James' email](mailto:jamesac2024@student.stlukes.nsw.edu.au).
+
+
+
 ~~For temporary access to this site, use the following link [https://nexuspcs.github.io/sdd-bus-tracker/](https://nexuspcs.github.io/sdd-bus-tracker/). _please note: this link is not able to run PHP code, therefore only a static page will be shown..._~~
+
+
 
 ### Mirrors (no-optimisation):
 
