@@ -15,12 +15,18 @@ ____
 <br>
 Contact James, using the below details, to request a customised version for your educational institution, local bus stop, or personal use.
 <br><br>
-To run this program locally, on your personal machine, follow these simple steps:<br>
+To run this program locally, on your personal machine, follow these simple steps (Unix; Linux, MacOS etc ~ No `.sh` equivilant for other OSs yet ~ ):<br>
+*Prerequisites:*
+* Homebrew (Linux/MacOS/Unix) is installed)
+	* If not, please visit the [homebrew website](https://brew.sh), or run this command to install it on your machine: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-1. Clone this repository --> Reccommended to use a CLI for this step, as it will make the process of running locally smoother. `git clone https://github.com/nexuspcs/sdd-bus-tracker.git `
+
+1. Clone this repository --> Reccommended to use a CLI for this step, as it will make the process of running locally smoother. `git clone https://github.com/nexuspcs/sdd-bus-tracker.git`
 2. Ensure your working directory in your CLI is in the root folder of this newly-cloned repository
 3. Ensure that the file `run-locally.sh` is visable.
 4. Ensure that the file `run-locally.sh` is executable. This can be confrimed by running CMOD: `cmod +x run-locally.sh`. 
+5. Run the `run-locally.sh` file: `./run-locally.sh`
+6. This shell script will install PHP on your machine. ~ If installed already, it will check for updates, as this shell script is simply running this command: `brew install php`
 
 Within this repository, contains the source code files for the SDD Task 2 Project, 2023. Please contact James using the following link: [James' email](mailto:jamesac2024@student.stlukes.nsw.edu.au).
 
