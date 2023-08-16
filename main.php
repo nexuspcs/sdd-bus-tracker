@@ -43,7 +43,7 @@ First created in April 2023
     <!-- Create the help window -->
     <div id="help-window">
         <button id="close-button">&times;</button>
-       
+
         <p>Site Operators:</p>
         <ul>
             <li>
@@ -71,9 +71,9 @@ First created in April 2023
                 </a>.
             </div>
             <p>
-            <a href="faqs/"><button class="return-to-home" role="button"><span class="text">FAQs</span></button></a>
-            <a href="https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing/"><button class="return-to-home" role="button"><span class="text">User Manual</span></button></a>
-        </p>
+                <a href="faqs/"><button class="return-to-home" role="button"><span class="text">FAQs</span></button></a>
+                <a href="https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing/"><button class="return-to-home" role="button"><span class="text">User Manual</span></button></a>
+            </p>
     </div>
 
     <!-- Create the live traffic camera window -->
@@ -82,7 +82,7 @@ First created in April 2023
     </div>
 
 
-        <p style="text-align: center;" >Programmed by: James Coates & Aleksandar Coric</p>
+    <p style="text-align: center;">Programmed by: James Coates & Aleksandar Coric</p>
 
 
 
@@ -213,6 +213,7 @@ First created in April 2023
                             const hours = timeInMins >= 60 ? Math.floor(timeInMins / 60) : 0;
                             const remainingMinutes = timeInMins % 60;
                             const timeStrHRMIN = hours > 0 ? hours + 'h ' + remainingMinutes + 'm' : remainingMinutes + 'm';
+                            
 
                             // Generate HTML for bus cards
                             busCardsHTML += `<div class="bus-card">
@@ -429,21 +430,21 @@ First created in April 2023
                         $routeNumber = preg_replace("/n/", "", $transportation['number'], 1);
                         $destination = preg_replace("/n/", "", $transportation['destination']['name'], 0);
                         $location = $stopEvent['location'];
-                    
+
                         if (isset($stopEvent['departureTimeEstimated'])) { // Determine the estimated or planned departure time
                             $time = strtotime($stopEvent['departureTimeEstimated']);
                         } else {
                             $time = strtotime($stopEvent['departureTimePlanned']);
                         }
-                    
+
                         $countdown = $time - time();
                         $minutes = round($countdown / 60);
-                    
+
                         if ($minutes <= 360) { // Filter out buses arriving after 9 hours (540 minutes)
                             $hours = floor($minutes / 60);
                             $remainingMinutes = $minutes % 60;
                             $timeStr = $minutes . 'm';
-                    
+
                             // Display route and time information in table rows
                             echo "<tr>";
                             echo "<td>" . "<span class='route-number'>" . $routeNumber . "</span>" . " to " . $destination . "</td>";
@@ -451,7 +452,7 @@ First created in April 2023
                             echo "</tr>";
                         }
                     }
-                
+
                     echo "</tbody>";
                     echo "</table>";
                 } else { // within this else statement, the php code will try until it exceeds the pre-defined values of $retryAttempts and $retryDelay, to avoid the API from timing out, or being rate limited.
