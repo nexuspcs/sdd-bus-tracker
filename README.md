@@ -19,6 +19,8 @@ Contact James, using the below details, to request a customised version for your
 
 
 # Installation Instructions (Running Locally)
+If you wish to experiment, and test this program locally, running on your own machine, or development servers, please follow the guide below. *If you wish to run the program on Windows, ensure that you have PHP installed on Windows, and run the PHP file as appropriate to x86.*
+
 ### Unix/MacOS/Linux etc.:
 
 **Prerequisites:**
@@ -43,7 +45,7 @@ Contact James, using the below details, to request a customised version for your
 8. Once the script has confirmed the existence of PHP on your machine, it will wait a moment, and then open your OS' default web browser
 	- If your web browser does not open automatically, navigate to the URL declared in the shell script: `http://localhost:9005/main.php` 
 
-**Additional Information**
+**Additional Information:**
 * **Please note:** A significantly more detailed user manual is accessable via a Google Doc Document **[here](https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing)**
 
 
