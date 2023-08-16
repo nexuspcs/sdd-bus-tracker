@@ -29,8 +29,8 @@ Contact James, using the below details, to request a customised version for your
 **Instilation Guide:**
 
 1. Clone this repository 
-	2. Recommended to use a CLI for this step, as it will make the process of running locally a lot smoother. 
-	3. `git clone https://github.com/nexuspcs/sdd-bus-tracker.git`
+	- Recommended to use a CLI for this step, as it will make the process of running locally a lot smoother. 
+	- `git clone https://github.com/nexuspcs/sdd-bus-tracker.git`
 2. Ensure your working directory in your CLI is in the root folder of this newly-cloned repository
 3. Ensure that the file `run-locally.sh` is visable.
 4. Ensure that the file `run-locally.sh` is executable. This can be confrimed by running CMOD: `cmod +x run-locally.sh`. 
