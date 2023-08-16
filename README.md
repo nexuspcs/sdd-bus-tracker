@@ -13,7 +13,7 @@ Currently, this program only displays buses **to/from** St. Luke's Grammar (*Dee
 ____ 
 
 <br>
-_Contact James, using the below details, to request a customised version for your educational institution, local bus stop, or personal use._
+Contact James, using the below details, to request a customised version for your educational institution, local bus stop, or personal use.
 <br><br>
 
 Within this repository, contains the source code files for the SDD Task 2 Project, 2023. Please contact James using the following link: [James' email](mailto:jamesac2024@student.stlukes.nsw.edu.au).
