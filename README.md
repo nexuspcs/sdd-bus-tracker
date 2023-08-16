@@ -43,6 +43,8 @@ Contact James, using the below details, to request a customised version for your
 8. Once the script has confirmed the existence of PHP on your machine, it will wait a moment, and then open your OS' default web browser
 	- If your web browser does not open automatically, navigate to the URL declared in the shell script: `http://localhost:9005/main.php` 
 
+**Additional Information**
+* **Please note:** A significantly more detailed user manual is accessable via a Google Doc Document **[here](https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing)**
 
 
 
