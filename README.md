@@ -16,8 +16,11 @@ ____
 Contact James, using the below details, to request a customised version for your educational institution, local bus stop, or personal use.
 <br><br>
 To run this program locally, on your personal machine, follow these simple steps:<br>
-1. Clone this repository --> Reccommended to use a CLI for this step, as it will make the process of running locally smoother.
-2. 
+
+1. Clone this repository --> Reccommended to use a CLI for this step, as it will make the process of running locally smoother. `git clone https://github.com/nexuspcs/sdd-bus-tracker.git `
+2. Ensure your working directory in your CLI is in the root folder of this newly-cloned repository
+3. Ensure that the file `run-locally.sh` is visable.
+4. Ensure that the file `run-locally.sh` is executable. This can be confrimed by running CMOD: `cmod +x run-locally.sh`. 
 
 Within this repository, contains the source code files for the SDD Task 2 Project, 2023. Please contact James using the following link: [James' email](mailto:jamesac2024@student.stlukes.nsw.edu.au).
 
