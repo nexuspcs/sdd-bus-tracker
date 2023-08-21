@@ -42,7 +42,7 @@ If you wish to experiment, and test this program locally, running on your own ma
 	- If installed **already**, it will check for updates, as this shell script is simply running this command: `brew install php`
 7. Ensure that you **DO NOT** interupt this script, as it may be in the process of updating PHP, without printing CLI log messages.
 8. Once the script has confirmed the existence of PHP on your machine, it will wait a moment, and then open your OS' default web browser
-	- If your web browser does not open automatically, navigate to the URL declared in the shell script: `http://localhost:9005/main.php` 
+	- If your web browser does not open automatically, navigate to the URL declared in the shell script: `http://localhost:9005/main.php`.
 
 **Additional Information:**
 * **Please note:** A significantly more detailed user manual is accessable via a Google Doc Document **[here](https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing)**
