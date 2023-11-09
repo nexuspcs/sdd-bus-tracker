@@ -72,7 +72,9 @@ First created in April 2023
             </div>
             <p>
                 <a href="faqs/"><button class="return-to-home" role="button"><span class="text">FAQs</span></button></a>
-                <a href="https://docs.google.com/document/d/1wg2mLj8-_ozyilNOx47nQtIWV2n1cYWXAYCNQNweTbs/edit?usp=sharing/"><button class="return-to-home" role="button"><span class="text">User Manual</span></button></a>
+               
+
+                <a href="/faqs/usermanual.pdf/"><button class="return-to-home" role="button"><span class="text">User Manual</span></button></a>
             </p>
     </div>
 
